@@ -1,17 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/header/Header.astro";
 import Orbit from "../components/orbit/Orbit.astro";
+import Home from "../components/home/Home.astro";
+import AboutMe from "../components/about-me/AboutMe.astro";
+import Section from "../components/section/Section.astro";
+
+const navHeight = "100px";
 ---
 
-<Layout title="Gabriel García">
-	<main>
-		<Header />
-		<Orbit />
+<Layout
+	title="Portfolio Gabriel García Pellizzón | Programador y Desarrollador FullStack"
+	description="Contacta con Gabriel García Pellizzón, programador y desarrollador de aplicaciones"
+>
+	<Header navHeight={navHeight} />
+	<main class="flex flex-col gap-10">
+		<Home navHeight={navHeight}>
+			<Orbit />
+		</Home>
+
+		<Section>
+			<AboutMe />
+		</Section>
+		<Section />
 	</main>
 </Layout>
 
 <style is:global>
+	main {
+		max-width: 60vw;
+		margin: 0 auto;
+	}
+
+	@media (width <= 1250px) {
+		main {
+			max-width: 80vw;
+		}
+	}
+
+	/* CSS Reset 🧹 */
 	html,
 	body {
 		height: 100%;

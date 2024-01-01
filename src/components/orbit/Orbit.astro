@@ -8,7 +8,6 @@ import ReactIcon from "./icons/ReactIcon.astro";
 import CSharpIcon from "./icons/CSharpIcon.astro";
 import VSCodeIcon from "./icons/VSCodeIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
-import AndroidIcon from "./icons/AndroidIcon.astro";
 ---
 
 <article>
@@ -41,7 +40,7 @@ import AndroidIcon from "./icons/AndroidIcon.astro";
                 <StarIcon class="inside" />
                 <GithubIcon class="inside" />
                 <StarIcon class="inside" />
-                <AndroidIcon class="inside" />
+                <AstroIcon class="inside" />
             </div>
         </div>
         <div class="blurry-background"></div>
@@ -72,13 +71,6 @@ import AndroidIcon from "./icons/AndroidIcon.astro";
         --sqrt: 2.8284;
         --distance-corner: var(--orbit-size) / var(--sqrt);
         --distance-corner-outside: var(--orbit-size-outside) / var(--sqrt);
-        /* --font-size-name-title: clamp(.75rem, -.1625rem + 5.2143vw, 8.125rem);  80vh */
-        --font-size-name-title: clamp(
-            0.625rem,
-            0.045rem + 3.3142vw,
-            5.3125rem
-        ); /* 60vh */
-        --font-size-name-subtitle: calc(var(--font-size-name-title) / 2);
     }
 
     * {
@@ -90,9 +82,8 @@ import AndroidIcon from "./icons/AndroidIcon.astro";
     article {
         position: relative;
         width: var(--portfolio-width);
-        height: calc(
-            calc(var(--portfolio-width) / 2) + var(--font-typewriter) * 2
-        );
+        height: calc(var(--portfolio-width) / 2);
+        overflow: hidden;
     }
 
     .blurry-background {
@@ -175,7 +166,7 @@ import AndroidIcon from "./icons/AndroidIcon.astro";
         opacity: 0.7;
         padding: var(--icon-size-offset);
         width: var(--portfolio-width);
-        height: var(--portfolio-width);
+        height: calc(var(--portfolio-width));
         overflow: hidden;
         clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
     }
@@ -240,7 +231,7 @@ import AndroidIcon from "./icons/AndroidIcon.astro";
         width: var(--icon-size);
         border-radius: 50%;
         filter: blur(10px);
-        background: rgb(255 255 255 / 61.1%);
+        background: var(--secondary-color);
         opacity: 0.2;
         z-index: -1;
         animation: blink 2s linear infinite;

@@ -1,0 +1,98 @@
+---
+import FingerPrintIcon from "./icons/FingerPrintIcon.astro";
+import Card from "../cards/Card.astro";
+import Chip from "../chips/Chip.astro";
+---
+
+<article id="about-me">
+    <Card>
+        <div class="flex flex-col gap-6">
+            <h1 class="flex flex-wrap justify-center align-bottom gap-1">
+                <span><FingerPrintIcon /></span> Sobre mí
+            </h1>
+            <div
+                class="flex about-content justify-between items-stretch gap-10"
+            >
+                <div class="description basis-3/5">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Natus dolorum, hic numquam tempore alias iusto
+                        iure amet ut id voluptates est illum nihil unde suscipit
+                        ea soluta laudantium debitis rem.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Natus dolorum, hic numquam tempore alias iusto
+                        iure amet ut id voluptates est illum nihil unde suscipit
+                        ea soluta laudantium debitis rem.
+                    </p>
+                </div>
+                <div class="content-avatar basis-1/4">
+                    <div
+                        class="bg-[#0000005a] rounded-full outline outline-zinc-700 h-fit w-fit p-1"
+                    >
+                        <img
+                            class="avatar bg-[#0d1117] rounded-full"
+                            src="https://avatars.githubusercontent.com/u/39011276?v=4"
+                            alt="Foto de Gabriel Alberto García Pellizzón"
+                        />
+                    </div>
+                    <Chip>Programador</Chip>
+                </div>
+            </div>
+        </div>
+    </Card>
+</article>
+
+<style>
+    #about-me {
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        font-size: var(--font-size-title-section);
+        font-weight: 600;
+        width: fit-content;
+        color: var(--secondary-color);
+        border-bottom: 4px solid var(--color-violet-one);
+        border-end-end-radius: 4px;
+        border-end-start-radius: 4px;
+    }
+
+    span {
+        width: var(--font-size-title-section);
+        display: flex;
+    }
+
+    span svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .bg-secondary-color {
+        background-color: #0d1117;
+    }
+
+    .description {
+        text-wrap: wrap;
+    }
+
+    .content-avatar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .avatar {
+        max-height: 300px;
+    }
+
+    @media (width <= 1250px) {
+        .about-content {
+            flex-direction: column-reverse;
+        }
+    }
+</style>

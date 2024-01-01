@@ -1,16 +1,18 @@
 ---
+import "@fontsource-variable/onest";
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -22,17 +24,50 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
+		/* Sizes */
+		--portfolio-width: 60vw;
+
+		/* Colors */
 		--secondary-color: #c7c7c7;
 		--color-violet-one: #8332ff;
 		--color-violet-two: #451b8c;
 		--color-lilac-one: #d8ccf1;
+		--bg-card-color: #0d1117;
 		--background-color: #050505;
-		--portfolio-width: 60vw;
 
+		/* Fonts */
+		--font-size-name-title: clamp(
+			0.625rem,
+			0.045rem + 3.3142vw,
+			5.3125rem
+		); /* 60vh */
+		--font-size-name-subtitle: calc(var(--font-size-name-title) / 2);
+		--font-size-title-section: clamp(1.25rem, 1.0953rem + 0.8838vw, 2.5rem);
 		color-scheme: light dark;
+		scroll-behavior: smooth;
 	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: "Onest Variable", system-ui, sans-serif;
 		background: var(--background-color);
+	}
+
+	/* Responsive */
+	@media (width <= 1250px) {
+		:root {
+			--portfolio-width: 80vw;
+			--font-size-name-title: clamp(
+				0.75rem,
+				-0.1625rem + 5.2143vw,
+				8.125rem
+			); /* 80vh */
+		}
+	}
+
+	/* Disable animations */
+	@media (prefers-reduced-motion) {
+		* {
+			animation: none !important;
+			transition: none !important;
+		}
 	}
 </style>
