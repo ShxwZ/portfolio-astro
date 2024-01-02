@@ -1,17 +1,128 @@
 ---
+import MenuIcon from "./icons/MenuIcon.astro";
+import CloseIcon from "./icons/CloseIcon.astro";
 const navHeight = Astro.props.navHeight ?? "0";
 ---
 
-<header class=`flex justify-center items-center w-100 p-5`>
-    <nav class="flex flex-row gap-x-10 opacity-80">
-        <a href="/">Inicio</a>
-        <a href="#about-me">Sobre mí</a>
-        <a href="/">Experiencia</a>
-        <a href="/">Proyectos</a>
-    </nav>
+<header class="flex justify-center items-center w-100 p-5 relative">
+    <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
+    <label for="nav_checkbox" class="nav_toggle"
+        >.
+        <MenuIcon class="open" />
+        <CloseIcon class="close" />
+    </label>
+    <div class="menu_wrap">
+        <nav class="nav_menu flex flex-row gap-x-10 opacity-80">
+            <a href="/" data-nav-checkbox>Inicio</a>
+            <a href="#about-me" data-nav-checkbox>Sobre mí</a>
+            <a href="/" data-nav-checkbox>Experiencia</a>
+            <a href="/" data-nav-checkbox>Proyectos</a>
+        </nav>
+    </div>
 </header>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const checkbox = document.getElementById(
+            "nav_checkbox",
+        ) as HTMLInputElement;
+        const links = document.querySelectorAll(
+            ".nav_menu [data-nav-checkbox]",
+        ) as NodeListOf<HTMLAnchorElement>;
+
+        links.forEach((link) => {
+            link.addEventListener("click", () => {
+                checkbox.checked = false;
+            });
+        });
+    });
+</script>
 <style define:vars={{ navHeight }}>
     header {
+        position: relative;
         height: var(--navHeight);
+    }
+
+    .menu_wrap {
+        display: flex;
+
+        position: absolute;
+        width: 100%;
+        height: var(--navHeight);
+        z-index: 5;
+    }
+    .nav_menu {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: var(--navHeight);
+    }
+    .nav_toggle {
+        display: none;
+    }
+    /* Mobile view */
+    @media only screen and (max-width: 768px) {
+        svg {
+            width: 1.5rem;
+            cursor: pointer;
+        }
+
+        .button_menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: fit-content;
+            z-index: 10;
+        }
+        .button_wrap {
+            display: flex;
+            place-items: center;
+            height: var(--navHeight);
+            padding-right: 1.25rem;
+        }
+        #nav_checkbox {
+            display: none;
+        }
+
+        .nav_toggle {
+            position: absolute;
+            font-size: 0;
+            display: flex;
+            right: 0;
+            height: var(--navHeight);
+            padding-right: 1.25rem;
+            z-index: 6;
+        }
+
+        .close {
+            display: none;
+        }
+
+        #nav_checkbox:checked ~ label .open {
+            display: none;
+        }
+        #nav_checkbox:checked ~ label .close {
+            display: block;
+        }
+
+        #nav_checkbox:checked ~ .menu_wrap {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            height: calc(var(--navHeight) * 3);
+            top: 0;
+        }
+        .nav_menu {
+            display: none;
+        }
+
+        #nav_checkbox:checked ~ .menu_wrap .nav_menu {
+            display: flex;
+            height: calc(var(--navHeight) * 3);
+            flex-direction: column;
+            width: fit-content;
+            gap: 2rem;
+        }
     }
 </style>
