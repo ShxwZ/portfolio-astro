@@ -16,4 +16,4 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 - [ ] Add Dark/Light mode
 - [ ] Add Language switcher
 - [ ] Add a `README.md` to each project
-- [✅] Design Home (Orbit component)
+- [x] Design Home (Orbit component)
