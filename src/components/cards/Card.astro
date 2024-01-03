@@ -1,10 +1,13 @@
 <div class="bg-[#0d11175a] rounded-3xl p-1">
-    <div class="bg-color-card rounded-3xl h-full p-12">
+    <div class="inside-card h-full p-12">
         <slot />
     </div>
 </div>
 <style is:inline>
-    .bg-color-card {
+    .inside-card {
+        --nested-radius: calc(1.5rem - 0.25rem); /* radius outside - padding */
+
         background-color: var(--bg-card-color);
+        border-radius: var(--nested-radius);
     }
 </style>
