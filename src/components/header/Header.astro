@@ -24,14 +24,12 @@ const navHeight = Astro.props.navHeight ?? "0";
         </div>
     </div>
 </header>
-<script>
+<script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-        const checkbox = document.getElementById(
-            "nav_checkbox",
-        ) as HTMLInputElement;
+        const checkbox = document.getElementById("nav_checkbox");
         const links = document.querySelectorAll(
             ".nav_menu [data-nav-checkbox]",
-        ) as NodeListOf<HTMLAnchorElement>;
+        );
 
         links.forEach((link) => {
             link.addEventListener("click", () => {
@@ -41,6 +39,17 @@ const navHeight = Astro.props.navHeight ?? "0";
     });
 </script>
 <style define:vars={{ navHeight }}>
+    /* header { <== This will be add later
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--navHeight);
+        background-color: hsl(216deg 28% 7% / 50%);
+        backdrop-filter: blur(16px);
+        z-index: 10;
+    } */
+
     .menu-container {
         position: relative;
         height: var(--navHeight);
@@ -60,6 +69,12 @@ const navHeight = Astro.props.navHeight ?? "0";
         justify-content: center;
         align-items: center;
         height: var(--navHeight);
+        font-size: var(--font-size-nav);
+
+        /* Disable text selection */
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
     }
     .nav_toggle {
         display: none;
@@ -114,7 +129,11 @@ const navHeight = Astro.props.navHeight ?? "0";
             background-color: black;
             height: calc(var(--navHeight) * 3);
             top: 0;
+            border-bottom: 0.5px solid var(--secondary-color);
+            transition: height 0.3s linear;
+            overflow: hidden;
         }
+
         .nav_menu {
             display: none;
         }
@@ -125,6 +144,18 @@ const navHeight = Astro.props.navHeight ?? "0";
             flex-direction: column;
             width: fit-content;
             gap: 2rem;
+        }
+        @keyframes backInDown {
+            from {
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+                visibility: visible;
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
         }
     }
 </style>

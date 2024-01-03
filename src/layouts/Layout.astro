@@ -37,15 +37,26 @@ const { title, description } = Astro.props;
 
 		/* Fonts */
 		--font-size-name-title: clamp(
-			0.625rem,
-			0.045rem + 3.3142vw,
+			1.25rem,
+			0.7473rem + 2.8723vw,
 			5.3125rem
-		); /* 60vh */
-		--font-size-name-subtitle: calc(var(--font-size-name-title) / 2);
+		); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
+		--font-size-name-subtitle: calc(var(--font-size-name-title) / 1.7);
 		--font-size-title-section: clamp(1.25rem, 1.0953rem + 0.8838vw, 2.5rem);
+		--font-size-nav: clamp(0.9375rem, 0.8988rem + 0.2209vw, 1.25rem);
+		--font-size-paragraph: clamp(
+			0.75rem,
+			0.6727rem + 0.4419vw,
+			1.375rem
+		); /* min font 12, max font 22, max vp 2543, min vp 280 */
 		color-scheme: light dark;
 		scroll-behavior: smooth;
 	}
+
+	p {
+		font-size: var(--font-size-paragraph);
+	}
+
 	html {
 		font-family: "Onest Variable", system-ui, sans-serif;
 		background: var(--background-color);
@@ -56,10 +67,10 @@ const { title, description } = Astro.props;
 		:root {
 			--portfolio-width: 80vw;
 			--font-size-name-title: clamp(
-				0.75rem,
-				-0.1625rem + 5.2143vw,
-				8.125rem
-			); /* 80vh */
+				0.9375rem,
+				0.0354rem + 5.1546vw,
+				4.0625rem
+			); /* 80vh - min font 15, max font 65, max vp 1250, min vp 280  */
 		}
 	}
 
