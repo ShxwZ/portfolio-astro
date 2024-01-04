@@ -27,14 +27,6 @@ const { title, description } = Astro.props;
 		/* Sizes */
 		--portfolio-width: 60vw;
 
-		/* Colors */
-		--secondary-color: #c7c7c7;
-		--color-violet-one: #8332ff;
-		--color-violet-two: #451b8c;
-		--color-lilac-one: #d8ccf1;
-		--bg-card-color: #0d1117;
-		--background-color: #050505;
-
 		/* Fonts */
 		--font-size-name-title: clamp(
 			1.25rem,
@@ -49,8 +41,43 @@ const { title, description } = Astro.props;
 			0.6727rem + 0.4419vw,
 			1.375rem
 		); /* min font 12, max font 22, max vp 2543, min vp 280 */
-		color-scheme: light dark;
+		color: var(--primary-color);
+		color-scheme: dark light;
 		scroll-behavior: smooth;
+	}
+
+	/* Colors Dark Theme */
+	html.dark {
+		--primary-color: #fff;
+		--secondary-color: #c2c2c2;
+		--color-violet-one: #8332ff;
+		--color-violet-two: #451b8c;
+		--color-lilac-one: #d8ccf1;
+
+		--bg-color: #050505;
+		--secondary-bg-color: #0d1117;
+		--border-color: #0b0d0fab;
+		--secondary-border-color: #514d4db3;
+	}
+	/* Colors Light Theme */
+	html {
+		--primary-color: #000;
+		--secondary-color: #555555;
+		--color-violet-one: #8332ff;
+		--color-violet-two: #451b8c;
+		--color-lilac-one: #8f6bd8;
+
+		--bg-color: #f5f5f5;
+		--secondary-bg-color: #ededed; /*#dee0e3 */
+		--border-color: #0000001a;
+		--secondary-border-color: #9d9b9bbf;
+	}
+
+	a {
+		opacity: 0.6;
+	}
+	a:hover {
+		opacity: 0.87;
 	}
 
 	p {
@@ -59,7 +86,7 @@ const { title, description } = Astro.props;
 
 	html {
 		font-family: "Onest Variable", system-ui, sans-serif;
-		background: var(--background-color);
+		background: var(--bg-color);
 	}
 
 	/* Responsive */

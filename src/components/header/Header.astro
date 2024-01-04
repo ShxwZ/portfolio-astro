@@ -1,6 +1,7 @@
 ---
 import MenuIcon from "./icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 const navHeight = Astro.props.navHeight ?? "0";
 ---
 
@@ -15,11 +16,12 @@ const navHeight = Astro.props.navHeight ?? "0";
             <CloseIcon class="close" />
         </label>
         <div class="menu_wrap">
-            <nav class="nav_menu flex flex-row gap-x-10 opacity-80">
+            <nav class="nav_menu flex flex-row gap-x-10">
                 <a href="/" data-nav-checkbox>Inicio</a>
                 <a href="#about-me" data-nav-checkbox>Sobre mí</a>
                 <a href="/" data-nav-checkbox>Experiencia</a>
                 <a href="/" data-nav-checkbox>Proyectos</a>
+                <ThemeToggle />
             </nav>
         </div>
     </div>
@@ -100,6 +102,7 @@ const navHeight = Astro.props.navHeight ?? "0";
         }
         #nav_checkbox {
             display: none;
+            border: 1px solid red;
         }
 
         .nav_toggle {
@@ -107,8 +110,12 @@ const navHeight = Astro.props.navHeight ?? "0";
             font-size: 0;
             display: flex;
             right: calc(calc(100% - var(--portfolio-width)) / 2);
-            height: var(--navHeight);
+            height: fit-content;
             z-index: 6;
+            opacity: 0.65;
+        }
+        .nav_toggle:hover {
+            opacity: 0.85;
         }
 
         .close {
@@ -126,7 +133,7 @@ const navHeight = Astro.props.navHeight ?? "0";
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: black;
+            background-color: var(--secondary-bg-color);
             height: calc(var(--navHeight) * 3);
             top: 0;
             border-bottom: 0.5px solid var(--secondary-color);

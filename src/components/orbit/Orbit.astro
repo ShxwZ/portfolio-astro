@@ -122,7 +122,11 @@ import GithubIcon from "./icons/GithubIcon.astro";
     .name h1 {
         font-size: var(--font-size-name-title);
         font-weight: 700;
-        background: linear-gradient(to right, white, var(--secondary-color));
+        background: linear-gradient(
+            to right,
+            var(--primary-color),
+            var(--secondary-color)
+        );
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -140,7 +144,7 @@ import GithubIcon from "./icons/GithubIcon.astro";
     }
 
     .software {
-        color: #d8ccf1;
+        color: var(--color-lilac-one);
     }
 
     .dev {
@@ -175,7 +179,7 @@ import GithubIcon from "./icons/GithubIcon.astro";
         position: absolute;
         width: var(--orbit-size-outside);
         height: var(--orbit-size-outside);
-        outline: dashed #514d4d 2.5px;
+        outline: dashed var(--secondary-border-color) 0.15rem;
         border-radius: 50%;
         animation: clockwiseInverseRotate 55s linear infinite 0.5s;
         top: calc(50% - calc(var(--orbit-size-outside) / 2));
@@ -193,7 +197,7 @@ import GithubIcon from "./icons/GithubIcon.astro";
         position: absolute;
         width: var(--orbit-size);
         height: var(--orbit-size);
-        outline: 0.5px solid #514d4d;
+        outline: 0.5px solid var(--secondary-border-color);
         animation: clockwiseRotate 60s linear infinite 0.5s;
         border-radius: 50%;
         top: calc(50% - calc(var(--orbit-size) / 2));
