@@ -13,7 +13,7 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 - [ ] Design Experience
 - [ ] Design Projects
 - [ ] Design Footer
-- [ ] Add Dark/Light mode
+- [🚧] Add Dark/Light mode
 - [ ] Add Language switcher
 - [ ] Add a `README.md` to each project
 - [x] Design Home (Orbit component)
