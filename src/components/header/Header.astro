@@ -9,6 +9,7 @@ const navHeight = Astro.props.navHeight ?? "0";
   <div
     class="menu-container flex justify-center items-center w-100 p-5 relative"
   >
+    <!-- Menu mobile -->
     <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
     <label for="nav_checkbox" class="nav_toggle"
       >.
@@ -17,14 +18,26 @@ const navHeight = Astro.props.navHeight ?? "0";
     </label>
     <div class="menu_wrap">
       <nav class="nav_menu flex flex-row">
-        <div class="flex justify-end gap-x-10 w-full pl-[10%]">
+        <!-- Logo name '> Gabriel García _' -->
+        <span
+          class="flex justify-between gap-2 font-bold text-2xl text-nowrap text-[--secondary-color]"
+        >
+          <span class="text-[--color-violet-one]">&#62;</span> Gabriel García
+          <span class="text-[--color-violet-one]">&#95;</span>
+        </span>
+        <!--  Navegation website  -->
+        <div
+          class="nav_links absolute flex justify-center right-0 gap-x-10 w-full h-full items-center"
+        >
           <a href="/" data-nav-checkbox>Inicio</a>
           <a href="#about-me" data-nav-checkbox>Sobre mí</a>
           <a href="/" data-nav-checkbox>Experiencia</a>
           <a href="/" data-nav-checkbox>Proyectos</a>
-        </div>
-        <div class="flex justify-end basis-[10%]">
-          <ThemeToggle />
+          <!--  Theme toggle & Language  -->
+          <div class="toogles absolute flex gap-x-5">
+            <ThemeToggle />
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
     </div>
@@ -70,11 +83,12 @@ const navHeight = Astro.props.navHeight ?? "0";
   }
   .nav_menu {
     display: flex;
-    width: var(--portfolio-width);
-    justify-content: center;
+    width: 90%;
+    justify-content: space-between;
     align-items: center;
     height: var(--navHeight);
     font-size: var(--font-size-nav);
+    text-wrap: nowrap;
 
     /* Disable text selection */
     -webkit-user-select: none; /* Safari */
@@ -84,8 +98,15 @@ const navHeight = Astro.props.navHeight ?? "0";
   .nav_toggle {
     display: none;
   }
+
+  .toogles {
+    right: 5%;
+  }
   /* Mobile view */
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1000px) {
+    .nav_menu {
+      width: 80%;
+    }
     svg {
       width: 1.5rem;
       cursor: pointer;
@@ -112,7 +133,7 @@ const navHeight = Astro.props.navHeight ?? "0";
       position: absolute;
       font-size: 0;
       display: flex;
-      right: calc(calc(100% - var(--portfolio-width)) / 2);
+      right: 10%;
       height: fit-content;
       z-index: 6;
       opacity: 0.65;
@@ -124,37 +145,44 @@ const navHeight = Astro.props.navHeight ?? "0";
     .close {
       display: none;
     }
-
+    .toogles {
+      display: none;
+    }
     #nav_checkbox:checked ~ label .open {
       display: none;
     }
     #nav_checkbox:checked ~ label .close {
       display: block;
     }
-
-    #nav_checkbox:checked ~ .menu_wrap {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--secondary-bg-color);
-      height: calc(var(--navHeight) * 3);
-      top: 0;
-      border-bottom: 0.5px solid var(--secondary-color);
-      transition: height 0.3s linear;
-      overflow: hidden;
-    }
-
-    .nav_menu {
+    .nav_links {
       display: none;
     }
 
-    #nav_checkbox:checked ~ .menu_wrap .nav_menu {
+    #nav_checkbox:checked ~ .menu_wrap:has(div a) .nav_links {
+      top: 100%;
       display: flex;
       height: calc(var(--navHeight) * 3);
+      padding-bottom: 10%;
       flex-direction: column;
-      width: fit-content;
-      gap: 2rem;
+      justify-content: center;
+      gap: 1.5rem;
+      overflow: hidden;
+      background-color: var(--bg-color);
     }
+
+    #nav_checkbox:checked ~ .menu_wrap:has(.toogles) .toogles {
+      bottom: 0%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: fit-content;
+      right: 0;
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--secondary-color);
+    }
+
     @keyframes backInDown {
       from {
         -webkit-transform: translate3d(0, -100%, 0);
