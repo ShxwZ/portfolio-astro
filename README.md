@@ -5,15 +5,20 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 
 
 ## TODOS
-- [🚧] Improve 'chips' components
-- [🚧] Design About me
-- [🚧] Design Header
-- [🚧] Responsive design
+
+> [!NOTE]  
+> Work in progress
+
+- [ ] Improve 'chips' components :construction: - actually in progress
+- [ ] Design About me :construction: - actually in progress
+- [ ] Design Header :construction: - actually in progress
+- [ ] Responsive design :construction: - actually in progress
+- [ ] Add Dark/Light mode :construction: - actually in progress
 - [ ] Design Contact
 - [ ] Design Experience
 - [ ] Design Projects
 - [ ] Design Footer
-- [🚧] Add Dark/Light mode
 - [ ] Add Language switcher
 - [ ] Add a `README.md` to each project
 - [x] Design Home (Orbit component)
+
