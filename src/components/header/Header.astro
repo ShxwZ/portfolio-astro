@@ -6,42 +6,44 @@ const navHeight = Astro.props.navHeight ?? "0";
 ---
 
 <header class="flex justify-center items-center">
-    <div
-        class="menu-container flex justify-center items-center w-100 p-5 relative"
-    >
-        <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
-        <label for="nav_checkbox" class="nav_toggle"
-            >.
-            <MenuIcon class="open" />
-            <CloseIcon class="close" />
-        </label>
-        <div class="menu_wrap">
-            <nav class="nav_menu flex flex-row gap-x-10">
-                <a href="/" data-nav-checkbox>Inicio</a>
-                <a href="#about-me" data-nav-checkbox>Sobre mí</a>
-                <a href="/" data-nav-checkbox>Experiencia</a>
-                <a href="/" data-nav-checkbox>Proyectos</a>
-                <ThemeToggle />
-            </nav>
+  <div
+    class="menu-container flex justify-center items-center w-100 p-5 relative"
+  >
+    <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
+    <label for="nav_checkbox" class="nav_toggle"
+      >.
+      <MenuIcon class="open" />
+      <CloseIcon class="close" />
+    </label>
+    <div class="menu_wrap">
+      <nav class="nav_menu flex flex-row">
+        <div class="flex justify-end gap-x-10 w-full pl-[10%]">
+          <a href="/" data-nav-checkbox>Inicio</a>
+          <a href="#about-me" data-nav-checkbox>Sobre mí</a>
+          <a href="/" data-nav-checkbox>Experiencia</a>
+          <a href="/" data-nav-checkbox>Proyectos</a>
         </div>
+        <div class="flex justify-end basis-[10%]">
+          <ThemeToggle />
+        </div>
+      </nav>
     </div>
+  </div>
 </header>
 <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const checkbox = document.getElementById("nav_checkbox");
-        const links = document.querySelectorAll(
-            ".nav_menu [data-nav-checkbox]",
-        );
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkbox = document.getElementById("nav_checkbox");
+    const links = document.querySelectorAll(".nav_menu [data-nav-checkbox]");
 
-        links.forEach((link) => {
-            link.addEventListener("click", () => {
-                checkbox.checked = false;
-            });
-        });
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        checkbox.checked = false;
+      });
     });
+  });
 </script>
 <style define:vars={{ navHeight }}>
-    /* header { <== This will be add later
+  /* header { <== This will be add later
         position: fixed;
         top: 0;
         left: 0;
@@ -52,117 +54,118 @@ const navHeight = Astro.props.navHeight ?? "0";
         z-index: 10;
     } */
 
-    .menu-container {
-        position: relative;
-        height: var(--navHeight);
-        width: 100%;
+  .menu-container {
+    position: relative;
+    height: var(--navHeight);
+    width: 100%;
+  }
+
+  .menu_wrap {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: var(--navHeight);
+    z-index: 5;
+  }
+  .nav_menu {
+    display: flex;
+    width: var(--portfolio-width);
+    justify-content: center;
+    align-items: center;
+    height: var(--navHeight);
+    font-size: var(--font-size-nav);
+
+    /* Disable text selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+  .nav_toggle {
+    display: none;
+  }
+  /* Mobile view */
+  @media only screen and (max-width: 768px) {
+    svg {
+      width: 1.5rem;
+      cursor: pointer;
     }
 
-    .menu_wrap {
-        display: flex;
-        position: absolute;
-        width: 100%;
-        height: var(--navHeight);
-        z-index: 5;
+    .button_menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: fit-content;
+      z-index: 10;
     }
-    .nav_menu {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        height: var(--navHeight);
-        font-size: var(--font-size-nav);
+    .button_wrap {
+      display: flex;
+      place-items: center;
+      height: var(--navHeight);
+    }
+    #nav_checkbox {
+      display: none;
+      border: 1px solid red;
+    }
 
-        /* Disable text selection */
-        -webkit-user-select: none; /* Safari */
-        -ms-user-select: none; /* IE 10 and IE 11 */
-        user-select: none; /* Standard syntax */
-    }
     .nav_toggle {
-        display: none;
+      position: absolute;
+      font-size: 0;
+      display: flex;
+      right: calc(calc(100% - var(--portfolio-width)) / 2);
+      height: fit-content;
+      z-index: 6;
+      opacity: 0.65;
     }
-    /* Mobile view */
-    @media only screen and (max-width: 768px) {
-        svg {
-            width: 1.5rem;
-            cursor: pointer;
-        }
-
-        .button_menu {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: fit-content;
-            z-index: 10;
-        }
-        .button_wrap {
-            display: flex;
-            place-items: center;
-            height: var(--navHeight);
-        }
-        #nav_checkbox {
-            display: none;
-            border: 1px solid red;
-        }
-
-        .nav_toggle {
-            position: absolute;
-            font-size: 0;
-            display: flex;
-            right: calc(calc(100% - var(--portfolio-width)) / 2);
-            height: fit-content;
-            z-index: 6;
-            opacity: 0.65;
-        }
-        .nav_toggle:hover {
-            opacity: 0.85;
-        }
-
-        .close {
-            display: none;
-        }
-
-        #nav_checkbox:checked ~ label .open {
-            display: none;
-        }
-        #nav_checkbox:checked ~ label .close {
-            display: block;
-        }
-
-        #nav_checkbox:checked ~ .menu_wrap {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--secondary-bg-color);
-            height: calc(var(--navHeight) * 3);
-            top: 0;
-            border-bottom: 0.5px solid var(--secondary-color);
-            transition: height 0.3s linear;
-            overflow: hidden;
-        }
-
-        .nav_menu {
-            display: none;
-        }
-
-        #nav_checkbox:checked ~ .menu_wrap .nav_menu {
-            display: flex;
-            height: calc(var(--navHeight) * 3);
-            flex-direction: column;
-            width: fit-content;
-            gap: 2rem;
-        }
-        @keyframes backInDown {
-            from {
-                -webkit-transform: translate3d(0, -100%, 0);
-                transform: translate3d(0, -100%, 0);
-                visibility: visible;
-            }
-
-            to {
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-        }
+    .nav_toggle:hover {
+      opacity: 0.85;
     }
+
+    .close {
+      display: none;
+    }
+
+    #nav_checkbox:checked ~ label .open {
+      display: none;
+    }
+    #nav_checkbox:checked ~ label .close {
+      display: block;
+    }
+
+    #nav_checkbox:checked ~ .menu_wrap {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--secondary-bg-color);
+      height: calc(var(--navHeight) * 3);
+      top: 0;
+      border-bottom: 0.5px solid var(--secondary-color);
+      transition: height 0.3s linear;
+      overflow: hidden;
+    }
+
+    .nav_menu {
+      display: none;
+    }
+
+    #nav_checkbox:checked ~ .menu_wrap .nav_menu {
+      display: flex;
+      height: calc(var(--navHeight) * 3);
+      flex-direction: column;
+      width: fit-content;
+      gap: 2rem;
+    }
+    @keyframes backInDown {
+      from {
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        visibility: visible;
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
 </style>
