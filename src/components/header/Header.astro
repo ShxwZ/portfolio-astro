@@ -2,13 +2,10 @@
 import MenuIcon from "./icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-const navHeight = Astro.props.navHeight ?? "0";
 ---
 
 <header class="flex justify-center items-center">
-  <div
-    class="menu-container flex justify-center items-center w-100 p-5 relative"
-  >
+  <div class="menu-container flex justify-center items-center w-100 relative">
     <!-- Menu mobile -->
     <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
     <label for="nav_checkbox" class="nav_toggle"
@@ -19,20 +16,21 @@ const navHeight = Astro.props.navHeight ?? "0";
     <div class="menu_wrap">
       <nav class="nav_menu flex flex-row">
         <!-- Logo name '> Gabriel García _' -->
-        <span
-          class="flex justify-between gap-2 font-bold text-2xl text-nowrap text-[--secondary-color]"
+        <a
+          class="flex logo justify-between items-center gap-2 font-bold text-nowrap text-[--secondary-color] opacity-100 z-[10]"
+          href="#home"
         >
           <span class="text-[--color-violet-one]">&#62;</span> Gabriel García
           <span class="text-[--color-violet-one]">&#95;</span>
-        </span>
+        </a>
         <!--  Navegation website  -->
         <div
           class="nav_links absolute flex justify-center right-0 gap-x-10 w-full h-full items-center"
         >
-          <a href="/" data-nav-checkbox>Inicio</a>
           <a href="#about-me" data-nav-checkbox>Sobre mí</a>
           <a href="/" data-nav-checkbox>Experiencia</a>
           <a href="/" data-nav-checkbox>Proyectos</a>
+          <a href="/" data-nav-checkbox>Contacto</a>
           <!--  Theme toggle & Language  -->
           <div class="toogles absolute flex gap-x-5">
             <ThemeToggle />
@@ -55,30 +53,18 @@ const navHeight = Astro.props.navHeight ?? "0";
     });
   });
 </script>
-<style define:vars={{ navHeight }}>
-  /* header { <== This will be add later
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--navHeight);
-        background-color: hsl(216deg 28% 7% / 50%);
-        backdrop-filter: blur(16px);
-        z-index: 10;
-    } */
-
+<style>
   .menu-container {
     position: relative;
-    height: var(--navHeight);
+    height: var(--nav-height);
     width: 100%;
   }
-
   .menu_wrap {
     display: flex;
     justify-content: center;
     position: absolute;
     width: 100%;
-    height: var(--navHeight);
+    height: var(--nav-height);
     z-index: 5;
   }
   .nav_menu {
@@ -86,7 +72,7 @@ const navHeight = Astro.props.navHeight ?? "0";
     width: 90%;
     justify-content: space-between;
     align-items: center;
-    height: var(--navHeight);
+    height: var(--nav-height);
     font-size: var(--font-size-nav);
     text-wrap: nowrap;
 
@@ -102,10 +88,15 @@ const navHeight = Astro.props.navHeight ?? "0";
   .toogles {
     right: 5%;
   }
+
+  .logo {
+    font-size: var(--font-size-logo-nav);
+  }
   /* Mobile view */
   @media only screen and (max-width: 1000px) {
     .nav_menu {
       width: 80%;
+      transition: 0.3s ease;
     }
     svg {
       width: 1.5rem;
@@ -122,11 +113,10 @@ const navHeight = Astro.props.navHeight ?? "0";
     .button_wrap {
       display: flex;
       place-items: center;
-      height: var(--navHeight);
+      height: var(--nav-height);
     }
     #nav_checkbox {
       display: none;
-      border: 1px solid red;
     }
 
     .nav_toggle {
@@ -155,24 +145,37 @@ const navHeight = Astro.props.navHeight ?? "0";
       display: block;
     }
     .nav_links {
-      display: none;
-    }
-
-    #nav_checkbox:checked ~ .menu_wrap:has(div a) .nav_links {
+      height: 0;
       top: 100%;
-      display: flex;
-      height: calc(var(--navHeight) * 3);
-      padding-bottom: 10%;
-      flex-direction: column;
-      justify-content: center;
       gap: 1.5rem;
-      overflow: hidden;
+      flex-direction: column;
       background-color: var(--bg-color);
+      overflow: hidden;
+      border-bottom: 0.2px solid var(--secondary-color);
+      opacity: 0.4;
+      transition: 0.3s ease;
+      transition-property: height, opacity, padding-bottom;
     }
 
-    #nav_checkbox:checked ~ .menu_wrap:has(.toogles) .toogles {
+    #nav_checkbox:checked ~ .menu_wrap .nav_links {
+      height: calc(var(--nav-height) * 4);
+      padding-bottom: calc(var(--nav-height) / 1.5);
+      opacity: 1;
+    }
+
+    .nav_links a {
+      opacity: 0;
+      transition: 0.4s ease;
+      transition-property: opacity;
+    }
+
+    #nav_checkbox:checked ~ .menu_wrap .nav_links a {
+      opacity: 1;
+    }
+
+    .toogles {
       bottom: 0%;
-      display: flex;
+      display: none;
       flex-direction: row;
       justify-content: center;
       height: fit-content;
@@ -180,20 +183,12 @@ const navHeight = Astro.props.navHeight ?? "0";
       width: 100%;
       gap: 1rem;
       padding: 1rem;
-      border-bottom: 1px solid var(--secondary-color);
+      transition: 0.4s ease;
+      transition-property: display;
     }
 
-    @keyframes backInDown {
-      from {
-        -webkit-transform: translate3d(0, -100%, 0);
-        transform: translate3d(0, -100%, 0);
-        visibility: visible;
-      }
-
-      to {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-      }
+    #nav_checkbox:checked ~ .menu_wrap .toogles {
+      display: flex;
     }
   }
 </style>
