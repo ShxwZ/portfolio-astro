@@ -1,7 +1,8 @@
 ---
 import MenuIcon from "./icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+import ThemeToggle from "../buttons/ThemeButton.astro";
+import LangSwitch from "../buttons/LangSwitch.astro";
 ---
 
 <header class="flex justify-center items-center">
@@ -34,7 +35,7 @@ import ThemeToggle from "./ThemeToggle.astro";
           <!--  Theme toggle & Language  -->
           <div class="toogles absolute flex gap-x-5">
             <ThemeToggle />
-            <ThemeToggle />
+            <LangSwitch />
           </div>
         </div>
       </nav>
