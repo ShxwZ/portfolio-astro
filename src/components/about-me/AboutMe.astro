@@ -1,11 +1,9 @@
 ---
-import FingerPrintIcon from "./icons/FingerPrintIcon.astro";
 import Card from "../cards/Card.astro";
-import BlueChip from "../chips/BlueChip.astro";
 import LangsInfo from "./LangsInfo.astro";
-import Subtitle from "../utils/Subtitle.astro";
 import Bio from "./Bio.astro";
 import Title from "../utils/Title.astro";
+import DownloadButton from "../buttons/DownloadButton.astro";
 ---
 
 <article id="about-me">
@@ -27,8 +25,12 @@ import Title from "../utils/Title.astro";
               class="avatar bg-[--secondary-bg-color] rounded-xl"
               src="https://avatars.githubusercontent.com/u/39011276?v=4"
               alt="Foto de Gabriel Alberto García Pellizzón"
+              title="Foto de Gabriel Alberto García Pellizzón"
+              width="300px"
+              height="300px"
             />
           </div>
+          <DownloadButton />
         </div>
       </div>
     </div>
