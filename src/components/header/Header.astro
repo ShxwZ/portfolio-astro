@@ -8,8 +8,13 @@ import LangSwitch from "../buttons/LangSwitch.astro";
 <header class="flex justify-center items-center">
   <div class="menu-container flex justify-center items-center w-100 relative">
     <!-- Menu mobile -->
-    <input type="checkbox" id="nav_checkbox" name="nav_checkbox" />
-    <label for="nav_checkbox" class="nav_toggle"
+    <input
+      type="checkbox"
+      id="nav_checkbox"
+      aria-label="Open menu mobile"
+      name="nav_checkbox"
+    />
+    <label for="nav_checkbox" class="nav_toggle" aria-labelledby="nav_checkbox"
       >.
       <MenuIcon class="open" />
       <CloseIcon class="close" />

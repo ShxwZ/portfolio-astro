@@ -6,12 +6,14 @@ import ButtonContainer from "./ButtonContainer.astro";
   <div
     class="cursor-pointer flex items-center justify-center w-full h-full text-center"
   >
+    <label id="idiomas" for="langs" class="text-[0px]">Idioma</label>
     <select
       id="langs"
+      aria-labelledby="idiomas"
       class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--secondary-bg-color] border-[--border-color] dark:text-gray-400"
     >
-      <option selected>Español</option>
-      <option>English</option>
+      <option selected lang="es">Español</option>
+      <option lang="en">English</option>
     </select>
   </div>
 </ButtonContainer>
