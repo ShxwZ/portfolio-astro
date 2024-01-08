@@ -5,7 +5,8 @@ import ButtonContainer from "./ButtonContainer.astro";
 <ButtonContainer>
   <div class="flex flex-col justify-center">
     <input type="checkbox" name="themeToggle" id="themeToggle" />
-    <label class="relative cursor-pointer p-2" for="themeToggle">
+    <label class="relative cursor-pointer p-2" for="themeToggle"
+      >.
       <svg
         class="dark:hidden"
         width="16"
@@ -43,6 +44,9 @@ import ButtonContainer from "./ButtonContainer.astro";
   #themeToggle {
     border: 0;
     background: none;
+  }
+  label {
+    font-size: 0px;
   }
   .sun {
     fill: var(--primary-color);

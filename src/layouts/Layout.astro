@@ -33,7 +33,11 @@ const { title, description } = Astro.props;
       5.3125rem
     ); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
     --font-size-name-subtitle: calc(var(--font-size-name-title) / 1.7);
-    --font-size-title-section: clamp(1.25rem, 1.0953rem + 0.8838vw, 2.5rem);
+    --font-size-title-section: clamp(
+      1.75rem,
+      1.5335rem + 1.2373vw,
+      3.5rem
+    ); /* 28px 56px */
     --font-size-subtitle-section: clamp(
       1rem,
       0.9072rem + 0.5303vw,
@@ -53,7 +57,7 @@ const { title, description } = Astro.props;
 
   /* Colors Dark Theme */
   html.dark {
-    --primary-color: #fff;
+    --primary-color: #d1d5db;
     --secondary-color: #c2c2c2;
     --color-violet-one: #8332ff;
     --color-violet-two: #451b8c;

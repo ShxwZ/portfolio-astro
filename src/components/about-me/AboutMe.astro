@@ -5,14 +5,15 @@ import BlueChip from "../chips/BlueChip.astro";
 import LangsInfo from "./LangsInfo.astro";
 import Subtitle from "../utils/Subtitle.astro";
 import Bio from "./Bio.astro";
+import Title from "../utils/Title.astro";
 ---
 
 <article id="about-me">
   <Card>
     <div class="flex flex-col gap-6">
-      <h1 class="flex flex-wrap justify-center align-bottom gap-1">
-        <span><FingerPrintIcon /></span> Sobre mí
-      </h1>
+      <div class="flex">
+        <Title>Sobre mí</Title>
+      </div>
       <div class="flex about-content justify-between items-stretch gap-10">
         <div class="basis-4/5 text-wrap flex flex-col gap-4">
           <Bio class="flex flex-col gap-2" />
@@ -38,16 +39,6 @@ import Bio from "./Bio.astro";
   #about-me {
     width: 100%;
     height: 100%;
-  }
-
-  h1 {
-    font-size: var(--font-size-title-section);
-    font-weight: 600;
-    width: fit-content;
-    color: var(--secondary-color);
-    border-bottom: 4px solid var(--color-violet-one);
-    border-end-end-radius: 4px;
-    border-end-start-radius: 4px;
   }
 
   span {
