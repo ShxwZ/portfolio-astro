@@ -1,0 +1,61 @@
+---
+import BlueChip from "../chips/BlueChip.astro";
+import GreenChip from "../chips/GreenChip.astro";
+import PinkChip from "../chips/PinkChip.astro";
+import PurpleChip from "../chips/PurpleChip.astro";
+import RedChip from "../chips/RedChip.astro";
+import AngularIcon from "./icons/AngularIcon.astro";
+import Subtitle from "../utils/Subtitle.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import DotNetIcon from "./icons/DotNetIcon.astro";
+import SpringBootIcon from "./icons/SpringBootIcon.astro";
+import TypescriptIcon from "./icons/TypescriptIcon.astro";
+---
+
+<article class="flex flex-col gap-5" {...Astro.props}>
+  <Subtitle>Stack actual</Subtitle>
+  <div
+    class="langs flex flex-row gap-y-5 gap-x-[5px] flex-wrap items-center justify-around w-full"
+  >
+    <a class="lang" href="https://angular.dev/" target="_blank">
+      <AngularIcon class="text-red-800 dark:text-red-300" />
+      <RedChip>Angular</RedChip>
+    </a>
+    <a class="lang" href="https://dotnet.microsoft.com/" target="_blank">
+      <DotNetIcon class="text-purple-800 dark:text-purple-300" />
+      <PurpleChip>.NET</PurpleChip>
+    </a>
+    <a class="lang" href="https://www.typescriptlang.org/" target="_blank">
+      <TypescriptIcon class="text-blue-800 dark:text-blue-300" />
+      <BlueChip>Typescript</BlueChip>
+    </a>
+    <a class="lang" href="https://astro.build/" target="_blank">
+      <AstroIcon class="text-pink-800 dark:text-pink-300" />
+      <PinkChip>Astro</PinkChip>
+    </a>
+    <a class="lang" href="https://spring.io/" target="_blank">
+      <SpringBootIcon class="text-green-800 dark:text-green-300" />
+      <GreenChip>Spring Boot</GreenChip>
+    </a>
+  </div>
+</article>
+<style is:inline>
+  .lang {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    min-width: 90px;
+    width: 12%;
+    margin: auto;
+
+    gap: 0.5rem;
+    color: var(--secondary-color);
+    opacity: 1;
+  }
+
+  .lang svg {
+    align-self: center;
+    width: 60%;
+  }
+</style>

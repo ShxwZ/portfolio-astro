@@ -4,13 +4,9 @@ import ButtonContainer from "./ButtonContainer.astro";
 
 <ButtonContainer>
   <div class="flex flex-col justify-center">
-    <input
-      type="checkbox"
-      name="themeToggle"
-      id="themeToggle"
-      class="light-switch sr-only"
-    />
-    <label class="relative cursor-pointer p-2" for="themeToggle">
+    <input type="checkbox" name="themeToggle" id="themeToggle" />
+    <label class="relative cursor-pointer p-2" for="themeToggle"
+      >.
       <svg
         class="dark:hidden"
         width="16"
@@ -40,16 +36,17 @@ import ButtonContainer from "./ButtonContainer.astro";
           d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"
         ></path>
       </svg>
-      <span class="sr-only">Switch to light / dark version</span>
     </label>
   </div>
 </ButtonContainer>
 
 <style is:inline>
-  
   #themeToggle {
     border: 0;
     background: none;
+  }
+  label {
+    font-size: 0px;
   }
   .sun {
     fill: var(--primary-color);
@@ -78,9 +75,6 @@ import ButtonContainer from "./ButtonContainer.astro";
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
     }
-    // if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    //     return "dark";
-    // }
     return "dark";
   })();
 

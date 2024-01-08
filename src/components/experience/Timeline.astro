@@ -1,0 +1,48 @@
+---
+import Card from "../cards/Card.astro";
+import PurpleChip from "../chips/PurpleChip.astro";
+import Title from "../utils/Title.astro";
+---
+
+<article class="items-center py-24">
+  <div class="justify-center max-w-6xl px-4 py-4 mx-auto">
+    <!--  Title  -->
+    <div class="text-center py-10">
+      <Title>Experiencia</Title>
+    </div>
+    <!--  Time Section  -->
+    <div class="flex pr-10">
+      <div class="relative flex justify-between">
+        <!--  Line & Point  -->
+        <div class="flex flex-col items-center w-10 mr-4">
+          <!-- Line -->
+          <div class="w-4 h-4 bg-[--color-violet-one] rounded-full"></div>
+          <!-- Point -->
+          <div class="w-px h-full bg-[--secondary-border-color]"></div>
+        </div>
+        <div>
+          <!-- Date -->
+          <div class="py-2">
+            <PurpleChip>20 ene 2023</PurpleChip>
+          </div>
+          <!-- Card -->
+          <Card padding="1rem">
+            <div class="relative z-20 p-4">
+              <!--  Name of company  -->
+              <p
+                class="mb-2 text-[--font-size-subtitle-section] font-bold text-gray-600 dark:text-gray-400"
+              >
+                Company
+              </p>
+              <!--  Text  -->
+              <p class="text-gray-700 dark:text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. veniam
+                libero facilis minus reprehenderit.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
