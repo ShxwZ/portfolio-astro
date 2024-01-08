@@ -10,449 +10,449 @@ import VSCodeIcon from "./icons/VSCodeIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 ---
 
-<article>
-    <div class="container-orbit">
-        <div class="name">
-            <h1>Gabriel García</h1>
-            <h2 class="subtitle">
-                <span class="software">Software</span>
-                <span class="dev">Developer</span>
-            </h2>
-        </div>
-        <div class="orbit-outside-zone">
-            <div class="orbit-outside">
-                <AngularIcon class="outside" />
-                <StarIcon class="outside" />
-                <TypescriptIcon class="outside" />
-                <StarIcon class="outside" />
-                <ReactIcon class="outside" />
-                <StarIcon class="outside" />
-                <CSharpIcon class="outside" />
-                <StarIcon class="outside" />
-            </div>
-        </div>
-        <div class="orbit-zone">
-            <div class="orbit">
-                <StarIcon class="inside" />
-                <CopilotIcon class="inside" />
-                <StarIcon class="inside" />
-                <VSCodeIcon class="inside" />
-                <StarIcon class="inside" />
-                <GithubIcon class="inside" />
-                <StarIcon class="inside" />
-                <AstroIcon class="inside" />
-            </div>
-        </div>
-        <div class="blurry-background"></div>
+<article class="orbit-component">
+  <div class="container-orbit">
+    <div class="name">
+      <h1>Gabriel García</h1>
+      <h2 class="subtitle">
+        <span class="software">Software</span>
+        <span class="dev">Developer</span>
+      </h2>
     </div>
+    <div class="orbit-outside-zone">
+      <div class="orbit-outside">
+        <AngularIcon class="outside" />
+        <StarIcon class="outside" />
+        <TypescriptIcon class="outside" />
+        <StarIcon class="outside" />
+        <ReactIcon class="outside" />
+        <StarIcon class="outside" />
+        <CSharpIcon class="outside" />
+        <StarIcon class="outside" />
+      </div>
+    </div>
+    <div class="orbit-zone">
+      <div class="orbit">
+        <StarIcon class="inside" />
+        <CopilotIcon class="inside" />
+        <StarIcon class="inside" />
+        <VSCodeIcon class="inside" />
+        <StarIcon class="inside" />
+        <GithubIcon class="inside" />
+        <StarIcon class="inside" />
+        <AstroIcon class="inside" />
+      </div>
+    </div>
+    <div class="blurry-background"></div>
+  </div>
 </article>
 
 <style is:inline>
-    :root {
-        font-size: 16px;
+  :root {
+    font-size: 16px;
 
-        /* -----------------constants----------------- */
+    /* -----------------constants----------------- */
 
-        --line-title-height: 1.2;
-        --icon-size: var(--font-size-name-title);
-        --orbit-size: calc(
-            calc(var(--portfolio-width) / 1.4) - calc(var(--icon-size) * 2)
-        );
-        --orbit-size-outside: calc(
-            var(--portfolio-width) - calc(var(--icon-size) * 2)
-        );
-        --container-padding: 80px;
-        --icon-size-offset: calc(var(--icon-size) / 2);
-        --orbit-radius: calc(var(--orbit-size) / 2);
-        --orbit-outside-radius: calc(var(--orbit-size-outside) / 2);
-        --orbit-radius-offset: var(--orbit-radius) - var(--icon-size-offset);
-        --orbit-outside-radius-offset: var(--orbit-outside-radius) -
-            var(--icon-size-offset);
-        --sqrt: 2.8284;
-        --distance-corner: var(--orbit-size) / var(--sqrt);
-        --distance-corner-outside: var(--orbit-size-outside) / var(--sqrt);
+    --line-title-height: 1.2;
+    --icon-size: var(--font-size-name-title);
+    --orbit-size: calc(
+      calc(var(--portfolio-width) / 1.4) - calc(var(--icon-size) * 2)
+    );
+    --orbit-size-outside: calc(
+      var(--portfolio-width) - calc(var(--icon-size) * 2)
+    );
+    --container-padding: 80px;
+    --icon-size-offset: calc(var(--icon-size) / 2);
+    --orbit-radius: calc(var(--orbit-size) / 2);
+    --orbit-outside-radius: calc(var(--orbit-size-outside) / 2);
+    --orbit-radius-offset: var(--orbit-radius) - var(--icon-size-offset);
+    --orbit-outside-radius-offset: var(--orbit-outside-radius) -
+      var(--icon-size-offset);
+    --sqrt: 2.8284;
+    --distance-corner: var(--orbit-size) / var(--sqrt);
+    --distance-corner-outside: var(--orbit-size-outside) / var(--sqrt);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  article.orbit-component {
+    position: relative;
+    width: var(--portfolio-width);
+    height: calc(var(--portfolio-width) / 2);
+    overflow: hidden;
+  }
+
+  .blurry-background {
+    width: 100%;
+    height: 1.5px;
+    backdrop-filter: blur(20px);
+    position: absolute;
+    bottom: 50%;
+    margin: auto;
+    z-index: 1;
+    filter: blur(20px);
+  }
+
+  /* ----- Name ------ */
+
+  .name {
+    --height: calc(
+      var(--font-size-name-title) +
+        calc(var(--font-size-name-subtitle) * var(--line-title-height))
+    );
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    text-align: center;
+    height: calc(var(--height));
+    top: calc(50% - var(--height));
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+    line-height: var(--line-title-height);
+  }
+
+  .name h1 {
+    font-size: var(--font-size-name-title);
+    font-weight: 700;
+    background: linear-gradient(
+      to right,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .subtitle {
+    display: flex;
+    height: calc(var(--font-size-name-subtitle) + var(--line-title-height));
+    /*Between software and dev*/
+    gap: calc(var(--font-size-name-subtitle) / 4);
+    font-weight: 700;
+    font-size: var(--font-size-name-subtitle);
+  }
+
+  .software {
+    color: var(--color-lilac-one);
+  }
+
+  .dev {
+    --bg-size: 400%;
+
+    color: transparent;
+    background: linear-gradient(
+        90deg,
+        var(--color-violet-one),
+        var(--color-violet-two),
+        var(--color-violet-one)
+      )
+      0 0 / var(--bg-size) 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: animated-text 8s linear infinite;
+  }
+
+  /* ------------ orbits ------------ */
+
+  .container-orbit {
+    position: relative;
+    opacity: 0.7;
+    padding: var(--icon-size-offset);
+    width: var(--portfolio-width);
+    height: calc(var(--portfolio-width));
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+
+  .orbit-outside-zone {
+    position: absolute;
+    width: var(--orbit-size-outside);
+    height: var(--orbit-size-outside);
+    outline: dashed var(--secondary-border-color) 0.15rem;
+    border-radius: 50%;
+    animation: clockwiseInverseRotate 55s linear infinite 0.5s;
+    top: calc(50% - calc(var(--orbit-size-outside) / 2));
+    left: calc(50% - calc(var(--orbit-size-outside) / 2));
+  }
+
+  .orbit-outside {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .orbit-zone {
+    position: absolute;
+    width: var(--orbit-size);
+    height: var(--orbit-size);
+    outline: 0.5px solid var(--secondary-border-color);
+    animation: clockwiseRotate 60s linear infinite 0.5s;
+    border-radius: 50%;
+    top: calc(50% - calc(var(--orbit-size) / 2));
+    left: calc(50% - calc(var(--orbit-size) / 2));
+  }
+
+  .orbit {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+  }
+
+  .inside,
+  .outside {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .icon {
+    color: var(--secondary-color);
+    background: transparent;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    animation:
+      counterClockwiseRotate 60s linear infinite 0.5s,
+      appear 0.5s ease-out 0s 1;
+  }
+
+  .icon::before {
+    content: "";
+    position: absolute;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    border-radius: 50%;
+    filter: blur(10px);
+    background: var(--secondary-color);
+    opacity: 0.2;
+    z-index: -1;
+    animation: blink 2s linear infinite;
+  }
+
+  .orbit-outside .icon {
+    animation:
+      counterClockwiseInverseRotate 55s linear infinite 0.5s,
+      appear 0.5s ease-out 0s 1;
+  }
+
+  .no-animation-rotate {
+    height: var(--icon-size);
+    width: var(--icon-size);
+    animation: appear 0.5s ease-out 0s 1;
+  }
+
+  /* ------------- Icons Orbit Inside positions ------------- */
+
+  .inside:nth-child(1) {
+    top: calc(-1 * var(--icon-size-offset));
+    left: calc(var(--orbit-radius) - var(--icon-size-offset));
+  }
+
+  .inside:nth-child(2) {
+    top: calc(var(--orbit-radius-offset) - var(--distance-corner));
+    left: calc(var(--orbit-radius-offset) + var(--distance-corner));
+  }
+
+  .inside:nth-child(3) {
+    right: calc(-1 * var(--icon-size-offset));
+    top: calc(var(--orbit-radius) - var(--icon-size-offset));
+  }
+
+  .inside:nth-child(4) {
+    top: calc(var(--orbit-radius-offset) + var(--distance-corner));
+    left: calc(var(--orbit-radius-offset) + var(--distance-corner));
+  }
+
+  .inside:nth-child(5) {
+    bottom: calc(-1 * var(--icon-size-offset));
+    left: calc(var(--orbit-radius) - var(--icon-size-offset));
+  }
+
+  .inside:nth-child(6) {
+    top: calc(var(--orbit-radius-offset) + var(--distance-corner));
+    left: calc(var(--orbit-radius-offset) - var(--distance-corner));
+  }
+
+  .inside:nth-child(7) {
+    left: calc(-1 * var(--icon-size-offset));
+    top: calc(var(--orbit-radius) - var(--icon-size-offset));
+  }
+
+  .inside:nth-child(8) {
+    top: calc(var(--orbit-radius-offset) - var(--distance-corner));
+    left: calc(var(--orbit-radius-offset) - var(--distance-corner));
+  }
+
+  /* ------------- Icons Orbit Outside positions ------------- */
+
+  .outside:nth-child(1) {
+    top: calc(-1 * var(--icon-size-offset));
+    left: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
+  }
+
+  .outside:nth-child(2) {
+    top: calc(
+      var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
+    );
+    left: calc(
+      var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
+    );
+  }
+
+  .outside:nth-child(3) {
+    right: calc(-1 * var(--icon-size-offset));
+    top: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
+  }
+
+  .outside:nth-child(4) {
+    top: calc(
+      var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
+    );
+    left: calc(
+      var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
+    );
+  }
+
+  .outside:nth-child(5) {
+    bottom: calc(-1 * var(--icon-size-offset));
+    left: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
+  }
+
+  .outside:nth-child(6) {
+    top: calc(
+      var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
+    );
+    left: calc(
+      var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
+    );
+  }
+
+  .outside:nth-child(7) {
+    left: calc(-1 * var(--icon-size-offset));
+    top: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
+  }
+
+  .outside:nth-child(8) {
+    top: calc(
+      var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
+    );
+    left: calc(
+      var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
+    );
+  }
+
+  /* --------- Typewriter --------- */
+
+  .typewriter-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: calc(var(--font-typewriter) / 2);
+    left: 0;
+    right: 0;
+    font-size: var(--font-typewriter);
+    font-style: italic;
+    line-height: 1.5;
+    text-wrap: nowrap;
+  }
+
+  .Typewriter::after {
+    content: '"';
+  }
+
+  .Typewriter::before {
+    content: '"';
+  }
+
+  .Typewriter__cursor {
+    color: var(--color-violet-one);
+  }
+
+  /* ------------- Animations ------------- */
+
+  @keyframes animated-text {
+    from {
+      background-position: 0;
     }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    to {
+      background-position: var(--bg-size);
+    }
+  }
+
+  @keyframes clockwiseRotate {
+    from {
+      transform: rotate(0deg);
     }
 
-    article {
-        position: relative;
-        width: var(--portfolio-width);
-        height: calc(var(--portfolio-width) / 2);
-        overflow: hidden;
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes clockwiseInverseRotate {
+    from {
+      transform: rotate(360deg);
     }
 
-    .blurry-background {
-        width: 100%;
-        height: 1.5px;
-        backdrop-filter: blur(20px);
-        position: absolute;
-        bottom: 50%;
-        margin: auto;
-        z-index: 1;
-        filter: blur(20px);
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes counterClockwiseInverseRotate {
+    from {
+      transform: rotate(-360deg);
     }
 
-    /* ----- Name ------ */
+    to {
+      transform: rotate(0deg);
+    }
+  }
 
-    .name {
-        --height: calc(
-            var(--font-size-name-title) +
-                calc(var(--font-size-name-subtitle) * var(--line-title-height))
-        );
-
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        place-items: center;
-        text-align: center;
-        height: calc(var(--height));
-        top: calc(50% - var(--height));
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 2;
-        line-height: var(--line-title-height);
+  @keyframes counterClockwiseRotate {
+    from {
+      transform: rotate(0deg);
     }
 
-    .name h1 {
-        font-size: var(--font-size-name-title);
-        font-weight: 700;
-        background: linear-gradient(
-            to right,
-            var(--primary-color),
-            var(--secondary-color)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        margin: 0;
-        line-height: 1;
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes appear {
+    from {
+      transform: scale(0);
     }
 
-    .subtitle {
-        display: flex;
-        height: calc(var(--font-size-name-subtitle) + var(--line-title-height));
-        /*Between software and dev*/
-        gap: calc(var(--font-size-name-subtitle) / 4);
-        font-weight: 700;
-        font-size: var(--font-size-name-subtitle);
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes blink {
+    100% {
+      filter: blur(10px);
     }
 
-    .software {
-        color: var(--color-lilac-one);
+    50% {
+      filter: blur(20px);
     }
 
-    .dev {
-        --bg-size: 400%;
-
-        color: transparent;
-        background: linear-gradient(
-                90deg,
-                var(--color-violet-one),
-                var(--color-violet-two),
-                var(--color-violet-one)
-            )
-            0 0 / var(--bg-size) 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        animation: animated-text 8s linear infinite;
+    0% {
+      filter: blur(10px);
     }
-
-    /* ------------ orbits ------------ */
-
-    .container-orbit {
-        position: relative;
-        opacity: 0.7;
-        padding: var(--icon-size-offset);
-        width: var(--portfolio-width);
-        height: calc(var(--portfolio-width));
-        overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-    }
-
-    .orbit-outside-zone {
-        position: absolute;
-        width: var(--orbit-size-outside);
-        height: var(--orbit-size-outside);
-        outline: dashed var(--secondary-border-color) 0.15rem;
-        border-radius: 50%;
-        animation: clockwiseInverseRotate 55s linear infinite 0.5s;
-        top: calc(50% - calc(var(--orbit-size-outside) / 2));
-        left: calc(50% - calc(var(--orbit-size-outside) / 2));
-    }
-
-    .orbit-outside {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-
-    .orbit-zone {
-        position: absolute;
-        width: var(--orbit-size);
-        height: var(--orbit-size);
-        outline: 0.5px solid var(--secondary-border-color);
-        animation: clockwiseRotate 60s linear infinite 0.5s;
-        border-radius: 50%;
-        top: calc(50% - calc(var(--orbit-size) / 2));
-        left: calc(50% - calc(var(--orbit-size) / 2));
-    }
-
-    .orbit {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        border-radius: 50%;
-    }
-
-    .inside,
-    .outside {
-        position: absolute;
-        width: fit-content;
-        height: fit-content;
-    }
-
-    .icon {
-        color: var(--secondary-color);
-        background: transparent;
-        height: var(--icon-size);
-        width: var(--icon-size);
-        animation:
-            counterClockwiseRotate 60s linear infinite 0.5s,
-            appear 0.5s ease-out 0s 1;
-    }
-
-    .icon::before {
-        content: "";
-        position: absolute;
-        height: var(--icon-size);
-        width: var(--icon-size);
-        border-radius: 50%;
-        filter: blur(10px);
-        background: var(--secondary-color);
-        opacity: 0.2;
-        z-index: -1;
-        animation: blink 2s linear infinite;
-    }
-
-    .orbit-outside .icon {
-        animation:
-            counterClockwiseInverseRotate 55s linear infinite 0.5s,
-            appear 0.5s ease-out 0s 1;
-    }
-
-    .no-animation-rotate {
-        height: var(--icon-size);
-        width: var(--icon-size);
-        animation: appear 0.5s ease-out 0s 1;
-    }
-
-    /* ------------- Icons Orbit Inside positions ------------- */
-
-    .inside:nth-child(1) {
-        top: calc(-1 * var(--icon-size-offset));
-        left: calc(var(--orbit-radius) - var(--icon-size-offset));
-    }
-
-    .inside:nth-child(2) {
-        top: calc(var(--orbit-radius-offset) - var(--distance-corner));
-        left: calc(var(--orbit-radius-offset) + var(--distance-corner));
-    }
-
-    .inside:nth-child(3) {
-        right: calc(-1 * var(--icon-size-offset));
-        top: calc(var(--orbit-radius) - var(--icon-size-offset));
-    }
-
-    .inside:nth-child(4) {
-        top: calc(var(--orbit-radius-offset) + var(--distance-corner));
-        left: calc(var(--orbit-radius-offset) + var(--distance-corner));
-    }
-
-    .inside:nth-child(5) {
-        bottom: calc(-1 * var(--icon-size-offset));
-        left: calc(var(--orbit-radius) - var(--icon-size-offset));
-    }
-
-    .inside:nth-child(6) {
-        top: calc(var(--orbit-radius-offset) + var(--distance-corner));
-        left: calc(var(--orbit-radius-offset) - var(--distance-corner));
-    }
-
-    .inside:nth-child(7) {
-        left: calc(-1 * var(--icon-size-offset));
-        top: calc(var(--orbit-radius) - var(--icon-size-offset));
-    }
-
-    .inside:nth-child(8) {
-        top: calc(var(--orbit-radius-offset) - var(--distance-corner));
-        left: calc(var(--orbit-radius-offset) - var(--distance-corner));
-    }
-
-    /* ------------- Icons Orbit Outside positions ------------- */
-
-    .outside:nth-child(1) {
-        top: calc(-1 * var(--icon-size-offset));
-        left: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
-    }
-
-    .outside:nth-child(2) {
-        top: calc(
-            var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
-        );
-        left: calc(
-            var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
-        );
-    }
-
-    .outside:nth-child(3) {
-        right: calc(-1 * var(--icon-size-offset));
-        top: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
-    }
-
-    .outside:nth-child(4) {
-        top: calc(
-            var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
-        );
-        left: calc(
-            var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
-        );
-    }
-
-    .outside:nth-child(5) {
-        bottom: calc(-1 * var(--icon-size-offset));
-        left: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
-    }
-
-    .outside:nth-child(6) {
-        top: calc(
-            var(--orbit-outside-radius-offset) + var(--distance-corner-outside)
-        );
-        left: calc(
-            var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
-        );
-    }
-
-    .outside:nth-child(7) {
-        left: calc(-1 * var(--icon-size-offset));
-        top: calc(var(--orbit-outside-radius) - var(--icon-size-offset));
-    }
-
-    .outside:nth-child(8) {
-        top: calc(
-            var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
-        );
-        left: calc(
-            var(--orbit-outside-radius-offset) - var(--distance-corner-outside)
-        );
-    }
-
-    /* --------- Typewriter --------- */
-
-    .typewriter-container {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        bottom: calc(var(--font-typewriter) / 2);
-        left: 0;
-        right: 0;
-        font-size: var(--font-typewriter);
-        font-style: italic;
-        line-height: 1.5;
-        text-wrap: nowrap;
-    }
-
-    .Typewriter::after {
-        content: '"';
-    }
-
-    .Typewriter::before {
-        content: '"';
-    }
-
-    .Typewriter__cursor {
-        color: var(--color-violet-one);
-    }
-
-    /* ------------- Animations ------------- */
-
-    @keyframes animated-text {
-        from {
-            background-position: 0;
-        }
-
-        to {
-            background-position: var(--bg-size);
-        }
-    }
-
-    @keyframes clockwiseRotate {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes clockwiseInverseRotate {
-        from {
-            transform: rotate(360deg);
-        }
-
-        to {
-            transform: rotate(0deg);
-        }
-    }
-
-    @keyframes counterClockwiseInverseRotate {
-        from {
-            transform: rotate(-360deg);
-        }
-
-        to {
-            transform: rotate(0deg);
-        }
-    }
-
-    @keyframes counterClockwiseRotate {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(-360deg);
-        }
-    }
-
-    @keyframes appear {
-        from {
-            transform: scale(0);
-        }
-
-        to {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes blink {
-        100% {
-            filter: blur(10px);
-        }
-
-        50% {
-            filter: blur(20px);
-        }
-
-        0% {
-            filter: blur(10px);
-        }
-    }
+  }
 </style>

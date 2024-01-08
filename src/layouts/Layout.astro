@@ -34,6 +34,11 @@ const { title, description } = Astro.props;
     ); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
     --font-size-name-subtitle: calc(var(--font-size-name-title) / 1.7);
     --font-size-title-section: clamp(1.25rem, 1.0953rem + 0.8838vw, 2.5rem);
+    --font-size-subtitle-section: clamp(
+      1rem,
+      0.9072rem + 0.5303vw,
+      1.75rem
+    ); /*28px 16px */
     --font-size-nav: clamp(0.9375rem, 0.8988rem + 0.2209vw, 1.25rem);
     --font-size-logo-nav: clamp(0.875rem, 0.7977rem + 0.4419vw, 1.5rem);
     --font-size-paragraph: clamp(
