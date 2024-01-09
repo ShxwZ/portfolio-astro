@@ -22,7 +22,7 @@ import DownloadButton from "../buttons/DownloadButton.astro";
             class="bg-[--border-color] rounded-xl outline outline-[--secondary-border-color] h-fit w-fit p-1"
           >
             <img
-              class="avatar bg-[--secondary-bg-color] rounded-xl"
+              class="avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"
               src="https://avatars.githubusercontent.com/u/39011276?v=4"
               alt="Foto de Gabriel Alberto García Pellizzón"
               title="Foto de Gabriel Alberto García Pellizzón"
@@ -53,6 +53,8 @@ import DownloadButton from "../buttons/DownloadButton.astro";
   }
 
   .content-avatar {
+    --nested-radius: calc(0.75rem - 0.25rem); /* radius outside - padding */
+
     display: flex;
     flex-direction: column;
     justify-content: center;

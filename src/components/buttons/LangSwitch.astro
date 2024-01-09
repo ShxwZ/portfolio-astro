@@ -2,7 +2,7 @@
 import ButtonContainer from "./ButtonContainer.astro";
 ---
 
-<ButtonContainer>
+<ButtonContainer classesInside="bg-[--bg-color]">
   <div
     class="cursor-pointer flex items-center justify-center w-full h-full text-center"
   >
@@ -10,7 +10,7 @@ import ButtonContainer from "./ButtonContainer.astro";
     <select
       id="langs"
       aria-labelledby="idiomas"
-      class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--secondary-bg-color] border-[--border-color] dark:text-gray-400"
+      class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--bg-color] border-[--border-color] dark:text-gray-400"
     >
       <option selected lang="es">Español</option>
       <option lang="en">English</option>

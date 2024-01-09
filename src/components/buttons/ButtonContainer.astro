@@ -1,14 +1,14 @@
 <div
-  class="cursor-pointer bg-[--border-color] rounded-md p-1 hover:filter hover:brightness-[150%]"
+  class=`${Astro.props.classesOutside} cursor-pointer bg-[--border-button-color] rounded-md p-0.5 hover:filter hover:brightness-[110%]`
 >
   <div
-    class="bg-[--secondary-bg-color] overflow-hidden opacity-[85%] hover:opacity-[85%] rounded-[--radius-button] h-full"
+    class=`${Astro.props.classesInside} button-inside bg-[--secondary-bg-color] overflow-hidden opacity-[85%] hover:opacity-[85%] rounded-[--radius-button] h-full`
   >
     <slot />
   </div>
 </div>
 <style>
-  :root {
-    --radius-button: calc(0.375rem - 0.25rem); /* radius outside - padding */
+  .button-inside {
+    --radius-button: calc(0.375rem - 0.125rem); /* radius outside - padding */
   }
 </style>
