@@ -10,10 +10,8 @@ const padding = Astro.props.padding ?? "3rem";
   </div>
 </div>
 <style define:vars={{ padding }}>
-  :root {
-    --nested-radius: calc(1.5rem - 0.25rem); /* radius outside - padding */
-  }
   .inside-card {
+    --nested-radius: calc(1.5rem - 0.25rem); /* radius outside - padding */
     padding: var(--padding);
   }
 </style>

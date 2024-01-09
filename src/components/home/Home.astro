@@ -2,12 +2,14 @@
 import Orbit from "./orbit/Orbit.astro";
 ---
 
-<section id="Home" class="flex justify-center items-center">
+<section class="flex justify-center items-center">
+  <div id="home" class="absolute top-0"></div>
   <Orbit />
 </section>
 <style>
   section {
     height: 100%;
+    margin-top: var(--nav-height);
     min-height: calc(100svh - var(--nav-height));
     width: 100%;
   }

@@ -60,6 +60,18 @@ import LangSwitch from "../buttons/LangSwitch.astro";
   });
 </script>
 <style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--nav-bg-color);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    height: var(--nav-height);
+    z-index: 1000;
+  }
+
   .menu-container {
     position: relative;
     height: var(--nav-height);
@@ -98,6 +110,7 @@ import LangSwitch from "../buttons/LangSwitch.astro";
   .logo {
     font-size: var(--font-size-logo-nav);
   }
+
   /* Mobile view */
   @media only screen and (max-width: 1000px) {
     .nav_menu {
@@ -157,7 +170,7 @@ import LangSwitch from "../buttons/LangSwitch.astro";
       flex-direction: column;
       background-color: var(--bg-color);
       overflow: hidden;
-      border-bottom: 0.2px solid var(--secondary-color);
+
       opacity: 0.4;
       transition: 0.3s ease;
       transition-property: height, opacity, padding-bottom;
@@ -166,7 +179,13 @@ import LangSwitch from "../buttons/LangSwitch.astro";
     #nav_checkbox:checked ~ .menu_wrap .nav_links {
       height: calc(var(--nav-height) * 4);
       padding-bottom: calc(var(--nav-height) / 1.5);
+      border-bottom: 0.2px solid var(--border-button-color);
       opacity: 1;
+    }
+
+    header:has(#nav_checkbox:checked) {
+      background-color: var(--bg-color);
+      border: none;
     }
 
     .nav_links a {
