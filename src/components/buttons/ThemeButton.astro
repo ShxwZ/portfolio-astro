@@ -3,7 +3,7 @@ import ButtonContainer from "./ButtonContainer.astro";
 ---
 
 <ButtonContainer classesInside="bg-[--bg-color]">
-  <div class="flex flex-col justify-center">
+  <div class="flex flex-col justify-center bg-[--bg-color]">
     <input type="checkbox" name="themeToggle" id="themeToggle" />
     <label class="relative cursor-pointer p-2" for="themeToggle"
       >.
@@ -66,14 +66,6 @@ import ButtonContainer from "./ButtonContainer.astro";
   }
   :global(.dark) .moon {
     fill: var(--primary-color);
-  }
-
-  #themeToggle {
-    opacity: 0.6;
-  }
-
-  #themeToggle:hover {
-    opacity: 0.85;
   }
 </style>
 <script is:inline>
