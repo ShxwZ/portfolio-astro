@@ -1,0 +1,89 @@
+---
+import PurpleBadge from "../../badges/PurpleBadge.astro";
+import GreenBadge from "../../badges/GreenBadge.astro";
+import Card from "../../cards/Card.astro";
+import type { TimelineModel } from "./Timeline.model";
+import GrayBadge from "../../badges/GrayBadge.astro";
+
+interface Props {
+  model: TimelineModel;
+}
+
+const { model } = Astro.props;
+---
+
+<div class="flex w-full timeline-card">
+  <div class="relative flex justify-between w-full">
+    <!--  Line & Point  -->
+    <div class="timeline-point flex flex-col relative items-center w-5 pr-5">
+      <!-- Point -->
+      <div
+        class="w-4 h-4 absolute top-6 dark:bg-purple-900 bg-purple-800 rounded-full"
+      >
+      </div>
+      <!-- Line -->
+      <div
+        class=`time-line w-px h-full bg-[--secondary-border-color] ${model.actual && 'mt-6'}`
+      >
+      </div>
+    </div>
+    <div>
+      <!-- Date -->
+      <div
+        class="timeline-badges flex-row pb-5 pl-2 pt-6 flex gap-2 justify-start"
+      >
+        <div>
+          <PurpleBadge>{model.date}</PurpleBadge>
+        </div>
+
+        {
+          model.actual ? (
+            <div>
+              <GreenBadge>Actual</GreenBadge>
+            </div>
+          ) : (
+            <div>
+              <GrayBadge>{model.duration}</GrayBadge>
+            </div>
+          )
+        }
+      </div>
+      <!-- Card -->
+      <div class="pb-10">
+        <Card padding="1rem">
+          <div class="relative z-20 p-4">
+            <!--  Name of company  -->
+            <p
+              class="card-title mb-2 text-[--font-size-subtitle-section] font-bold text-gray-600 dark:text-gray-400"
+            >
+              {model.title}
+            </p>
+            <!--  Text  -->
+            <p>
+              {model.description}
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .timeline-card:last-child:has(.time-line) .time-line {
+    margin-bottom: 2.5rem;
+  }
+
+  @media (width <= 360px) {
+    .timeline-point {
+      display: none;
+    }
+    .timeline-badges {
+      justify-content: center;
+      padding-left: 0;
+    }
+    .card-title {
+      text-wrap: balance;
+    }
+  }
+</style>

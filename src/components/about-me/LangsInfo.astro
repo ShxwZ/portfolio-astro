@@ -1,9 +1,9 @@
 ---
-import BlueChip from "../chips/BlueChip.astro";
-import GreenChip from "../chips/GreenChip.astro";
-import PinkChip from "../chips/PinkChip.astro";
-import PurpleChip from "../chips/PurpleChip.astro";
-import RedChip from "../chips/RedChip.astro";
+import BlueBadge from "../badges/BlueBadge.astro";
+import GreenBadge from "../badges/GreenBadge.astro";
+import PinkBadge from "../badges/PinkBadge.astro";
+import PurpleBadge from "../badges/PurpleBadge.astro";
+import RedBadge from "../badges/RedBadge.astro";
 import AngularIcon from "./icons/AngularIcon.astro";
 import Subtitle from "../utils/Subtitle.astro";
 import AstroIcon from "./icons/AstroIcon.astro";
@@ -19,7 +19,7 @@ import TypescriptIcon from "./icons/TypescriptIcon.astro";
   >
     <a class="lang" rel="nofollow" href="https://angular.dev/" target="_blank">
       <AngularIcon class="text-red-800 dark:text-red-300" />
-      <RedChip>Angular</RedChip>
+      <RedBadge>Angular</RedBadge>
     </a>
     <a
       class="lang"
@@ -28,7 +28,7 @@ import TypescriptIcon from "./icons/TypescriptIcon.astro";
       target="_blank"
     >
       <DotNetIcon class="text-purple-800 dark:text-purple-300" />
-      <PurpleChip>.NET</PurpleChip>
+      <PurpleBadge>.NET</PurpleBadge>
     </a>
     <a
       class="lang"
@@ -37,15 +37,15 @@ import TypescriptIcon from "./icons/TypescriptIcon.astro";
       target="_blank"
     >
       <TypescriptIcon class="text-blue-800 dark:text-blue-300" />
-      <BlueChip>Typescript</BlueChip>
+      <BlueBadge>Typescript</BlueBadge>
     </a>
     <a class="lang" rel="nofollow" href="https://astro.build/" target="_blank">
       <AstroIcon class="text-pink-800 dark:text-pink-300" />
-      <PinkChip>Astro</PinkChip>
+      <PinkBadge>Astro</PinkBadge>
     </a>
     <a class="lang" rel="nofollow" href="https://spring.io/" target="_blank">
       <SpringBootIcon class="text-green-800 dark:text-green-300" />
-      <GreenChip>Spring Boot</GreenChip>
+      <GreenBadge>Spring Boot</GreenBadge>
     </a>
   </div>
 </article>

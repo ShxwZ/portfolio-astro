@@ -1,0 +1,43 @@
+---
+import Title from "../../utils/Title.astro";
+import TimelineCard from "./TimelineCard.astro";
+import type { TimelineModel } from "./Timeline.model";
+
+const data: TimelineModel[] = [
+  {
+    title: "Clarcat - Desarrollador Junior",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+    date: "22 ago 2023",
+    actual: true,
+  },
+  {
+    title: "Clarcat - Practicas desarrollador",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+    date: "17 abril 2023",
+    duration: "3 meses",
+    actual: false,
+  },
+  {
+    title: "Premier - TI",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+    date: "11 abrl 2021",
+    duration: "3 meses",
+    actual: false,
+  },
+];
+---
+
+<article class="items-center py-24">
+  <div class="justify-center max-w-6xl px-4 py-4 mx-auto">
+    <!--  Title  -->
+    <div class="text-center py-10">
+      <Title>Experiencia</Title>
+    </div>
+    <!--  Time Line Card  -->
+
+    {data.map((item) => <TimelineCard model={item} />)}
+  </div>
+</article>

@@ -1,0 +1,10 @@
+---
+//I dont know why i cant use Astro props for tailwind classes here
+---
+
+<span
+  aria-label="Badge"
+  class=` ${Astro.props.class} text-xs font-medium flex justify-center items-center me-2 px-2.5 py-0.5 rounded w-full text-center`
+>
+  <slot />
+</span>
