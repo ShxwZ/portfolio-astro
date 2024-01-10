@@ -11,10 +11,10 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 > [!NOTE]  
 > Work in progress
 
-- [ ] Improve 'chips' components :construction: - actually in progress
-- [ ] Design About me :construction: - actually in progress
+- [x] Improve 'Badge' components :construction: - actually in progress
+- [x] Design About me :construction: - actually in progress
 - [ ] Responsive design :construction: - actually in progress
-- [ ] Add Dark/Light mode :construction: - actually in progress
+- [x] Add Dark/Light mode :construction: - actually in progress
 - [ ] Add Language switcher :construction: - actually in progress
 - [ ] Design Contact
 - [ ] Design Experience
