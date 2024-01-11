@@ -1,0 +1,19 @@
+---
+import Title from "../utils/Title.astro";
+import CardProject from "./CardProject.astro";
+---
+
+<div id="projects"></div>
+<article class="w-full py-32">
+  <div class="text-center">
+    <Title>Proyectos</Title>
+  </div>
+  <div class="py-10">
+    <div class="flex flex-col gap-10 justify-between">
+      <CardProject description="This is a test project" />
+      <CardProject
+        description="This is a test project with a very long description to test the overflow of the card, hello world"
+      />
+    </div>
+  </div>
+</article>
