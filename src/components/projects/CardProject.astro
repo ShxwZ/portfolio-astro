@@ -12,80 +12,58 @@ interface Props {
 const model: Props = Astro.props;
 ---
 
-<a
-  href="#"
-  class="opacity-100 h-full card-outside p-1 rounded-3xl bg-[--border-color]"
+<div
+  class="flex flex-col flex-1 max-w-[380px] min-w-[280px] bg-white dark:bg-gray-900 shadow-2xl rounded-lg overflow-hidden"
 >
-  <div
-    class="card flex flex-row h-full border overflow-hidden rounded-[--nested-radius] bg-[--secondary-bg-color] text-card-foreground shadow-s"
-  >
-    <div class="relative card-img w-[680px] h-full">
-      <img
-        src="./placeholder.svg"
-        class="w-full h-full object-cover"
-        width="200px"
-        height="100px"
-        style="aspect-ratio: 16 / 9; object-fit: cover;"
-      />
-    </div>
-    <div class="card-title p-6 flex flex-row items-center w-[30%] gap-4">
-      <div class="flex flex-col gap-1 w-full">
-        <h3 class="text-2xl font-semibold text-balance leading-none">
-          Generic Project
-        </h3>
-        <div class="flex flex-wrap gap-2 pt-2">
-          <span><GrayBadge>Javascript</GrayBadge></span>
-          <span><GrayBadge>HTML</GrayBadge></span>
-          <span><GrayBadge>Java</GrayBadge></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-text p-8 w-[50%] flex">
-      <p>
-        {model.description}
-      </p>
+  <div class="flex-shrink-0">
+    <img
+      src="/placeholder.svg"
+      alt="Project Image"
+      width="400"
+      height="300"
+      class="h-48 w-full object-cover rounded-t-lg"
+      style="aspect-ratio: 400 / 300; object-fit: cover;"
+    />
+  </div>
+
+  <div class="flex-1">
+    <p class="text-2xl font-bold text-gray-900 dark:text-gray-100">
+      Project Name
+    </p>
+    <div class="mt-2 flex gap-2">
+      <span
+        class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-200 text-green-900"
+      >
+        JavaScript
+      </span>
+      <span
+        class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-200 text-blue-900"
+      >
+        CSS
+      </span>
+      <span
+        class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-red-200 text-red-900"
+      >
+        HTML
+      </span>
     </div>
   </div>
-</a>
-<style>
-  @media (width <= 310px) {
-    .card-img {
-      display: none;
-    }
-    img {
-      display: none;
-    }
-  }
-  @media (width <= 1000px) {
-    .card {
-      flex-direction: column;
-      width: 100%;
-      margin: auto;
-    }
-    .card-text {
-      width: 100%;
-      justify-content: start;
-      align-items: start;
-      padding: 1rem 2rem;
-    }
-    .card-title {
-      width: 100%;
-    }
-    .card-img {
-      width: 100%;
-      min-width: 260px;
-      height: auto;
-      border-right: none;
-    }
+  <div class="flex-grow">
+    <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
+      {model.description}
+    </p>
+  </div>
 
-    .card-img img {
-      width: 100%;
-      min-width: 260px;
-      height: auto;
-    }
-  }
-
-  .card-outside {
-    --nested-radius: calc(1.5rem - 0.25rem); /* radius outside - padding */
-  }
-</style>
+  <div class="flex mt-auto items-center">
+    <div class="flex-shrink-0">
+      <a
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-900 hover:bg-gray-800"
+      >
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
