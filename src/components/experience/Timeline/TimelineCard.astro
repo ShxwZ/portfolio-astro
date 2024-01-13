@@ -13,7 +13,7 @@ const { model } = Astro.props;
 ---
 
 <div class="flex w-full timeline-card">
-  <div class="relative flex justify-between w-full">
+  <div class="relative flex gap-3 w-full">
     <!--  Line & Point  -->
     <div class="timeline-point flex flex-col relative items-center w-5 pr-5">
       <!-- Point -->
@@ -27,7 +27,7 @@ const { model } = Astro.props;
       >
       </div>
     </div>
-    <div>
+    <div class="w-full">
       <!-- Date -->
       <div
         class="timeline-badges flex-row pb-5 pl-2 pt-6 flex gap-2 justify-start"
@@ -53,11 +53,9 @@ const { model } = Astro.props;
         <Card padding="1rem">
           <div class="relative z-20 p-4">
             <!--  Name of company  -->
-            <p
-              class="card-title mb-2 text-[--font-size-subtitle-section] font-bold text-gray-600 dark:text-gray-400"
-            >
+            <h2 class="card-title mb-2 font-bold">
               {model.title}
-            </p>
+            </h2>
             <!--  Text  -->
             <p>
               {model.description}
@@ -71,7 +69,11 @@ const { model } = Astro.props;
 
 <style>
   .timeline-card:last-child:has(.time-line) .time-line {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .card-title {
+    color: var(--secondary-color);
   }
 
   @media (width <= 360px) {

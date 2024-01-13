@@ -71,7 +71,7 @@ const { title, description } = Astro.props;
     --bg-button-color: #21262d;
     --border-button-color: #363b42;
 
-    --nav-bg-color: rgba(0, 0, 0, 0.12);
+    --nav-bg-color: rgba(0, 0, 0, 0.38);
   }
   /* Colors Light Theme */
   html {
@@ -88,7 +88,7 @@ const { title, description } = Astro.props;
     --bg-button-color: #f6f8fa;
     --border-button-color: #d0d7de;
 
-    --nav-bg-color: rgba(255, 255, 255, 0.12);
+    --nav-bg-color: rgba(255, 255, 255, 0.38);
   }
 
   a {
@@ -97,7 +97,9 @@ const { title, description } = Astro.props;
   a:hover {
     opacity: 0.87;
   }
-
+  h2 {
+    font-size: var(--font-size-subtitle-section);
+  }
   p {
     font-size: var(--font-size-paragraph);
   }
