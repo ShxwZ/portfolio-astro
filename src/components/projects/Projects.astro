@@ -1,6 +1,38 @@
 ---
 import Title from "../utils/Title.astro";
 import CardProject from "./CardProject.astro";
+import type { CardProjectModel } from "./CardProjectModel";
+
+export const data: CardProjectModel[] = [
+  {
+    title: "Test Project",
+    description: "This is a test project",
+    techs: ["Java", "Spring Boot", "Thymeleaf"],
+    image: "https://picsum.photos/300/205",
+    url: "https://google.com",
+  },
+  {
+    title: "Test Project",
+    description: "This is a test project",
+    techs: ["Java", "Spring Boot", "Thymeleaf"],
+    image: "https://picsum.photos/300/204",
+    url: "https://google.com",
+  },
+  {
+    title: "Test Project",
+    description: "This is a test project",
+    techs: ["Java", "Spring Boot"],
+    image: "https://picsum.photos/300/201",
+    url: "https://google.com",
+  },
+  {
+    title: "Test Project",
+    description: "This is a test project",
+    techs: ["Java"],
+    image: "https://picsum.photos/300/202",
+    url: "https://google.com",
+  },
+];
 ---
 
 <div id="projects"></div>
@@ -9,13 +41,8 @@ import CardProject from "./CardProject.astro";
     <Title>Proyectos</Title>
   </div>
   <div class="py-10">
-    <div class="flex flex-wrap justify-center gap-6">
-      <CardProject description="This is a test project" />
-      <CardProject
-        description="This is a test project with a very long description to test the overflow of the card, hello world. This is a test project with a very long description to test the overflow of the card, hello world"
-      />
-      <CardProject description="This is a test project" />
-      <CardProject description="This is a test project" />
+    <div class="flex flex-wrap justify-center gap-5">
+      {data.map((data) => <CardProject data={{ ...data }} />)}
     </div>
   </div>
 </article>
