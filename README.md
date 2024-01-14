@@ -22,7 +22,7 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 - [ ] Design Contact 
 - [ ] Design Projects
 - [ ] Design Footer
-- [ ] Add a `README.md` to each project
+- [x] Add a `README.md` to each project
 - [x] Design Header
 - [x] Design Home (Orbit component)
 
