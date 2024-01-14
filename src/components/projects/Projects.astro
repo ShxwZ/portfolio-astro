@@ -36,12 +36,12 @@ export const data: CardProjectModel[] = [
 ---
 
 <div id="projects"></div>
-<article class="w-full py-32">
+<article class="w-full pt-24 px-4">
   <div class="text-center py-10">
     <Title>Proyectos</Title>
   </div>
   <div class="py-10">
-    <div class="flex flex-wrap justify-center gap-5">
+    <div class="flex flex-wrap gap-5 justify-center">
       {data.map((data) => <CardProject data={{ ...data }} />)}
     </div>
   </div>

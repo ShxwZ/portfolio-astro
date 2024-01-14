@@ -168,8 +168,8 @@ import GithubIcon from "./icons/GithubIcon.astro";
   .container-orbit {
     position: relative;
     opacity: 0.7;
-    padding: var(--icon-size-offset);
-    width: var(--portfolio-width);
+    padding: 16px;
+    width: calc(var(--portfolio-width)- var(--icon-size-offset));
     height: calc(var(--portfolio-width));
     overflow: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);

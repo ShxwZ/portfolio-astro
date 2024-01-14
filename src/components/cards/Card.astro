@@ -17,6 +17,7 @@ const classes = Astro.props.class;
 </div>
 <style define:vars={{ padding }}>
   .inside-card {
+    background-color: var(--secondary-bg-color);
     --nested-radius: calc(0.75rem - 0.25rem); /* radius outside - padding */
     padding: var(--padding);
   }

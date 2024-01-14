@@ -5,7 +5,10 @@ import ButtonContainer from "./ButtonContainer.astro";
 <ButtonContainer classesInside="bg-[--bg-color]">
   <div class="flex flex-col justify-center bg-[--bg-color]">
     <input type="checkbox" name="themeToggle" id="themeToggle" />
-    <label class="relative cursor-pointer p-2" for="themeToggle"
+    <label
+      onclick="playSound('sounds/switch.mp3')"
+      class="relative cursor-pointer p-2"
+      for="themeToggle"
       >.
       <svg
         class="dark:hidden"
