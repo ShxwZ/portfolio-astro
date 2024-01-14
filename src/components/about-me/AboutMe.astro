@@ -7,22 +7,22 @@ import DownloadButton from "../buttons/DownloadButton.astro";
 ---
 
 <div id="about-me"></div>
-<article class="py-52">
-  <Card>
+<article class="pt-24 px-4">
+  <Card padding="2.5rem">
     <div class="flex flex-col gap-6">
       <!--  Title  -->
       <div class="flex">
         <Title>Sobre mí</Title>
       </div>
-      <div class="flex about-content justify-between items-stretch gap-10">
-        <div class="basis-4/5 text-wrap flex flex-col gap-6 mt-auto">
+      <div class="flex about-content justify-between gap-x-5">
+        <div class="basis-3/5 text-wrap flex flex-col gap-y-2">
           <!--  Bio Text  -->
           <Bio class="flex flex-col gap-2" />
           <!--  Langs & Tech Info  -->
           <LangsInfo />
         </div>
         <!--  Avatar  -->
-        <div class="content-avatar basis-2/5 flex justify-center">
+        <div class="content-avatar flex justify-start">
           <div
             class="bg-[--border-color] rounded-xl outline outline-[--secondary-border-color] h-fit w-fit p-1"
           >
@@ -63,13 +63,14 @@ import DownloadButton from "../buttons/DownloadButton.astro";
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 1rem;
   }
 
   .avatar {
-    max-height: 300px;
+    width: 100%;
+    max-width: 250px;
   }
 
   @media (width <= 1250px) {

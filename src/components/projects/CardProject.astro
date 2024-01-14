@@ -13,7 +13,7 @@ model.data.techs = model.data.techs || [];
 ---
 
 <div
-  class="card flex flex-col outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[370px] w-[370px] min-w-[370px] bg-[--secondary-bg-color] overflow-hidden"
+  class="card flex flex-col outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[350px] w-[350px] min-w-[350px] h-full bg-[--secondary-bg-color] overflow-hidden"
 >
   <div class="flex-shrink-0">
     <img
@@ -40,24 +40,25 @@ model.data.techs = model.data.techs || [];
           ))
         }
       </div>
-      <div class="description-container overflow-hidden">
-        <p class="mt-2 text-[--font-size-paragraph] description">
+      <div class="description-container py-3">
+        <p class="mt-2 description">
           {model.data.description}
         </p>
       </div>
     </div>
   </div>
 
-  <div class="mt-auto card-buttons gap-4 flex px-6 w-full cursor-pointer py-3">
+  <div class="mt-auto card-buttons gap-4 flex px-6 w-full cursor-pointer mb-3">
     <ButtonContainer
       classesOutside="w-full"
       classesInside="bg-[--bg-button-color]"
     >
       <a
         href={model.data.url}
+        onclick="playSound()"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex w-full gap-1 items-center justify-center px-5 py-1 border border-transparent text-base font-medium"
+        class="inline-flex w-full opacity-[100%] gap-1 items-center justify-center px-5 py-1 border border-transparent text-base font-medium"
       >
         <span>
           <svg
@@ -82,6 +83,9 @@ model.data.techs = model.data.techs || [];
   </div>
 </div>
 <style>
+  .description {
+    font-size: clamp(0.75rem, 0.7036rem + 0.2651vw, 1.125rem);
+  }
   @media (width <= 430px) {
     .card {
       max-width: 320px;

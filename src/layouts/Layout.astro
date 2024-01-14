@@ -25,7 +25,7 @@ const { title, description } = Astro.props;
   :root {
     /* Sizes */
     --portfolio-width: 60vw;
-    --nav-height: 100px;
+    --nav-height: 80px;
     /* Fonts */
     --font-size-name-title: clamp(
       1.25rem,
@@ -90,6 +90,23 @@ const { title, description } = Astro.props;
 
     --nav-bg-color: rgba(255, 255, 255, 0.38);
   }
+  /* #background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background-color: var(--bg-color);
+    clip-path: circle(0 at calc(50vw) calc(50vh));
+    transition:
+      clip-path 1s ease,
+      background-color 1s ease;
+  }
+
+  html.dark #background {
+    clip-path: circle(calc(100vw + 100vh) at calc(50vw) calc(50vh));
+    transition: 1s ease;
+    transition-property: clip-path, background-color;
+  } */
 
   a {
     opacity: 0.6;
@@ -110,14 +127,11 @@ const { title, description } = Astro.props;
   }
 
   /* Responsive */
-  @media (width <= 1250px) {
+  @media (width <= 1000px) {
     :root {
-      --portfolio-width: 80vw;
-      --font-size-name-title: clamp(
-        0.9375rem,
-        0.0354rem + 5.1546vw,
-        4.0625rem
-      ); /* 80vh - min font 15, max font 65, max vp 1250, min vp 280  */
+      --portfolio-width: 100vw;
+      --font-size-name-title: clamp(1.125rem, -0.0174rem + 6.5278vw, 4.0625rem);
+      /* 80vh - min font 18, max font 65, max vp 1000, min vp 280  */
     }
   }
   /* Responsive mobile navbar */
@@ -135,3 +149,10 @@ const { title, description } = Astro.props;
     }
   }
 </style>
+<script is:inline>
+  function playSound(src) {
+    const audio = new Audio(src ?? "/sounds/click.mp3");
+    audio.autoplay = true;
+    audio.play();
+  }
+</script>

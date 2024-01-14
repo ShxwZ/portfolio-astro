@@ -8,7 +8,8 @@ const { classesOutside, classesInside } = Astro.props;
 ---
 
 <div
-  class=`${classesOutside}  cursor-pointer bg-[--border-button-color] rounded-md p-0.5 hover:filter hover:brightness-[110%] dark:hover:brightness-[160%]`
+  id="custom."
+  class=`${classesOutside} shadow hover:shadow-none cursor-pointer bg-[--border-button-color] rounded-md p-0.5 hover:filter hover:brightness-[110%] dark:hover:brightness-[160%]`
 >
   <div
     class=`${classesInside} button-inside bg-[--secondary-bg-color] overflow-hidden opacity-[85%] hover:opacity-[85%] rounded-[--radius-button] h-full`
