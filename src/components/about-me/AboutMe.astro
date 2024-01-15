@@ -4,74 +4,50 @@ import LangsInfo from "./LangsInfo.astro";
 import Bio from "./Bio.astro";
 import Title from "../utils/Title.astro";
 import DownloadButton from "../buttons/DownloadButton.astro";
+import Avatar from "./Avatar.astro";
 ---
 
 <div id="about-me"></div>
-<article class="pt-24 px-4">
+<article class="pt-24 px-4 flex flex-col gap-2">
   <Card padding="2.5rem">
-    <div class="flex flex-col gap-6">
-      <!--  Title  -->
-      <div class="flex">
+    <div class="flex gap-x-5">
+      <div class="flex flex-col gap-5 w-full">
+        <!--  Title  -->
         <Title>Sobre mí</Title>
-      </div>
-      <div class="flex about-content justify-between gap-x-5">
-        <div class="basis-3/5 text-wrap flex flex-col gap-y-2">
-          <!--  Bio Text  -->
-          <Bio class="flex flex-col gap-2" />
-          <!--  Langs & Tech Info  -->
-          <LangsInfo />
-        </div>
-        <!--  Avatar  -->
-        <div class="content-avatar flex justify-start">
-          <div class="bg-[--secondary-border-color] rounded-xl h-fit w-fit p-1">
-            <img
-              class="avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"
-              src="https://avatars.githubusercontent.com/u/39011276?v=4"
-              alt="Foto de Gabriel Alberto García Pellizzón"
-              title="Foto de Gabriel Alberto García Pellizzón"
-              width="300px"
-              height="300px"
-            />
+        <div class="flex about-content gap-5">
+          <div class="text-wrap flex flex-col gap-y-2">
+            <!--  Bio Text  -->
+            <Bio class="flex flex-col gap-2 basis-3/4" />
           </div>
-          <!--  Download CV Button  -->
-          <DownloadButton />
+          <!--  Avatar Mobile -->
+          <div class="content-avatar-mobile justify-center">
+            <Avatar />
+          </div>
         </div>
+      </div>
+      <div class="content-avatar flex items-center justify-center w-[40%] pt-6">
+        <!--  Avatar  -->
+        <Avatar />
       </div>
     </div>
   </Card>
+  <div class="p-[2.5rem]">
+    <!--  Langs & Tech Info  -->
+    <LangsInfo />
+  </div>
 </article>
 
 <style>
-  #about-me {
-    width: 100%;
-    height: 100%;
+  .content-avatar-mobile {
+    display: none;
   }
-
-  span {
-    width: var(--font-size-title-section);
-    display: flex;
-  }
-  span svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  .content-avatar {
-    --nested-radius: calc(0.75rem - 0.25rem); /* radius outside - padding */
-
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .avatar {
-    width: 100%;
-    max-width: 250px;
-  }
-
   @media (width <= 1250px) {
+    .content-avatar {
+      display: none;
+    }
+    .content-avatar-mobile {
+      display: flex;
+    }
     .about-content {
       flex-direction: column-reverse;
       gap: 1rem;
