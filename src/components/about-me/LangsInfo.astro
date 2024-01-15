@@ -12,9 +12,12 @@ import SpringBootIcon from "./icons/SpringBootIcon.astro";
 import TypescriptIcon from "./icons/TypescriptIcon.astro";
 ---
 
-<article class="flex flex-col gap-5" {...Astro.props}>
-  <Subtitle>Stack actual</Subtitle>
-  <div class="langs flex flex-row gap-y-5 gap-x-5 flex-wrap items-center">
+<article class="flex flex-col gap-8 relative" {...Astro.props}>
+  <Subtitle>Lenguajes y frameworks actuales</Subtitle>
+
+  <div
+    class="langs flex flex-row gap-y-5 gap-x-5 flex-wrap justify-around items-center"
+  >
     <a class="lang" rel="nofollow" href="https://angular.dev/" target="_blank">
       <AngularIcon class="text-red-800 dark:text-red-300" />
       <RedBadge>Angular</RedBadge>
@@ -51,15 +54,16 @@ import TypescriptIcon from "./icons/TypescriptIcon.astro";
   .lang {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
     min-width: 90px;
-    width: 12%;
-    margin: auto;
-
+    width: 10%;
     gap: 0.5rem;
     color: var(--secondary-color);
     opacity: 1;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .lang:hover {
+    scale: 1.2;
   }
 
   .lang svg {

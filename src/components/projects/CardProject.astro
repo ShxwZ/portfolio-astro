@@ -13,12 +13,12 @@ model.data.techs = model.data.techs || [];
 ---
 
 <div
-  class="card flex flex-col outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[350px] w-[350px] min-w-[350px] h-full bg-[--secondary-bg-color] overflow-hidden"
+  class="card flex flex-col outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[325px] w-[325px] min-w-[325px] bg-[--secondary-bg-color] overflow-hidden"
 >
   <div class="flex-shrink-0">
     <img
-      src={model.data.image ?? "./placeholder.svg"}
-      alt="Project"
+      src={model.data.image ?? "/images/placeholder.svg"}
+      alt={model.data.title ?? "Generic"}
       width="400"
       height="300"
       class="h-48 w-full object-cover rounded-t-lg"
@@ -78,6 +78,23 @@ model.data.techs = model.data.techs || [];
           </svg>
         </span>
         Ver código
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[1.1rem]"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6m-7 1l9-9m-5 0h5v5"
+            >
+            </path>
+          </svg>
+        </span>
       </a>
     </ButtonContainer>
   </div>
