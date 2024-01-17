@@ -1,0 +1,55 @@
+---
+import Title from "../utils/Title.astro";
+import ContactCard from "./ContactCard.astro";
+---
+
+<div id="contact"></div>
+<article class="items-center py-24">
+  <div class="justify-center px-4 py-4 mx-auto">
+    <!--  Title  -->
+    <div class="text-center py-10">
+      <Title>Contacto</Title>
+    </div>
+    <div class="contact-content flex justify-around items-center">
+      <div class="flex-1 card p-5 flex justify-center">
+        <ContactCard />
+      </div>
+      <div class="flex-1 links w-full flex justify-center">
+        <ul
+          class="max-w-fit flex flex-col text-2xl justify-center items-start text-left"
+        >
+          <a>LinkedIn</a>
+          <a>GitHub</a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</article>
+<style>
+  li {
+    flex: 1;
+  }
+  .card {
+    width: fit-content;
+  }
+  @media (width <= 1100px) {
+    .contact-content {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .contact-content * {
+      flex: auto;
+    }
+    .card {
+      border: none;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .links {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+</style>
