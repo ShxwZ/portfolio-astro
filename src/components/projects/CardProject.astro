@@ -3,6 +3,7 @@ import GrayBadge from "../badges/GrayBadge.astro";
 import ButtonContainer from "../buttons/ButtonContainer.astro";
 import type { CardProjectModel } from "./CardProjectModel";
 
+import { Image } from "astro:assets";
 interface Props {
   data: CardProjectModel;
 }
@@ -16,13 +17,11 @@ model.data.techs = model.data.techs || [];
   class="card flex flex-col outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[325px] w-[325px] min-w-[325px] bg-[--secondary-bg-color] overflow-hidden"
 >
   <div class="flex-shrink-0">
-    <img
-      src={model.data.image ?? "/images/placeholder.svg"}
-      alt={model.data.title ?? "Generic"}
-      width="400"
-      height="300"
+    <Image
       class="h-48 w-full object-cover rounded-t-lg"
-      style="aspect-ratio: 400 / 300; object-fit: cover;"
+      src={model.data.image}
+      alt={model.data.title ?? "Generic"}
+      width="325"
     />
   </div>
 
