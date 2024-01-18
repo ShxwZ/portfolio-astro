@@ -1,16 +1,17 @@
 ---
 import DownloadButton from "../buttons/DownloadButton.astro";
+import { Image } from "astro:assets";
+import avatar from "../../images/avatar.webp";
 ---
 
 <div class="flex flex-col justify-center gap-4 w-fit">
   <div class="bg-[--secondary-border-color] rounded-xl h-fit w-fit p-1">
-    <img
-      class="avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"
-      src="/images/avatar.webp"
+    <Image
+      src={avatar}
       alt="Foto de Gabriel Alberto García Pellizzón"
       title="Foto de Gabriel Alberto García Pellizzón"
-      width="300px"
-      height="300px"
+      width={300}
+      class={"avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"}
     />
   </div>
   <!--  Download CV Button  -->
@@ -30,7 +31,6 @@ import DownloadButton from "../buttons/DownloadButton.astro";
 
   .avatar {
     width: 100%;
-    max-width: 250px;
   }
   .content-avatar {
     width: 100%;
