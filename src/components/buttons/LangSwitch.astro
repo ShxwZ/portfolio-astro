@@ -1,5 +1,7 @@
 ---
 import ButtonContainer from "./ButtonContainer.astro";
+
+const isEnglish = Astro.currentLocale === "en";
 ---
 
 <ButtonContainer classesInside="bg-[--bg-color]">
@@ -13,8 +15,25 @@ import ButtonContainer from "./ButtonContainer.astro";
       aria-labelledby="idiomas"
       class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--bg-color] border-[--border-color] dark:text-gray-400"
     >
-      <option selected lang="es">Español</option>
-      <option lang="en">English</option>
+      <option lang="es">Español</option>
+      <option selected={isEnglish} lang="en">English</option>
     </select>
   </div>
 </ButtonContainer>
+<script is:inline>
+  function getOptionSelected() {
+    const select = document.getElementById("langs");
+
+    if (select.options[select.selectedIndex].lang === "es") {
+      window.location.href = window.location.href.replace("/en", "");
+    } else {
+      window.location.href =
+        "/en" + window.location.href.replace(window.location.origin, "");
+    }
+  }
+
+  // handle click on select option
+  document
+    .getElementById("langs")
+    .addEventListener("change", getOptionSelected);
+</script>
