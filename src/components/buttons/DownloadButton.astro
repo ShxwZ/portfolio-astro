@@ -1,6 +1,7 @@
 ---
 import ButtonContainer from "./ButtonContainer.astro";
 import DownloadIcon from "./icons/DownloadIcon.astro";
+import { t } from "i18next";
 ---
 
 <ButtonContainer classesInside="bg-[--bg-button-color] ">
@@ -10,7 +11,7 @@ import DownloadIcon from "./icons/DownloadIcon.astro";
     class="flex opacity-[100%] items-center gap-1 justify-center w-full h-full text-center py-1"
     download="CV - Gabriel Alberto García Pellizzon.pdf"
   >
-    <span class="text-nowrap font-medium">Descargar CV</span>
+    <span class="text-nowrap font-medium">{t("ABOUT_ME.DOWNLOAD_CV")}</span>
     <DownloadIcon width="24" height="24" />
   </a>
 </ButtonContainer>

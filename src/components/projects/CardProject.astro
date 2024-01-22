@@ -2,7 +2,7 @@
 import GrayBadge from "../badges/GrayBadge.astro";
 import ButtonContainer from "../buttons/ButtonContainer.astro";
 import type { CardProjectModel } from "./CardProjectModel";
-
+import { t } from "i18next";
 import { Image } from "astro:assets";
 interface Props {
   data: CardProjectModel;
@@ -76,7 +76,7 @@ model.data.techs = model.data.techs || [];
             <path d="M9 18c-4.51 2-5-2-7-2"></path>
           </svg>
         </span>
-        Ver código
+        {t("BUTTONS.VIEW_CODE")}
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

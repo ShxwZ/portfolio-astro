@@ -7,16 +7,10 @@ import Projects from "./projects/Projects.astro";
 import Section from "./section/Section.astro";
 import Experience from "./experience/Experience.astro";
 import Contact from "./contact/Contact.astro";
-import { getI18n } from "../i18n/";
-
-const { currentLocale } = Astro;
-const i18n = getI18n(currentLocale);
+import { t } from "i18next";
 ---
 
-<Layout
-  title={i18n.TITLE_SEO}
-  description="Portfolio de Gabriel García Pellizzón, amante de la programación y el desarrollo de aplicaciones. Aquí podrás conocer sobre mí, experiencia, proyectos y contacto :)"
->
+<Layout title={t("TITLE_SEO")} description={t("DESCRIPTION_SEO")}>
   <Header />
   <main class="flex flex-col gap-10">
     <Home />

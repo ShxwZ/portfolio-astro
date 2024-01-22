@@ -5,27 +5,31 @@ import type { CardProjectModel } from "./CardProjectModel";
 import satix_web_api from "../../images/projects/satix_web.png";
 import satix_mobile from "../../images/projects/satix_mobile.png";
 import portfolio from "../../images/projects/portfolio.png";
-export const data: CardProjectModel[] = [
+import { t } from "i18next";
+
+const translations: { TITLE: string; DESCRIPTION: string }[] = t(
+  "PROJECTS.PROJECTS",
+  { returnObjects: true }
+);
+
+const data: CardProjectModel[] = [
   {
-    title: "SaTix Web API",
-    description:
-      "Aplicación web para la gestión de entradas de eventos. Una solución para evitar la reventa de entradas mediante un sistema de códigos unicos temporales.",
+    title: translations[0].TITLE,
+    description: translations[0].DESCRIPTION,
     techs: ["Java", "Spring Boot", "Thymeleaf"],
     image: satix_web_api,
     url: "https://github.com/ShxwZ/SaTix-Web-Api",
   },
   {
-    title: "SaTix App",
-    description:
-      "Aplicación móvil para la gestión de entradas de eventos, con autenticación, posibilidad de apuntarse a eventos, y ver eventos publicados.",
+    title: translations[1].TITLE,
+    description: translations[1].DESCRIPTION,
     techs: ["Java", "Android"],
     image: satix_mobile,
     url: "https://github.com/ShxwZ/SaTix-Android",
   },
   {
-    title: "Portfolio Astro",
-    description:
-      "Portfolio creado con Astro y TailwindCSS, con un diseño minimalista.",
+    title: translations[2].TITLE,
+    description: translations[2].DESCRIPTION,
     techs: ["Astro", "Typescript", "TailwindCSS"],
     image: portfolio,
     url: "https://github.com/ShxwZ/portfolio-astro",
