@@ -1,6 +1,7 @@
 ---
 import Title from "../utils/Title.astro";
 import ContactCard from "./ContactCard.astro";
+import { t } from "i18next";
 ---
 
 <div id="contact"></div>
@@ -8,7 +9,7 @@ import ContactCard from "./ContactCard.astro";
   <div class="w-full">
     <!--  Title  -->
     <div class="text-center py-10">
-      <Title>Contacto</Title>
+      <Title>{t("CONTACT.TITLE")}</Title>
     </div>
     <div class="contact-content flex justify-between items-center w-full">
       <div class="flex-1 card p-5 flex justify-center">
