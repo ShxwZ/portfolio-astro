@@ -8,7 +8,9 @@ import { LanguageSelector } from "astro-i18next/components";
     onclick="playSound()"
     class="cursor-pointer bg-[--bg-color] flex items-center justify-center w-full h-full text-center"
   >
+    <label for="language-selector" class="text-[0px]">.</label>
     <LanguageSelector
+      id="language-selector"
       showFlag={false}
       class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--bg-color] border-[--border-color] dark:text-gray-400"
     />
