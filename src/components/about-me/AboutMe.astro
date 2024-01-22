@@ -4,6 +4,7 @@ import LangsInfo from "./LangsInfo.astro";
 import Bio from "./Bio.astro";
 import Title from "../utils/Title.astro";
 import Avatar from "./Avatar.astro";
+import { t } from "i18next";
 ---
 
 <div id="about-me"></div>
@@ -12,7 +13,7 @@ import Avatar from "./Avatar.astro";
     <div class="flex gap-x-5">
       <div class="flex flex-col gap-5 w-full">
         <!--  Title  -->
-        <Title>Sobre mí</Title>
+        <Title>{t("ABOUT_ME.TITLE")}</Title>
         <div class="flex about-content gap-5">
           <div class="text-wrap flex flex-col gap-y-2">
             <!--  Bio Text  -->

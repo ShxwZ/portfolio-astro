@@ -10,10 +10,11 @@ import AstroIcon from "./icons/AstroIcon.astro";
 import DotNetIcon from "./icons/DotNetIcon.astro";
 import SpringBootIcon from "./icons/SpringBootIcon.astro";
 import TypescriptIcon from "./icons/TypescriptIcon.astro";
+import { t } from "i18next";
 ---
 
 <article class="flex flex-col gap-8 relative" {...Astro.props}>
-  <Subtitle>Lenguajes y frameworks actuales</Subtitle>
+  <Subtitle>{t("ABOUT_ME.LANGUAGES_AND_FRAMEWORKS")}</Subtitle>
 
   <div
     class="langs flex flex-row gap-y-5 gap-x-5 flex-wrap justify-around items-center"

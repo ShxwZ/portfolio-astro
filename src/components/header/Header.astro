@@ -3,9 +3,7 @@ import MenuIcon from "./icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
 import ThemeToggle from "../buttons/ThemeButton.astro";
 import LangSwitch from "../buttons/LangSwitch.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n";
-const lang = getLangFromUrl(Astro.url);
-const i18n = useTranslations(lang);
+import { t } from "i18next";
 ---
 
 <header class="flex justify-center items-center">
@@ -36,10 +34,10 @@ const i18n = useTranslations(lang);
         <div
           class="nav_links absolute flex justify-center right-0 gap-x-10 w-full h-full items-center"
         >
-          <a href="#about-me" data-nav-checkbox>{i18n.NAVBAR.HOME}</a>
-          <a href="#experience" data-nav-checkbox>{i18n.NAVBAR.EXPERIENCE}</a>
-          <a href="#projects" data-nav-checkbox>{i18n.NAVBAR.PROJECTS}</a>
-          <a href="#contact" data-nav-checkbox>{i18n.NAVBAR.CONTACT}</a>
+          <a href="#about-me" data-nav-checkbox>{t("NAVBAR.ABOUT_ME")}</a>
+          <a href="#experience" data-nav-checkbox>{t("NAVBAR.EXPERIENCE")}</a>
+          <a href="#projects" data-nav-checkbox>{t("NAVBAR.PROJECTS")}</a>
+          <a href="#contact" data-nav-checkbox>{t("NAVBAR.CONTACT")}</a>
           <!--  Theme toggle & Language  -->
           <div class="toogles absolute flex gap-x-5">
             <ThemeToggle />

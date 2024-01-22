@@ -23,7 +23,7 @@ const { model } = Astro.props;
       </div>
       <!-- Line -->
       <div
-        class=`time-line w-px h-full bg-[--secondary-border-color] ${model.actual && 'mt-6'}`
+        class=`time-line w-px h-full bg-[--secondary-border-color] ${model.ACTUAL && 'mt-6'}`
       >
       </div>
     </div>
@@ -33,17 +33,17 @@ const { model } = Astro.props;
         class="timeline-badges flex-row pb-5 pl-2 pt-6 flex gap-2 justify-start"
       >
         <div>
-          <PurpleBadge>{model.date}</PurpleBadge>
+          <PurpleBadge>{model.DATE}</PurpleBadge>
         </div>
 
         {
-          model.actual ? (
+          model.ACTUAL ? (
             <div class="relative">
               <GreenBadge>Actual</GreenBadge>
             </div>
           ) : (
             <div>
-              <GrayBadge>{model.duration}</GrayBadge>
+              <GrayBadge>{model.DURATION}</GrayBadge>
             </div>
           )
         }
@@ -54,11 +54,11 @@ const { model } = Astro.props;
           <div class="relative z-20 p-4">
             <!--  Name of company  -->
             <h2 class="card-title mb-2 font-bold">
-              {model.title}
+              {model.TITLE}
             </h2>
             <!--  Text  -->
             <p>
-              {model.description}
+              {model.DESCRIPTION}
             </p>
           </div>
         </Card>

@@ -1,0 +1,72 @@
+{
+    "TITLE_SEO": "Portafolio Gabriel García Pellizzón | Programador y Desarrollador FullStack",
+    "DESCRIPTION_SEO" : "Portfolio de Gabriel García Pellizzón, amante de la programación y el desarrollo de aplicaciones. Aquí podrás conocer sobre mí, experiencia, proyectos y contacto :)",
+    "NAVBAR": {
+        "HOME": "Inicio",
+        "ABOUT_ME": "Sobre mí",
+        "EXPERIENCE": "Experiencia",
+        "PROJECTS": "Proyectos",
+        "CONTACT": "Contacto"
+    },
+    "ABOUT_ME":{
+        "TITLE": "Sobre mí",
+        "DOWNLOAD_CV": "Descargar CV",
+        "LANGUAGES_AND_FRAMEWORKS": "Lenguajes y Frameworks",
+        "DESCRIPTION":{
+            "FIRST": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus dolorum, hic numquam tempore alias iusto iure amet ut id voluptates est illum nihil unde suscipit ea soluta laudantium debitis rem.",
+            "SECOND": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus dolorum, hic numquam tempore alias iusto iure amet ut id voluptates est illum nihil unde suscipit ea soluta laudantium debitis rem."
+        }   
+    },
+    "EXPERIENCE":{
+        "TITLE": "Experiencia",
+        "JOBS":[
+            {
+                "TITLE": "TRABAJO 3",
+                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+                "DATE": "2023",
+                "ACTUAL" : true
+                
+            },
+            {
+                "TITLE": "TRABAJO 2",
+                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+                "DATE": "2021",
+                "DURATION": "3 meses"
+                
+            },
+            {
+                "TITLE": "TRABAJO 1",
+                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+                "DATE": "2020",
+                "DURATION": "3 meses"
+                
+            }
+        ]
+    },
+    "PROJECTS":{
+        "TITLE": "Proyectos",
+        "PROJECTS": [
+            {
+                "TITLE": "Proyecto 1",
+                "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
+            },
+            {
+                "TITLE": "Proyecto 2",
+                "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
+            },
+            {
+                "TITLE": "Proyecto 3",
+                "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
+            }
+        ]
+    },
+    "CONTACT":{
+        "TITLE": "Contacto"
+    },
+    "BUTTONS":{
+        "THEME": ["Modo oscuro", "Modo claro"],
+        "VIEW_CODE": "Mostrar código"
+    }
+    
+    
+}

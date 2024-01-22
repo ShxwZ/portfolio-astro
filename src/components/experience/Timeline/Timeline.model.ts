@@ -1,7 +1,7 @@
 export interface TimelineModel {
-    title?: string;
-    description?: string;
-    date?: string;
-    duration?: string;
-    actual?: boolean;
+    TITLE?: string;
+    DESCRIPTION?: string;
+    DATE?: string;
+    DURATION?: string;
+    ACTUAL?: boolean;
 }
