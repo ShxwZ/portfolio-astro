@@ -43,8 +43,10 @@ const data: CardProjectModel[] = [
     <Title>{t("PROJECTS.TITLE")}</Title>
   </div>
   <div class="py-10">
-    <div class="flex flex-wrap gap-10 justify-between">
+    <ul
+      class="grid gap-20 grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] justify-center"
+    >
       {data.map((data) => <CardProject data={{ ...data }} />)}
-    </div>
+    </ul>
   </div>
 </article>
