@@ -13,7 +13,7 @@ const model: Props = Astro.props;
 model.data.techs = model.data.techs || [];
 ---
 
-<div
+<li
   class="card flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[340px] w-[340px] min-w-[340px] bg-[--secondary-bg-color] overflow-hidden"
 >
   <div class="flex-shrink-0">
@@ -97,7 +97,7 @@ model.data.techs = model.data.techs || [];
       </a>
     </ButtonContainer>
   </div>
-</div>
+</li>
 <style>
   .description {
     font-size: clamp(0.75rem, 0.7036rem + 0.2651vw, 1.125rem);
