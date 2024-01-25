@@ -14,14 +14,14 @@ model.data.techs = model.data.techs || [];
 ---
 
 <li
-  class="card flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 max-w-[340px] w-[340px] min-w-[340px] bg-[--secondary-bg-color] overflow-hidden"
+  class="card flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 w-auto bg-[--secondary-bg-color] overflow-hidden"
 >
   <div class="flex-shrink-0">
     <Image
-      class="max-h-[191px] w-full object-cover rounded-t-lg"
+      class="h-auto w-full object-cover rounded-t-lg"
       src={model.data.image}
       alt={model.data.title ?? "Generic"}
-      width="340"
+      width="479"
     />
   </div>
 
@@ -105,7 +105,6 @@ model.data.techs = model.data.techs || [];
   @media (width <= 430px) {
     .card {
       max-width: 320px;
-      width: 320px;
       min-width: 230px;
     }
 
