@@ -4,6 +4,7 @@ import GreenBadge from "../../badges/GreenBadge.astro";
 import Card from "../../cards/Card.astro";
 import type { TimelineModel } from "./Timeline.model";
 import GrayBadge from "../../badges/GrayBadge.astro";
+import Subtitle from "../../utils/Subtitle.astro";
 
 interface Props {
   model: TimelineModel;
@@ -53,9 +54,9 @@ const { model } = Astro.props;
         <Card padding="1rem">
           <div class="relative z-20 p-4">
             <!--  Name of company  -->
-            <h2 class="card-title mb-2 font-bold">
+            <Subtitle>
               {model.TITLE}
-            </h2>
+            </Subtitle>
             <!--  Text  -->
             <p>
               {model.DESCRIPTION}

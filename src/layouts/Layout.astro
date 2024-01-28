@@ -2,6 +2,8 @@
 import "@fontsource-variable/onest";
 import i18next from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
   title: string;
   description: string;
@@ -10,7 +12,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={i18next.language}>
+<html lang={i18next.language} class="dark" transition:persist>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -37,14 +39,17 @@ const { title, description } = Astro.props;
     <!-- Open Graph Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://gabrielgarcia.vercel.app/" />
+    <meta name="twitter:site" content="@ShxwZs" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="/banner_og.png" />
 
     <meta name="viewport" content="width=device-width" />
+    <!--meta name="robots" content="all" /-->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <HeadHrefLangs />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
@@ -82,14 +87,14 @@ const { title, description } = Astro.props;
         scroll-behavior: smooth;
         --bg-color-dark: #010409;
         --bg-color-light: #f5f5f5;
-        --primary-color-dark: #d1d5db;
-        --primary-color-light: #000;
+        --primary-color-dark: #e6edf3;
+        --primary-color-light: #1f2328;
       }
 
       /* Colors Dark Theme */
       html.dark {
         --primary-color: var(--primary-color-dark);
-        --secondary-color: #c2c2c2;
+        --secondary-color: #c4c4c4;
         --color-violet-one: #8332ff;
         --color-violet-two: #451b8c;
         --color-lilac-one: #d8ccf1;
@@ -108,7 +113,7 @@ const { title, description } = Astro.props;
       /* Colors Light Theme */
       html {
         --primary-color: var(--primary-color-light);
-        --secondary-color: #555555;
+        --secondary-color: #24292f;
         --color-violet-one: #ab57ff;
         --color-violet-two: #451b8c;
         --color-lilac-one: #8f6bd8;
@@ -122,40 +127,33 @@ const { title, description } = Astro.props;
 
         --nav-bg-color: rgba(245, 245, 245, 0.36);
       }
-      /* #background {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    z-index: -1;
-    background-color: var(--bg-color);
-    clip-path: circle(0 at calc(50vw) calc(50vh));
-    transition:
-      clip-path 1s ease,
-      background-color 1s ease;
-  }
 
-  html.dark #background {
-    clip-path: circle(calc(100vw + 100vh) at calc(50vw) calc(50vh));
-    transition: 1s ease;
-    transition-property: clip-path, background-color;
-  } */
-
-      a {
-        opacity: 0.6;
-      }
       a:hover {
-        opacity: 0.87;
+        opacity: 0.67;
       }
       h2 {
         font-size: var(--font-size-subtitle-section);
       }
       p {
         font-size: var(--font-size-paragraph);
+        color: var(--primary-color);
       }
 
       html {
         font-family: "Onest Variable", system-ui, sans-serif;
         background: var(--bg-color);
+      }
+
+      @media (width <= 1620px) {
+        :root {
+          --portfolio-width: 70vw;
+          --font-size-name-title: clamp(
+            1.125rem,
+            0.4459rem + 3.8806vw,
+            4.375rem
+          );
+          /* 75vh - min font 18, max font 70, max vp 1620px, min vp 280  */
+        }
       }
 
       /* Responsive */
@@ -191,6 +189,42 @@ const { title, description } = Astro.props;
         audio.autoplay = true;
         audio.play();
       }
+      document.addEventListener("astro:after-swap", () => {
+        const theme = (() => {
+          if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+          ) {
+            return localStorage.getItem("theme");
+          }
+          return "dark";
+        })();
+
+        if (theme === "light") {
+          document.documentElement.classList.remove("dark");
+        } else {
+          document.documentElement.classList.add("dark");
+        }
+
+        window.localStorage.setItem("theme", theme);
+      });
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return "dark";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+
+      window.localStorage.setItem("theme", theme);
     </script>
   </body>
 </html>

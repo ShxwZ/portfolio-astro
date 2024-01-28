@@ -2,4 +2,8 @@
 export default {
     defaultLocale: "es",
     locales: ["es", "en"],
+    routing: {
+      prefixDefaultLocale: false,
+      strategy: 'pathname'
+    }
   };

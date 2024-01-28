@@ -1,18 +1,29 @@
 ---
 import ButtonContainer from "./ButtonContainer.astro";
-import { LanguageSelector } from "astro-i18next/components";
+import i18next from "i18next";
+import LangSelectable from "./LangSelectable.astro";
+import LangSelected from "./LangSelected.astro";
+const currentLocale = i18next.language;
 ---
 
-<ButtonContainer classesInside="bg-[--bg-color]">
+<ButtonContainer classesInside="bg-[--bg-color] ">
   <div
-    onclick="playSound()"
-    class="cursor-pointer bg-[--bg-color] flex items-center justify-center w-full h-full text-center"
+    class="select-lang bg-[--bg-color] justify-between flex items-center w-full h-full text-center"
   >
-    <label for="language-selector" class="text-[0px]">.</label>
-    <LanguageSelector
-      id="language-selector"
-      showFlag={false}
-      class="px-4 text-start disabled:opacity-50 disabled:pointer-events-none bg-[--bg-color] border-[--border-color] dark:text-gray-400"
-    />
+    {
+      currentLocale === "es" ? (
+        <LangSelected text="ES" />
+      ) : (
+        <LangSelectable url="/" text="ES" />
+      )
+    }
+    {
+      currentLocale === "en" ? (
+        <LangSelected text="EN" />
+      ) : (
+        <LangSelectable url="/en" text="EN" />
+      )
+    }
   </div>
 </ButtonContainer>
+<style is:inline></style>
