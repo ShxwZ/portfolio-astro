@@ -44,21 +44,10 @@ const data: CardProjectModel[] = [
   </div>
   <div class="py-10">
     <ul
-      class="grid gap-5 grid-cols-[repeat(auto-fill,minmax(362px,1fr))] justify-center"
+      class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(270px,1fr))] justify-center"
     >
       {data.map((data) => <CardProject data={{ ...data }} />)}
     </ul>
   </div>
 </article>
-<style>
-  @media (width <= 1920px) {
-    ul {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-  }
-  @media (width <= 330px) {
-    ul {
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    }
-  }
-</style>
+<style></style>
