@@ -5,7 +5,7 @@ import avatar from "../../images/avatar.png";
 ---
 
 <div class="flex flex-col justify-center gap-4 w-fit">
-  <div class="bg-[--secondary-border-color] rounded-xl h-fit w-fit p-1">
+  <div class="bg-[--border-button-color] rounded-xl h-fit w-fit p-1 shadow-sm">
     <Image
       src={avatar}
       alt="Foto de Gabriel Alberto García Pellizzón"
@@ -20,8 +20,6 @@ import avatar from "../../images/avatar.png";
 
 <style>
   .content-avatar {
-    --nested-radius: calc(0.75rem - 0.25rem); /* radius outside - padding */
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
