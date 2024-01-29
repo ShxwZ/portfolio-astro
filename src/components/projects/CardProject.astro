@@ -14,11 +14,11 @@ model.data.techs = model.data.techs || [];
 ---
 
 <li
-  class="card flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 w-auto bg-[--secondary-bg-color] overflow-hidden"
+  class="card-project flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 w-auto bg-[--secondary-bg-color] overflow-hidden"
 >
-  <div class="flex-shrink-0">
+  <div class="flex-shrink-0 overflow-hidden">
     <Image
-      class="h-auto w-full object-cover rounded-t-lg"
+      class="card-img-project h-auto w-full object-cover rounded-t-lg"
       src={model.data.image}
       alt={model.data.title ?? "Generic"}
       width="479"
@@ -104,7 +104,7 @@ model.data.techs = model.data.techs || [];
     font-size: clamp(0.75rem, 0.7036rem + 0.2651vw, 1.125rem);
   }
   @media (width <= 430px) {
-    .card {
+    .card-project {
       max-width: 320px;
       min-width: 230px;
     }
@@ -115,6 +115,10 @@ model.data.techs = model.data.techs || [];
       align-items: none;
       padding: 0 2rem;
       padding-top: 1rem;
+    }
+
+    .card-project:hover .card-img-project {
+      transform: scale(1.45);
     }
   }
 </style>
