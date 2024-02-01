@@ -11,7 +11,7 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 > [!NOTE]  
 > Work in progress
 
-- [ ] Design Footer
+- [x] Design Footer :construction: - actually in progress
 - [x] Responsive design :construction: - actually in progress
 - [x] Design Contact :construction: - actually in progress
 - [x] Add sound to buttons
