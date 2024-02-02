@@ -10,7 +10,6 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 
 > [!NOTE]  
 > Work in progress
-
 - [x] Design Footer :construction: - actually in progress
 - [x] Responsive design :construction: - actually in progress
 - [x] Design Contact :construction: - actually in progress
@@ -25,5 +24,5 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 - [x] Design Projects 
 - [x] Improve 'Badge' components
 
-## Light mode
+## Light mode 💡
 ![](./readme/preview_white.png)
