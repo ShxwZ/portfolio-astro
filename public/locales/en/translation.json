@@ -8,41 +8,38 @@
         "PROJECTS": "Projects",
         "CONTACT": "Contact"
     },
-    "ABOUT_ME":{
+    "ABOUT_ME": {
         "TITLE": "About me",
         "DOWNLOAD_CV": "Download CV",
         "LANGUAGES_AND_FRAMEWORKS": "Languages and Frameworks",
-        "DESCRIPTION":{
-            "FIRST": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus dolorum, hic numquam tempore alias iusto iure amet ut id voluptates est illum nihil unde suscipit ea soluta laudantium debitis rem.",
-            "SECOND": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus dolorum, hic numquam tempore alias iusto iure amet ut id voluptates est illum nihil unde suscipit ea soluta laudantium debitis rem."
+        "DESCRIPTION": {
+          "FIRST": "I'm Gabriel, a <0>software developer</0> with over +1 year of experience. I consider myself a <1>self-taught</1> person, <2>passionate about technology</2>, and I love to learn every day.",
+          "SECOND": "Currently, I'm working at a software development company and learning new technologies on my own. Find out more about me and how to contact me below or in my CV."
         }
-    },
-    "EXPERIENCE":{
+      },
+      "EXPERIENCE": {
         "TITLE": "Experience",
-        "JOBS":[
-            {
-                "TITLE": "JOB 3",
-                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
-                "DATE": "2023",
-                "ACTUAL" : true
-                
-            },
-            {
-                "TITLE": "JOB 2",
-                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
-                "DATE": "2021",
-                "DURATION": "3 months"
-                
-            },
-            {
-                "TITLE": "JOB 1",
-                "DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
-                "DATE": "2020",
-                "DURATION": "3 months"
-                
-            }
+        "JOBS": [
+          {
+            "TITLE": "Clarcat",
+            "DESCRIPTION": "Software developer in practice, working on application development and continuously learning.",
+            "DATE": "2023",
+            "ACTUAL": true
+          },
+          {
+            "TITLE": "Clarcat",
+            "DESCRIPTION": "Work-Based Training as a software developer. I learned a lot about application development and technologies I wasn't familiar with.",
+            "DATE": "2021",
+            "DURATION": "3 months"
+          },
+          {
+            "TITLE": "Premier",
+            "DESCRIPTION": "Work-Based Training as a technician in microcomputer systems and networks. I learned about equipment maintenance, networks, and operating systems.",
+            "DATE": "2020",
+            "DURATION": "3 months"
+          }
         ]
-    },
+      },
     "PROJECTS":{
         "TITLE": "Projects",
         "PROJECTS": [

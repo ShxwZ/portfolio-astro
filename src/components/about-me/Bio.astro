@@ -1,12 +1,26 @@
 ---
+import { Trans } from "astro-i18next/components";
 import { t } from "i18next";
 ---
 
 <div {...Astro.props}>
   <p>
-    {t("ABOUT_ME.DESCRIPTION.FIRST")}
+    <Trans i18nKey="ABOUT_ME.DESCRIPTION.FIRST">
+      <b></b><em class="underline-important"></em><em
+        class="underline-important"></em>
+    </Trans>
   </p>
   <p>
     {t("ABOUT_ME.DESCRIPTION.SECOND")}
   </p>
 </div>
+<style>
+  b {
+    color: var(--color-violet-one);
+  }
+  .underline-important {
+    text-decoration: underline;
+    text-decoration-color: var(--color-violet-one);
+    text-decoration-thickness: 0.1em;
+  }
+</style>
