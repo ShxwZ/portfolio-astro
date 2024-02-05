@@ -47,15 +47,15 @@
         "TITLE": "Proyectos",
         "PROJECTS": [
             {
-                "TITLE": "Proyecto 1",
+                "TITLE": "Satix",
                 "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
             },
             {
-                "TITLE": "Proyecto 2",
+                "TITLE": "Satix",
                 "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
             },
             {
-                "TITLE": "Proyecto 3",
+                "TITLE": "Portafolio",
                 "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
             }
         ]
