@@ -44,11 +44,11 @@
         "TITLE": "Projects",
         "PROJECTS": [
             {
-                "TITLE": "Satix",
+                "TITLE": "Satix Web",
                 "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit"
             },
             {
-                "TITLE": "Satix",
+                "TITLE": "Satix App",
                 "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
             },
             {

@@ -8,7 +8,6 @@ This is my portfolio, it's a simple website made with [Astro](https://astro.buil
 ## TODOS
 > [!NOTE]  
 
-
 > Work in progress
 - [x] Design Footer :construction: - actually in progress
 
