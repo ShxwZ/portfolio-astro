@@ -7,6 +7,7 @@ import Projects from "./projects/Projects.astro";
 import Section from "./section/Section.astro";
 import Experience from "./experience/Experience.astro";
 import Contact from "./contact/Contact.astro";
+import Footer from "./footer/Footer.astro";
 import { t } from "i18next";
 ---
 
@@ -26,16 +27,7 @@ import { t } from "i18next";
     <Section>
       <Contact />
     </Section>
-    <footer class="w-full text-center text-[--primary-color] py-2">
-      <p class="font-light opacity-75 align-middle">
-        © 2024 Gabriel García Pellizzón - <a
-          class="underline"
-          href="https://github.com/ShxwZ/portfolio-astro"
-          target="_blank"
-          rel="noopener noreferrer">Creado con 💜 y Astro</a
-        >
-      </p>
-    </footer>
+    <Footer />
   </main>
 </Layout>
 
