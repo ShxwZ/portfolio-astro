@@ -44,8 +44,8 @@
         "TITLE": "Projects",
         "PROJECTS": [
             {
-                "TITLE": "Satix Web",
-                "DESCRIPTION":"Lorem ipsum dolor sit amet, "
+                "TITLE": "Satix Web API",
+                "DESCRIPTION":"Aplicación web para la gestión de eventos. Cuenta con una API RESTful y un panel de administración."
             },
             {
                 "TITLE": "Satix App",
@@ -53,7 +53,7 @@
             },
             {
                 "TITLE": "Portfolio",
-                "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
+                "DESCRIPTION":"Porfolio created with Astro and TailwindCSS."
             }
         ]
     },
