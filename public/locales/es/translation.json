@@ -59,7 +59,7 @@
                 "DESCRIPTION":"Portafolio creado con Astro y TailwindCSS. Mi página personal para mostrar mi experiencia y proyectos."
             }
         ]
-    },
+    },   
     "CONTACT":{
         "TITLE": "Contacto"
     },

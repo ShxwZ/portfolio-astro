@@ -40,23 +40,23 @@
           }
         ]
       },
-    "PROJECTS":{
+      "PROJECTS": {
         "TITLE": "Projects",
         "PROJECTS": [
             {
                 "TITLE": "Satix Web API",
-                "DESCRIPTION":"Aplicación web para la gestión de eventos. Cuenta con una API RESTful y un panel de administración."
+                "DESCRIPTION": "Web application for event management. It features a RESTful API and an admin panel."
             },
             {
                 "TITLE": "Satix App",
-                "DESCRIPTION":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla qua"
+                "DESCRIPTION": "Mobile application for users who want to attend events. It includes a unique ticket system and an event explorer."
             },
             {
                 "TITLE": "Portfolio",
-                "DESCRIPTION":"Porfolio created with Astro and TailwindCSS."
+                "DESCRIPTION": "Portfolio created with Astro and TailwindCSS. My personal page to showcase my experience and projects."
             }
         ]
-    },
+    },    
     "CONTACT":{
         "TITLE": "Contact"
     },
