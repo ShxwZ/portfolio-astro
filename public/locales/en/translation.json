@@ -63,5 +63,9 @@
     "BUTTONS":{
         "THEME": ["Dark theme", "Light theme"],
         "VIEW_CODE": "View code"
+    },
+    "FOOTER":{
+        "NAME": "© 2024 Gabriel García Pellizzón",
+        "CREATED_WITH": "Created with 💜 and Astro"
     }
 }

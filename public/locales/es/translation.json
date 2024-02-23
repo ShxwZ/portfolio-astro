@@ -66,6 +66,10 @@
     "BUTTONS":{
         "THEME": ["Modo oscuro", "Modo claro"],
         "VIEW_CODE": "Mostrar código"
+    },
+    "FOOTER":{
+        "NAME": "© 2024 Gabriel García Pellizzón",
+        "CREATED_WITH": "Creado con 💜 y Astro"
     }
     
     
