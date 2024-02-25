@@ -184,6 +184,8 @@ const { title, description } = Astro.props;
       }
     </style>
     <script is:inline>
+      import { inject } from "@vercel/analytics";
+      inject();
       function playSound(src) {
         const audio = new Audio(src ?? "/sounds/click.mp3");
         audio.autoplay = true;
