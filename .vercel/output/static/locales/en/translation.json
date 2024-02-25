@@ -1,0 +1,71 @@
+{
+    "TITLE_SEO": "Portfolio Gabriel García Pellizzón | Programmer y Developer FullStack",
+    "DESCRIPTION_SEO": "Gabriel García Pellizzón's Portfolio, a lover of programming and application development. Here you can learn about me, my experience, projects, and contact information :)",
+    "NAVBAR":{
+        "HOME": "Home",
+        "ABOUT_ME": "About me",
+        "EXPERIENCE": "Experience",
+        "PROJECTS": "Projects",
+        "CONTACT": "Contact"
+    },
+    "ABOUT_ME": {
+        "TITLE": "About me",
+        "DOWNLOAD_CV": "Download CV",
+        "LANGUAGES_AND_FRAMEWORKS": "Languages and Frameworks",
+        "DESCRIPTION": {
+          "FIRST": "I'm Gabriel, a <0>software developer</0> with over +1 year of experience. I consider myself a <1>self-taught</1> person, <2>passionate about technology</2>, and I love to learn every day.",
+          "SECOND": "Currently, I'm working at a software development company and learning new technologies on my own. Find out more about me and how to contact me below or in my CV."
+        }
+      },
+      "EXPERIENCE": {
+        "TITLE": "Experience",
+        "JOBS": [
+          {
+            "TITLE": "Clarcat",
+            "DESCRIPTION": "Software developer in practice, working on application development and continuously learning.",
+            "DATE": "2023",
+            "ACTUAL": true
+          },
+          {
+            "TITLE": "Clarcat",
+            "DESCRIPTION": "Work-Based Training as a software developer. I learned a lot about application development and technologies I wasn't familiar with.",
+            "DATE": "2023",
+            "DURATION": "3 months"
+          },
+          {
+            "TITLE": "Premier",
+            "DESCRIPTION": "Work-Based Training as a technician in microcomputer systems and networks. I learned about equipment maintenance, networks, and operating systems.",
+            "DATE": "2021",
+            "DURATION": "3 months"
+          }
+        ]
+      },
+      "PROJECTS": {
+        "TITLE": "Projects",
+        "PROJECTS": [
+            {
+                "TITLE": "Satix Web API",
+                "DESCRIPTION": "Web application for event management. It features a RESTful API and an admin panel."
+            },
+            {
+                "TITLE": "Satix App",
+                "DESCRIPTION": "Mobile application for users who want to attend events. It includes a unique ticket system and an event explorer."
+            },
+            {
+                "TITLE": "Portfolio",
+                "DESCRIPTION": "Portfolio created with Astro and TailwindCSS. My personal page to showcase my experience and projects."
+            }
+        ]
+    },    
+    "CONTACT":{
+        "TITLE": "Contact"
+    },
+    "BUTTONS":{
+        "THEME": ["Dark theme", "Light theme"],
+        "VIEW_CODE": "View code"
+    },
+    "FOOTER":{
+        "NAME": "© 2024 Gabriel García Pellizzón",
+        "CREATED_WITH": "Created with 💜 and Astro"
+    }
+}
