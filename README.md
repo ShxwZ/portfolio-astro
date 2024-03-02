@@ -3,9 +3,6 @@
 ![](./readme/Preview.png)
 
 
-
-
-
 ## Description
 This is my portfolio, it's a simple website made with [Astro](https://astro.build/) and [TailwindCSS](https://tailwindcss.com/).
 
