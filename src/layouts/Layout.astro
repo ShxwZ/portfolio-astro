@@ -56,7 +56,18 @@ const { title, description } = Astro.props;
 
     <meta name="viewport" content="width=device-width" />
     <!--meta name="robots" content="all" /-->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon_white.svg"
+      media="(prefers-color-scheme: dark)"
+    />
     <HeadHrefLangs />
     <title>{title}</title>
     <link rel="canonical" href="https://gabrielgarcia.vercel.app/" />
