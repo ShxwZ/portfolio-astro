@@ -54,6 +54,11 @@ const { title, description } = Astro.props;
     <HeadHrefLangs />
     <title>{title}</title>
     <link rel="canonical" href="https://gabrielgarcia.vercel.app/" />
+    <meta name="robots" content="index, follow, nocache" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
     <ViewTransitions />
   </head>
   <body>
