@@ -1,5 +1,5 @@
 {
-    "TITLE_SEO": "Portfolio Gabriel García Pellizzón | Programmer y Developer FullStack",
+    "TITLE_SEO": "Portfolio Gabriel García Pellizzón | Programmer and Developer FullStack",
     "DESCRIPTION_SEO": "Gabriel García Pellizzón's Portfolio, a lover of programming and application development. Here you can learn about me, my experience, projects, and contact information :)",
     "NAVBAR":{
         "HOME": "Home",
@@ -65,7 +65,7 @@
         "VIEW_CODE": "View code"
     },
     "FOOTER":{
-        "NAME": "© 2024 Gabriel García Pellizzón",
+        "NAME": "© 2024 Gabriel Alberto García Pellizzón",
         "CREATED_WITH": "Created with 💜 and Astro"
     }
 }
