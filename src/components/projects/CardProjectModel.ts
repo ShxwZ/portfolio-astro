@@ -4,4 +4,5 @@ export interface CardProjectModel {
     image: ImageMetadata;
     techs?: string[];
     url?: string;
+    urlApp?: string;
 }

@@ -46,7 +46,7 @@
     "PROJECTS":{
         "TITLE": "Proyectos",
         "PROJECTS": [
-            {
+            { 
                 "TITLE": "Satix Web API",
                 "DESCRIPTION":"Aplicación web para la gestión de eventos. Cuenta con una API RESTful y un panel de administración."
             },
@@ -57,6 +57,14 @@
             {
                 "TITLE": "Portafolio",
                 "DESCRIPTION":"Portafolio creado con Astro y TailwindCSS. Mi página personal para mostrar mi experiencia y proyectos."
+            },
+            {
+                "TITLE": "RequestGuard",
+                "DESCRIPTION":"Extensión para Google Chrome que proporciona funcionalidad para bloquear y redirigir solicitudes web configurables. Permite a los usuarios cargar un archivo JSON personalizado o especificar una URL externa para la redirección."
+            },
+            {
+                "TITLE": "Enfrenta2",
+                "DESCRIPTION":"Juego web para dos jugadores conectados a través de WebSockets. Cada jugador se une a una sala y juegan en tiempo real."
             }
         ]
     },   
@@ -65,7 +73,8 @@
     },
     "BUTTONS":{
         "THEME": ["Modo oscuro", "Modo claro"],
-        "VIEW_CODE": "Mostrar código"
+        "VIEW_CODE": "Mostrar código",
+        "VIEW_APP": "Ver Aplicación"
     },
     "FOOTER":{
         "NAME": "© 2024 Gabriel Alberto García Pellizzón",
