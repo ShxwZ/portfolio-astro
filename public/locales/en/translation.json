@@ -54,6 +54,14 @@
             {
                 "TITLE": "Portfolio",
                 "DESCRIPTION": "Portfolio created with Astro and TailwindCSS. My personal page to showcase my experience and projects."
+            },
+            {
+                "TITLE": "RequestGuard",
+                "DESCRIPTION": "Google Chrome extension that provides functionality to block and redirect configurable web requests. It allows users to load a custom JSON file or specify an external URL for redirection."
+            },
+            {
+                "TITLE": "Enfrenta2",
+                "DESCRIPTION":"Web game for two players connected via WebSockets. Each player joins a room and plays in real time."
             }
         ]
     },    
@@ -62,7 +70,8 @@
     },
     "BUTTONS":{
         "THEME": ["Dark theme", "Light theme"],
-        "VIEW_CODE": "View code"
+        "VIEW_CODE": "View code",
+        "VIEW_APP": "View app"
     },
     "FOOTER":{
         "NAME": "© 2024 Gabriel Alberto García Pellizzón",

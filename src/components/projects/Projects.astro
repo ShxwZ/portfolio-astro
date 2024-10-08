@@ -5,49 +5,67 @@ import type { CardProjectModel } from "./CardProjectModel";
 import satix_web_api from "../../images/projects/satix_web_api.png";
 import satix_mobile from "../../images/projects/satix_mobile.png";
 import portfolio from "../../images/projects/portfolio.png";
+import rq_extension from "../../images/projects/rq_extension.png";
+import enfreta2_game from "../../images/projects/enfreta2_game.png";
 import { t } from "i18next";
 
 const translations: { TITLE: string; DESCRIPTION: string }[] = t(
-  "PROJECTS.PROJECTS",
-  { returnObjects: true }
+    "PROJECTS.PROJECTS",
+    { returnObjects: true }
 );
 
 const data: CardProjectModel[] = [
-  {
-    title: translations[0].TITLE,
-    description: translations[0].DESCRIPTION,
-    techs: ["Java", "Spring Boot", "Thymeleaf"],
-    image: satix_web_api,
-    url: "https://github.com/ShxwZ/SaTix-Web-Api",
-  },
-  {
-    title: translations[1].TITLE,
-    description: translations[1].DESCRIPTION,
-    techs: ["Java", "Android"],
-    image: satix_mobile,
-    url: "https://github.com/ShxwZ/SaTix-Android",
-  },
-  {
-    title: translations[2].TITLE,
-    description: translations[2].DESCRIPTION,
-    techs: ["Astro", "Typescript", "TailwindCSS"],
-    image: portfolio,
-    url: "https://github.com/ShxwZ/portfolio-astro",
-  },
+    {
+        title: translations[0].TITLE,
+        description: translations[0].DESCRIPTION,
+        techs: ["Java", "Spring Boot", "Thymeleaf"],
+        image: satix_web_api,
+        url: "https://github.com/ShxwZ/SaTix-Web-Api",
+    },
+    {
+        title: translations[1].TITLE,
+        description: translations[1].DESCRIPTION,
+        techs: ["Java", "Android"],
+        image: satix_mobile,
+        url: "https://github.com/ShxwZ/SaTix-Android",
+    },
+    {
+        title: translations[2].TITLE,
+        description: translations[2].DESCRIPTION,
+        techs: ["Astro", "Typescript", "TailwindCSS"],
+        image: portfolio,
+        url: "https://github.com/ShxwZ/portfolio-astro",
+        urlApp: "https://gabrielgarcia.vercel.app/",
+    },
+    {
+        title: translations[3].TITLE,
+        description: translations[3].DESCRIPTION,
+        techs: ["Javascript", "PicoCSS"],
+        image: rq_extension,
+        url: "https://github.com/ShxwZ/block-request-extension",
+        urlApp: "https://chromewebstore.google.com/detail/requestguard/eaihggihmccbiglogiklpocajjolnjdb?authuser=1",
+    },
+    {
+        title: translations[4].TITLE,
+        description: translations[4].DESCRIPTION,
+        techs: ["Angular", "NestJS", "WebSockets"],
+        image: enfreta2_game,
+        urlApp: "https://enfrenta2.vercel.app/",
+    },
 ];
 ---
 
 <div id="projects"></div>
 <article class="w-full pt-24 px-4">
-  <div class="text-center py-10">
-    <Title>{t("PROJECTS.TITLE")}</Title>
-  </div>
-  <div class="py-10">
-    <ul
-      class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(270px,1fr))] justify-center"
-    >
-      {data.map((data) => <CardProject data={{ ...data }} />)}
-    </ul>
-  </div>
+    <div class="text-center py-10">
+        <Title>{t("PROJECTS.TITLE")}</Title>
+    </div>
+    <div class="py-10">
+        <ul
+            class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center"
+        >
+            {data.map((data) => <CardProject data={{ ...data }} />)}
+        </ul>
+    </div>
 </article>
 <style></style>
