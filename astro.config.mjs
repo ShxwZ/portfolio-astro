@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), astroI18next(), sitemap()],
-  site: 'https://gabrielgarcia.vercel.app/',
+  site: 'https://gabriel-garcia.es/',
   output: "static",
   adapter: vercelStatic({
     webAnalytics: {
