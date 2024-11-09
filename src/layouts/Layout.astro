@@ -5,253 +5,263 @@ import { HeadHrefLangs } from "astro-i18next/components";
 import { ViewTransitions } from "astro:transitions";
 
 interface Props {
-  title: string;
-  description: string;
+    title: string;
+    description: string;
 }
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={i18next.language} class="dark" transition:persist>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="google-site-verification"
-      content="17_g-JGrgRloKqhwOGmKZWNRt45ig_4o7Dlen6Q7ETI"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#f5f5f5"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#010409"
-    />
-    <!-- Primary Meta Tags -->
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="google-site-verification"
+            content="17_g-JGrgRloKqhwOGmKZWNRt45ig_4o7Dlen6Q7ETI"
+        />
+        <meta
+            name="theme-color"
+            media="(prefers-color-scheme: light)"
+            content="#f5f5f5"
+        />
+        <meta
+            name="theme-color"
+            media="(prefers-color-scheme: dark)"
+            content="#010409"
+        />
+        <!-- Primary Meta Tags -->
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gabrielgarcia.vercel.app/" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content="https://gabrielgarcia.vercel.app/banner_og.png"
-    />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://gabriel-garcia.es/" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+            property="og:image"
+            content="https://gabriel-garcia.es/banner_og.png"
+        />
 
-    <!-- Open Graph Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://gabrielgarcia.vercel.app/" />
-    <meta name="twitter:site" content="@ShxwZs" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta
-      property="twitter:image"
-      content="https://gabrielgarcia.vercel.app/banner_og.png"
-    />
+        <!-- Open Graph Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://gabriel-garcia.es/" />
+        <meta name="twitter:site" content="@ShxwZs" />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta
+            property="twitter:image"
+            content="https://gabriel-garcia.es/banner_og.png"
+        />
 
-    <meta name="viewport" content="width=device-width" />
-    <!--meta name="robots" content="all" /-->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon_white.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-    <HeadHrefLangs />
-    <title>{title}</title>
-    <link rel="canonical" href="https://gabrielgarcia.vercel.app/" />
-    <meta name="robots" content="index, follow, nocache" />
-    <meta
-      name="googlebot"
-      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
-    />
-    <ViewTransitions />
-  </head>
-  <body>
-    <slot />
-    <style is:global>
-      :root {
-        /* Sizes */
-        --portfolio-width: 60vw;
-        --nav-height: 80px;
-        /* Fonts */
-        --font-size-name-title: clamp(
-          1.25rem,
-          0.7473rem + 2.8723vw,
-          5.3125rem
-        ); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
-        --font-size-name-subtitle: calc(var(--font-size-name-title) / 1.7);
-        --font-size-title-section: clamp(
-          1.75rem,
-          1.5335rem + 1.2373vw,
-          3.5rem
-        ); /* 28px 56px */
-        --font-size-subtitle-section: clamp(
-          1rem,
-          0.9072rem + 0.5303vw,
-          1.75rem
-        ); /*28px 16px */
-        --font-size-nav: clamp(0.9375rem, 0.8988rem + 0.2209vw, 1.25rem);
-        --font-size-logo-nav: clamp(0.875rem, 0.7977rem + 0.4419vw, 1.5rem);
-        --font-size-paragraph: clamp(
-          0.75rem,
-          0.6727rem + 0.4419vw,
-          1.375rem
-        ); /* min font 12, max font 22, max vp 2543, min vp 280 */
-        color: var(--primary-color);
-        color-scheme: dark light;
-        scroll-behavior: smooth;
-        --bg-color-dark: #010409;
-        --bg-color-light: #f5f5f5;
-        --primary-color-dark: #e6edf3;
-        --primary-color-light: #1f2328;
-      }
+        <meta name="viewport" content="width=device-width" />
+        <!--meta name="robots" content="all" /-->
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon.svg"
+            media="(prefers-color-scheme: light)"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon_white.svg"
+            media="(prefers-color-scheme: dark)"
+        />
+        <HeadHrefLangs />
+        <title>{title}</title>
+        <link rel="canonical" href="https://gabriel-garcia.es/" />
+        <meta name="robots" content="index, follow, nocache" />
+        <meta
+            name="googlebot"
+            content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+        />
+        <ViewTransitions />
+    </head>
+    <body>
+        <slot />
+        <style is:global>
+            :root {
+                /* Sizes */
+                --portfolio-width: 60vw;
+                --nav-height: 80px;
+                /* Fonts */
+                --font-size-name-title: clamp(
+                    1.25rem,
+                    0.7473rem + 2.8723vw,
+                    5.3125rem
+                ); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
+                --font-size-name-subtitle: calc(
+                    var(--font-size-name-title) / 1.7
+                );
+                --font-size-title-section: clamp(
+                    1.75rem,
+                    1.5335rem + 1.2373vw,
+                    3.5rem
+                ); /* 28px 56px */
+                --font-size-subtitle-section: clamp(
+                    1rem,
+                    0.9072rem + 0.5303vw,
+                    1.75rem
+                ); /*28px 16px */
+                --font-size-nav: clamp(
+                    0.9375rem,
+                    0.8988rem + 0.2209vw,
+                    1.25rem
+                );
+                --font-size-logo-nav: clamp(
+                    0.875rem,
+                    0.7977rem + 0.4419vw,
+                    1.5rem
+                );
+                --font-size-paragraph: clamp(
+                    0.75rem,
+                    0.6727rem + 0.4419vw,
+                    1.375rem
+                ); /* min font 12, max font 22, max vp 2543, min vp 280 */
+                color: var(--primary-color);
+                color-scheme: dark light;
+                scroll-behavior: smooth;
+                --bg-color-dark: #010409;
+                --bg-color-light: #f5f5f5;
+                --primary-color-dark: #e6edf3;
+                --primary-color-light: #1f2328;
+            }
 
-      /* Colors Dark Theme */
-      html.dark {
-        --primary-color: var(--primary-color-dark);
-        --secondary-color: #c4c4c4;
-        --color-violet-one: #8332ff;
-        --color-violet-two: #451b8c;
-        --color-lilac-one: #d8ccf1;
+            /* Colors Dark Theme */
+            html.dark {
+                --primary-color: var(--primary-color-dark);
+                --secondary-color: #c4c4c4;
+                --color-violet-one: #8332ff;
+                --color-violet-two: #451b8c;
+                --color-lilac-one: #d8ccf1;
 
-        --bg-color: var(--bg-color-dark);
-        --secondary-bg-color: #0d1117;
+                --bg-color: var(--bg-color-dark);
+                --secondary-bg-color: #0d1117;
 
-        --border-color: #0b0d0fab;
-        --secondary-border-color: #514d4db3;
+                --border-color: #0b0d0fab;
+                --secondary-border-color: #514d4db3;
 
-        --bg-button-color: #21262d;
-        --border-button-color: #363b42;
+                --bg-button-color: #21262d;
+                --border-button-color: #363b42;
 
-        --nav-bg-color: rgba(1, 4, 9, 0.36);
-      }
-      /* Colors Light Theme */
-      html {
-        --primary-color: var(--primary-color-light);
-        --secondary-color: #24292f;
-        --color-violet-one: #ab57ff;
-        --color-violet-two: #451b8c;
-        --color-lilac-one: #8f6bd8;
+                --nav-bg-color: rgba(1, 4, 9, 0.36);
+            }
+            /* Colors Light Theme */
+            html {
+                --primary-color: var(--primary-color-light);
+                --secondary-color: #24292f;
+                --color-violet-one: #ab57ff;
+                --color-violet-two: #451b8c;
+                --color-lilac-one: #8f6bd8;
 
-        --bg-color: var(--bg-color-light);
-        --secondary-bg-color: #ededed; /*#dee0e3 */
-        --border-color: #d0d7de;
-        --secondary-border-color: #9d9b9bbf;
-        --bg-button-color: #f6f8fa;
-        --border-button-color: #d0d7de;
+                --bg-color: var(--bg-color-light);
+                --secondary-bg-color: #ededed; /*#dee0e3 */
+                --border-color: #d0d7de;
+                --secondary-border-color: #9d9b9bbf;
+                --bg-button-color: #f6f8fa;
+                --border-button-color: #d0d7de;
 
-        --nav-bg-color: rgba(245, 245, 245, 0.36);
-      }
+                --nav-bg-color: rgba(245, 245, 245, 0.36);
+            }
 
-      a:hover {
-        opacity: 0.67;
-      }
-      h2 {
-        font-size: var(--font-size-subtitle-section);
-      }
-      p {
-        font-size: var(--font-size-paragraph);
-        color: var(--primary-color);
-      }
+            a:hover {
+                opacity: 0.67;
+            }
+            h2 {
+                font-size: var(--font-size-subtitle-section);
+            }
+            p {
+                font-size: var(--font-size-paragraph);
+                color: var(--primary-color);
+            }
 
-      html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        background: var(--bg-color);
-      }
+            html {
+                font-family: "Onest Variable", system-ui, sans-serif;
+                background: var(--bg-color);
+            }
 
-      @media (width <= 1620px) {
-        :root {
-          --portfolio-width: 70vw;
-          --font-size-name-title: clamp(
-            1.125rem,
-            0.4459rem + 3.8806vw,
-            4.375rem
-          );
-          /* 75vh - min font 18, max font 70, max vp 1620px, min vp 280  */
-        }
-      }
+            @media (width <= 1620px) {
+                :root {
+                    --portfolio-width: 70vw;
+                    --font-size-name-title: clamp(
+                        1.125rem,
+                        0.4459rem + 3.8806vw,
+                        4.375rem
+                    );
+                    /* 75vh - min font 18, max font 70, max vp 1620px, min vp 280  */
+                }
+            }
 
-      /* Responsive */
-      @media (width <= 1000px) {
-        :root {
-          --portfolio-width: 100vw;
-          --font-size-name-title: clamp(
-            1.125rem,
-            -0.0174rem + 6.5278vw,
-            4.0625rem
-          );
-          /* 80vh - min font 18, max font 65, max vp 1000, min vp 280  */
-        }
-      }
-      /* Responsive mobile navbar */
-      @media only screen and (max-width: 1000px) {
-        :root {
-          --nav-height: 70px;
-        }
-      }
+            /* Responsive */
+            @media (width <= 1000px) {
+                :root {
+                    --portfolio-width: 100vw;
+                    --font-size-name-title: clamp(
+                        1.125rem,
+                        -0.0174rem + 6.5278vw,
+                        4.0625rem
+                    );
+                    /* 80vh - min font 18, max font 65, max vp 1000, min vp 280  */
+                }
+            }
+            /* Responsive mobile navbar */
+            @media only screen and (max-width: 1000px) {
+                :root {
+                    --nav-height: 70px;
+                }
+            }
 
-      /* Disable animations */
-      @media (prefers-reduced-motion) {
-        * {
-          animation: none !important;
-          transition: none !important;
-        }
-      }
-    </style>
-    <script is:inline>
-      function playSound(src) {
-        const audio = new Audio(src ?? "/sounds/click.mp3");
-        audio.autoplay = true;
-        audio.play();
-      }
-      document.addEventListener("astro:after-swap", () => {
-        const theme = (() => {
-          if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-          ) {
-            return localStorage.getItem("theme");
-          }
-          return "dark";
-        })();
+            /* Disable animations */
+            @media (prefers-reduced-motion) {
+                * {
+                    animation: none !important;
+                    transition: none !important;
+                }
+            }
+        </style>
+        <script is:inline>
+            function playSound(src) {
+                const audio = new Audio(src ?? "/sounds/click.mp3");
+                audio.autoplay = true;
+                audio.play();
+            }
+            document.addEventListener("astro:after-swap", () => {
+                const theme = (() => {
+                    if (
+                        typeof localStorage !== "undefined" &&
+                        localStorage.getItem("theme")
+                    ) {
+                        return localStorage.getItem("theme");
+                    }
+                    return "dark";
+                })();
 
-        if (theme === "light") {
-          document.documentElement.classList.remove("dark");
-        } else {
-          document.documentElement.classList.add("dark");
-        }
+                if (theme === "light") {
+                    document.documentElement.classList.remove("dark");
+                } else {
+                    document.documentElement.classList.add("dark");
+                }
 
-        window.localStorage.setItem("theme", theme);
-      });
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        return "dark";
-      })();
+                window.localStorage.setItem("theme", theme);
+            });
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                return "dark";
+            })();
 
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
+            if (theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.classList.add("dark");
+            }
 
-      window.localStorage.setItem("theme", theme);
-    </script>
-  </body>
+            window.localStorage.setItem("theme", theme);
+        </script>
+    </body>
 </html>
