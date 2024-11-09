@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://www.gabriel-garcia.es/</title>
+  <link>https://www.gabriel-garcia.es/</link>
+
+<item>
+     <link>https://www.gabriel-garcia.es/</link>
+     <title>Portafolio Gabriel García Pellizzón | Programador y Desarrollador FullStack</title>
+     <description>Portafolio de Gabriel Alberto García Pellizzón, amante de la programación y el desarrollo de aplicaciones. Aquí podrás conocer sobre mí, experiencia, proyectos y contacto :)</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.gabriel-garcia.es/en</link>
+     <title>Portfolio Gabriel García Pellizzón | Programmer and Developer FullStack</title>
+     <description>Gabriel Alberto García Pellizzón's Portfolio, a lover of programming and application development. Here you can learn about me, my experience, projects, and contact information :)</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.gabriel-garcia.es/CV.pdf</link>
+     <title></title>
+     
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  
