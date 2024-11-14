@@ -129,7 +129,7 @@ const techs = [...new Set(data.flatMap((project) => project.techs))]
                 const projects =
                     document.querySelectorAll("li[id^='project-']");
                 projects.forEach((project) => {
-                    project.style.display = "block";
+                    project.style.display = "flex";
                 });
                 return;
             }
@@ -154,7 +154,7 @@ const techs = [...new Set(data.flatMap((project) => project.techs))]
                 if (projectsToHide[i]) {
                     project.style.display = "none";
                 } else {
-                    project.style.display = "block";
+                    project.style.display = "flex";
                 }
             });
         });
