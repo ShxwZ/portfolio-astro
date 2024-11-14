@@ -8,51 +8,65 @@ import portfolio from "../../images/projects/portfolio.png";
 import rq_extension from "../../images/projects/rq_extension.png";
 import enfreta2_game from "../../images/projects/enfreta2_game.png";
 import { t } from "i18next";
+import GrayBadge from "../badges/GrayBadge.astro";
+import { string } from "astro/zod";
 
-const translations: { TITLE: string; DESCRIPTION: string }[] = t(
-    "PROJECTS.PROJECTS",
-    { returnObjects: true }
-);
+const translations: { TITLE: string; DESCRIPTION: string }[] =
+    t("PROJECTS.PROJECTS", { returnObjects: true }) || [];
 
 const data: CardProjectModel[] = [
     {
-        title: translations[0].TITLE,
-        description: translations[0].DESCRIPTION,
+        title: translations[0]?.TITLE || "Proyecto 1",
+        description:
+            translations[0]?.DESCRIPTION || "Descripción del proyecto 1",
         techs: ["Java", "Spring Boot", "Thymeleaf"],
         image: satix_web_api,
         url: "https://github.com/ShxwZ/SaTix-Web-Api",
     },
     {
-        title: translations[1].TITLE,
-        description: translations[1].DESCRIPTION,
+        title: translations[1]?.TITLE || "Proyecto 2",
+        description:
+            translations[1]?.DESCRIPTION || "Descripción del proyecto 2",
         techs: ["Java", "Android"],
         image: satix_mobile,
         url: "https://github.com/ShxwZ/SaTix-Android",
     },
     {
-        title: translations[2].TITLE,
-        description: translations[2].DESCRIPTION,
+        title: translations[2]?.TITLE || "Portafolio",
+        description:
+            translations[2]?.DESCRIPTION || "Descripción del portafolio",
         techs: ["Astro", "Typescript", "TailwindCSS"],
         image: portfolio,
         url: "https://github.com/ShxwZ/portfolio-astro",
         urlApp: "https://gabriel-garcia.es/",
     },
     {
-        title: translations[3].TITLE,
-        description: translations[3].DESCRIPTION,
+        title: translations[3]?.TITLE || "Extensión",
+        description:
+            translations[3]?.DESCRIPTION || "Descripción de la extensión",
         techs: ["Javascript", "PicoCSS"],
         image: rq_extension,
         url: "https://github.com/ShxwZ/block-request-extension",
         urlApp: "https://chromewebstore.google.com/detail/requestguard/eaihggihmccbiglogiklpocajjolnjdb?authuser=1",
     },
     {
-        title: translations[4].TITLE,
-        description: translations[4].DESCRIPTION,
-        techs: ["Angular", "NestJS", "WebSockets"],
+        title: translations[4]?.TITLE || "Juego Enfrenta2",
+        description: translations[4]?.DESCRIPTION || "Descripción del juego",
+        techs: ["Angular", "NestJS", "WebSockets", "Typescript"],
         image: enfreta2_game,
         urlApp: "https://enfrenta2.vercel.app/",
     },
 ];
+
+const techs = [...new Set(data.flatMap((project) => project.techs))]
+    .filter((t) => t !== undefined)
+    .map((tech) => {
+        return {
+            id: tech,
+            total: data.filter((project) => project!.techs!.includes(tech))
+                .length,
+        };
+    });
 ---
 
 <div id="projects"></div>
@@ -60,12 +74,88 @@ const data: CardProjectModel[] = [
     <div class="text-center py-10">
         <Title>{t("PROJECTS.TITLE")}</Title>
     </div>
+
+    <div class="flex flex-wrap gap-2 justify-center">
+        {
+            techs.map((tech) => (
+                <label class="flex items-center cursor-pointer">
+                    <input
+                        type="checkbox"
+                        class="mr-2 peer project-tech-checkbox"
+                        id={tech.id}
+                    />
+                    <span class="opacity-50 transition-opacity w-auto peer-checked:opacity-100 hover:opacity-100 select-none ">
+                        <GrayBadge>
+                            <>
+                                <span class="text-lg">{tech.id}</span>
+                                &nbsp;
+                                <small class="text-sm">({tech.total})</small>
+                            </>
+                        </GrayBadge>
+                    </span>
+                </label>
+            ))
+        }
+    </div>
+
     <div class="py-10">
         <ul
             class="grid gap-5 grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center"
         >
-            {data.map((data) => <CardProject data={{ ...data }} />)}
+            {
+                data.map((project, i) => (
+                    <li
+                        id={`project-${i}`}
+                        class="card-project max-w-[740px] flex flex-col mx-auto outline outline-[0.25rem] outline-[--border-color] rounded-xl flex-1 w-auto bg-[--secondary-bg-color] overflow-hidden"
+                    >
+                        <CardProject data={{ ...project }} />
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </article>
-<style></style>
+
+<script is:inline define:vars={{ techs, data }}>
+    const checkboxes = document.querySelectorAll(".project-tech-checkbox");
+    checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("click", function () {
+            const techsChecked = Array.from(checkboxes)
+                .filter((checkbox) => checkbox.checked)
+                .map((checkbox) => checkbox.id);
+
+            if (techsChecked.length === 0) {
+                const projects =
+                    document.querySelectorAll("li[id^='project-']");
+                projects.forEach((project) => {
+                    project.style.display = "block";
+                });
+                return;
+            }
+            if (techsChecked.length === techs.length) {
+                playSound("/sounds/tada.mp3");
+                confetti({
+                    particleCount: 150,
+                });
+                return;
+            }
+            playSound("/sounds/pop.mp3");
+
+            const projectsToHide = data
+                .map((d, i) =>
+                    d.techs.filter((t) => techsChecked.includes(t)).length > 0
+                        ? undefined
+                        : i
+                )
+                .map((d) => d !== undefined);
+            const projects = document.querySelectorAll("li[id^='project-']");
+            projects.forEach((project, i) => {
+                if (projectsToHide[i]) {
+                    project.style.display = "none";
+                } else {
+                    project.style.display = "block";
+                }
+            });
+        });
+    });
+</script>

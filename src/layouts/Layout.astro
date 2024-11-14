@@ -79,6 +79,7 @@ const { title, description } = Astro.props;
         <ViewTransitions />
     </head>
     <body>
+        <script is:inline src="/js/confetti.browser.min.js"></script>
         <slot />
         <style is:global>
             :root {
@@ -220,9 +221,11 @@ const { title, description } = Astro.props;
                 }
             }
         </style>
+
         <script is:inline>
             function playSound(src) {
                 const audio = new Audio(src ?? "/sounds/click.mp3");
+                audio.volume = 0.5;
                 audio.autoplay = true;
                 audio.play();
             }
