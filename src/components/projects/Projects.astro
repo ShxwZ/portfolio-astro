@@ -63,8 +63,9 @@ const techs = [...new Set(data.flatMap((project) => project.techs))]
     .map((tech) => {
         return {
             id: tech,
-            total: data.filter((project) => project!.techs!.includes(tech))
-                .length,
+            total: data.filter((project) =>
+                project.techs ? project.techs.includes(tech) : 0
+            ).length,
         };
     });
 ---
