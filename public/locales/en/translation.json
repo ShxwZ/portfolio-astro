@@ -1,7 +1,7 @@
 {
     "TITLE_SEO": "Portfolio Gabriel García Pellizzón | Programmer and Developer FullStack",
     "DESCRIPTION_SEO": "Gabriel Alberto García Pellizzón's Portfolio, a lover of programming and application development. Here you can learn about me, my experience, projects, and contact information :)",
-    "NAVBAR":{
+    "NAVBAR": {
         "HOME": "Home",
         "ABOUT_ME": "About me",
         "EXPERIENCE": "Experience",
@@ -13,34 +13,47 @@
         "DOWNLOAD_CV": "Download CV",
         "LANGUAGES_AND_FRAMEWORKS": "Languages and Frameworks",
         "DESCRIPTION": {
-          "FIRST": "I'm Gabriel, a <0>software developer</0> with over +1 year of experience. I consider myself a <1>self-taught</1> person, <2>passionate about technology</2>, and I love to learn every day.",
-          "SECOND": "Currently, I'm working at a software development company and learning new technologies on my own. Find out more about me and how to contact me below or in my CV."
+            "FIRST": "I'm Gabriel, a <0>software developer</0> with over +1 year of experience. I consider myself a <1>self-taught</1> person, <2>passionate about technology</2>, and I love to learn every day.",
+            "SECOND": "Currently, I'm working at a software development company and learning new technologies on my own. Find out more about me and how to contact me below or in my CV."
         }
-      },
-      "EXPERIENCE": {
+    },
+    "EXPERIENCE": {
         "TITLE": "Experience",
         "JOBS": [
-          {
-            "TITLE": "Clarcat",
-            "DESCRIPTION": "Software developer in practice, working on application development and continuously learning.",
-            "DATE": "2023",
-            "ACTUAL": true
-          },
-          {
-            "TITLE": "Clarcat",
-            "DESCRIPTION": "Work-Based Training as a software developer. I learned a lot about application development and technologies I wasn't familiar with.",
-            "DATE": "2023",
-            "DURATION": "3 months"
-          },
-          {
-            "TITLE": "Premier",
-            "DESCRIPTION": "Work-Based Training as a technician in microcomputer systems and networks. I learned about equipment maintenance, networks, and operating systems.",
-            "DATE": "2021",
-            "DURATION": "3 months"
-          }
+            {
+                "TITLE": "Clarcat",
+                "DESCRIPTION": "Software developer, working on application development and in a continuous learning process.",
+                "DATE": "2023",
+                "ACTUAL": true,
+                "URL": "https://www.clarcat.com/",
+                "JOBPOSITIONS": [
+                    {
+                        "POSITION": "Junior Software Developer",
+                        "DESCRIPTION": "Experience in software development, where I expanded my knowledge in application development and explored new technologies."
+                    },
+                    {
+                        "POSITION": "Work-Based Training",
+                        "DESCRIPTION": "Work-based training as a software developer, where I gained experience in application development and using new technologies.",
+                        "DURATION": "3 months"
+                    }
+                ]
+            },
+            {
+                "TITLE": "Premier",
+                "DESCRIPTION": "Work-based training as a technician in microcomputer systems and networks, where I acquired knowledge in equipment maintenance, networks, and operating systems.",
+                "DATE": "2021",
+                "DURATION": "3 months",
+                "URL": "https://www.premiernet.com/",
+                "JOBPOSITIONS": [
+                    {
+                        "POSITION": "Work-Based Training",
+                        "DESCRIPTION": "Work-based training as a technician in microcomputer systems and networks, focused on equipment maintenance, networks, and operating systems."
+                    }
+                ]
+            }
         ]
-      },
-      "PROJECTS": {
+    },
+    "PROJECTS": {
         "TITLE": "Projects",
         "PROJECTS": [
             {
@@ -61,19 +74,19 @@
             },
             {
                 "TITLE": "Enfrenta2",
-                "DESCRIPTION":"Web game for two players connected via WebSockets. Each player joins a room and plays in real time."
+                "DESCRIPTION": "Web game for two players connected via WebSockets. Each player joins a room and plays in real time."
             }
         ]
-    },    
-    "CONTACT":{
+    },
+    "CONTACT": {
         "TITLE": "Contact"
     },
-    "BUTTONS":{
+    "BUTTONS": {
         "THEME": ["Dark theme", "Light theme"],
         "VIEW_CODE": "View code",
         "VIEW_APP": "View app"
     },
-    "FOOTER":{
+    "FOOTER": {
         "NAME": "© 2024 Gabriel Alberto García Pellizzón",
         "CREATED_WITH": "Created with 💜 and Astro"
     }

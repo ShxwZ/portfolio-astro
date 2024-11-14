@@ -5,32 +5,38 @@ import avatar from "../../images/avatar.png";
 ---
 
 <div class="flex flex-col justify-center gap-4 w-fit">
-  <div class="bg-[--border-button-color] rounded-xl h-fit w-fit p-1 shadow-sm">
-    <Image
-      src={avatar}
-      alt="Foto de Gabriel Alberto García Pellizzón"
-      title="Foto de Gabriel Alberto García Pellizzón"
-      width={300}
-      class={"avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"}
-    />
-  </div>
-  <!--  Download CV Button  -->
-  <DownloadButton />
+    <div
+        class="bg-[--border-button-color] rounded-xl h-fit w-fit p-1 shadow-sm avatar-inside"
+    >
+        <Image
+            src={avatar}
+            alt="Foto de Gabriel Alberto García Pellizzón"
+            title="Foto de Gabriel Alberto García Pellizzón"
+            width={300}
+            class={"avatar bg-[--secondary-bg-color] rounded-[--nested-radius]"}
+        />
+    </div>
+    <!--  Download CV Button  -->
+    <DownloadButton />
 </div>
 
 <style>
-  .content-avatar {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem;
-  }
+    .avatar-inside {
+        --nested-radius: calc(0.75rem - 0.25rem);
+    }
 
-  .avatar {
-    width: 100%;
-  }
-  .content-avatar {
-    width: 100%;
-  }
+    .content-avatar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .avatar {
+        width: 100%;
+    }
+    .content-avatar {
+        width: 100%;
+    }
 </style>

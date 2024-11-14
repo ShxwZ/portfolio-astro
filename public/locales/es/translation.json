@@ -19,29 +19,39 @@
     },
     "EXPERIENCE":{
         "TITLE": "Experiencia",
-        "JOBS":[
+        "JOBS": [
             {
-                "TITLE": "Clarcat",
-                "DESCRIPTION": "Desarrollador de software en practicas, trabajo en el desarrollo de aplicaciones y sigo en constante aprendizaje.",
-                "DATE": "2023",
-                "ACTUAL" : true
-                
+              "TITLE": "Clarcat",
+              "DESCRIPTION": "Desarrollador de software, trabajando en el desarrollo de aplicaciones y en un proceso continuo de aprendizaje.",
+              "DATE": "2023",
+              "ACTUAL": true,
+              "URL": "https://www.clarcat.com/",
+              "JOBPOSITIONS":[
+                {
+                  "POSITION": "Desarrollador de Software Junior",
+                  "DESCRIPTION": "Experiencia en desarrollo de software, donde he ampliado mis conocimientos en desarrollo de aplicaciones y explorado nuevas tecnologías."
+                },
+                {
+                  "POSITION": "Formación en el Lugar de Trabajo",
+                  "DESCRIPTION": "Formación práctica como desarrollador de software, en la cual gané experiencia en desarrollo de aplicaciones y en el uso de tecnologías nuevas.",
+                  "DURATION": "3 meses"                
+                }
+              ]
             },
             {
-                "TITLE": "Clarcat",
-                "DESCRIPTION": "Practicas de FCT como desarrollador de software. Aprendí bastante sobre desarrollo de aplicaciones y tecnologias que no conocia.",
-                "DATE": "2023",
-                "DURATION": "3 meses"
-                
-            },
-            {
-                "TITLE": "Premier",
-                "DESCRIPTION": "Practicas de FCT como técnico en sistemas microinformáticos y redes. Aprendi sobre mantenimiento de equipos, redes y sistemas operativos.",
-                "DATE": "2021",
-                "DURATION": "3 meses"
-                
+              "TITLE": "Premier",
+              "DESCRIPTION": "Formación práctica como técnico en sistemas microinformáticos y redes, donde adquirí conocimientos sobre mantenimiento de equipos, redes y sistemas operativos.",
+              "DATE": "2021",
+              "DURATION": "3 meses",
+              "URL": "https://www.premiernet.com/",
+              "JOBPOSITIONS":[
+                {
+                  "POSITION": "Formación en el Lugar de Trabajo",
+                  "DESCRIPTION": "Formación práctica como técnico en sistemas microinformáticos y redes, enfocada en mantenimiento de equipos, redes y sistemas operativos."
+                }
+              ]
             }
-        ]
+          ]
     },
     "PROJECTS":{
         "TITLE": "Proyectos",

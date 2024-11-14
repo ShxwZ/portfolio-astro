@@ -8,49 +8,51 @@ import { t } from "i18next";
 ---
 
 <div id="about-me"></div>
-<article class="pt-24 px-4 flex flex-col gap-2">
-  <Card padding="2.5rem">
-    <div class="flex gap-x-5">
-      <div class="flex flex-col gap-5 w-full">
-        <!--  Title  -->
+
+<article class="px-4 flex flex-col gap-2 py-24">
+    <!--  Title  -->
+    <div class="text-center py-10">
         <Title>{t("ABOUT_ME.TITLE")}</Title>
-        <div class="flex about-content gap-5">
-          <div class="text-wrap flex flex-col gap-y-2">
-            <!--  Bio Text  -->
-            <Bio class="flex flex-col gap-2 basis-3/4" />
-          </div>
-          <!--  Avatar Mobile -->
-          <div class="content-avatar-mobile justify-center">
-            <Avatar />
-          </div>
-        </div>
-      </div>
-      <div class="content-avatar flex items-center justify-center w-[40%] pt-6">
-        <!--  Avatar  -->
-        <Avatar />
-      </div>
     </div>
-  </Card>
-  <div class="p-[0.5rem] mt-5">
-    <!--  Langs & Tech Info  -->
-    <LangsInfo />
-  </div>
+    <div class="flex gap-x-5">
+        <div class="content-avatar flex items-center w-auto pt-6">
+            <!--  Avatar  -->
+            <Avatar />
+        </div>
+        <div class="flex flex-col gap-5 w-full justify-center flex-1">
+            <div class="flex about-content gap-5">
+                <div class="text-wrap flex flex-col gap-y-2">
+                    <!--  Bio Text  -->
+                    <Bio class="flex flex-col gap-2 basis-3/4" />
+                </div>
+                <!--  Avatar Mobile -->
+                <div class="content-avatar-mobile justify-center">
+                    <Avatar />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-[0.5rem] mt-5">
+        <!--  Langs & Tech Info  -->
+        <LangsInfo />
+    </div>
 </article>
 
 <style>
-  .content-avatar-mobile {
-    display: none;
-  }
-  @media (width <= 1250px) {
-    .content-avatar {
-      display: none;
-    }
     .content-avatar-mobile {
-      display: flex;
+        display: none;
     }
-    .about-content {
-      flex-direction: column-reverse;
-      gap: 1rem;
+    @media (width <= 1250px) {
+        .content-avatar {
+            display: none;
+        }
+        .content-avatar-mobile {
+            display: flex;
+        }
+        .about-content {
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
     }
-  }
 </style>
