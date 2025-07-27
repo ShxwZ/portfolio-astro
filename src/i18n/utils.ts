@@ -14,7 +14,6 @@ export function useTranslations(lang: keyof typeof ui) {
 
 export function useTranslatedPath(lang: keyof typeof ui) {
     return function translatePath(path: string, l: string = lang) {
-        // Para simplicidad, solo manejamos las rutas básicas sin traducción avanzada
         return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
     };
 }
@@ -28,6 +27,5 @@ export function getRouteFromUrl(url: URL): string | undefined {
         return undefined;
     }
 
-    // Para simplicidad, devolvemos la ruta base sin traducción
     return path;
 }

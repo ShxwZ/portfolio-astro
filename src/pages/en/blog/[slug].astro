@@ -4,7 +4,7 @@ import BlogPost from "../../../components/blog/BlogPost.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
-    // Solo generar rutas para posts en inglés
+
     const englishPosts = posts.filter(
         (post: CollectionEntry<"blog">) =>
             post.data.lang === "en" && !post.data.draft

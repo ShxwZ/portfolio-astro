@@ -5,8 +5,8 @@ pubDate: 2025-01-15
 tags: ["astro", "markdown", "blog", "desarrollo-web"]
 lang: "es"
 relatedPosts:
-  en: "primer-post-en"  # Slug del post relacionado en inglés
-  fallback: "/en/blog"  # Fallback si no existe post relacionado
+  en: "primer-post-en"
+  fallback: "/en/blog"
 ---
 
 ¡Bienvenidos a mi nuevo blog! Este es el primer post escrito completamente en **Markdown** usando las capacidades nativas de Astro.
