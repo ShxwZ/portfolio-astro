@@ -1,13 +1,51 @@
 ---
 interface Props {
-  text: string;
+    text: string;
 }
 
 const { text } = Astro.props;
 ---
 
-<span class="flex items-center cursor-default h-full opacity-100">
-  <span class="w-fit px-2 font-[600]">
-    {text}
-  </span>
+<span class="flex items-center cursor-default h-full opacity-100 no-select">
+    <span class="w-fit px-2 font-[600]">
+        {text}
+    </span>
 </span>
+
+<style>
+    .no-select {
+        /* Prevent text selection and dragging */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        /* Prevent dragging */
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+
+        /* Prevent highlighting */
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Apply to all child elements as well */
+    .no-select * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+</style>

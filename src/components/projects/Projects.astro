@@ -7,51 +7,46 @@ import satix_mobile from "../../images/projects/satix_mobile.png";
 import portfolio from "../../images/projects/portfolio.png";
 import rq_extension from "../../images/projects/rq_extension.png";
 import enfreta2_game from "../../images/projects/enfreta2_game.png";
-import { t } from "i18next";
-import GrayBadge from "../badges/GrayBadge.astro";
-import { string } from "astro/zod";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
-const translations: { TITLE: string; DESCRIPTION: string }[] =
-    t("PROJECTS.PROJECTS", { returnObjects: true }) || [];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import GrayBadge from "../badges/GrayBadge.astro";
 
 const data: CardProjectModel[] = [
     {
-        title: translations[0]?.TITLE || "Proyecto 1",
-        description:
-            translations[0]?.DESCRIPTION || "Descripción del proyecto 1",
+        title: t("projects.satix-web.title"),
+        description: t("projects.satix-web.description"),
         techs: ["Java", "Spring Boot", "Thymeleaf"],
         image: satix_web_api,
         url: "https://github.com/ShxwZ/SaTix-Web-Api",
     },
     {
-        title: translations[1]?.TITLE || "Proyecto 2",
-        description:
-            translations[1]?.DESCRIPTION || "Descripción del proyecto 2",
+        title: t("projects.satix-app.title"),
+        description: t("projects.satix-app.description"),
         techs: ["Java", "Android"],
         image: satix_mobile,
         url: "https://github.com/ShxwZ/SaTix-Android",
     },
     {
-        title: translations[2]?.TITLE || "Portafolio",
-        description:
-            translations[2]?.DESCRIPTION || "Descripción del portafolio",
+        title: t("projects.portfolio.title"),
+        description: t("projects.portfolio.description"),
         techs: ["Astro", "Typescript", "TailwindCSS"],
         image: portfolio,
         url: "https://github.com/ShxwZ/portfolio-astro",
         urlApp: "https://gabriel-garcia.es/",
     },
     {
-        title: translations[3]?.TITLE || "Extensión",
-        description:
-            translations[3]?.DESCRIPTION || "Descripción de la extensión",
+        title: t("projects.requestguard.title"),
+        description: t("projects.requestguard.description"),
         techs: ["Javascript", "PicoCSS"],
         image: rq_extension,
         url: "https://github.com/ShxwZ/block-request-extension",
         urlApp: "https://chromewebstore.google.com/detail/requestguard/eaihggihmccbiglogiklpocajjolnjdb?authuser=1",
     },
     {
-        title: translations[4]?.TITLE || "Juego Enfrenta2",
-        description: translations[4]?.DESCRIPTION || "Descripción del juego",
+        title: t("projects.enfrenta2.title"),
+        description: t("projects.enfrenta2.description"),
         techs: ["Angular", "NestJS", "WebSockets", "Typescript"],
         image: enfreta2_game,
         urlApp: "https://enfrenta2.vercel.app/",
@@ -73,7 +68,7 @@ const techs = [...new Set(data.flatMap((project) => project.techs))]
 <div id="projects"></div>
 <article class="w-full pt-24 px-4">
     <div class="text-center py-10">
-        <Title>{t("PROJECTS.TITLE")}</Title>
+        <Title>{t("projects.title")}</Title>
     </div>
 
     <div class="flex flex-wrap gap-2 justify-center">

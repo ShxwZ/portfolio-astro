@@ -4,6 +4,9 @@ dist/
 # generated types
 .astro/
 .vscode/
+.vercel/
+.vscode/
+.github/
 
 # dependencies
 node_modules/
@@ -20,3 +23,4 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+.github/copilot-instructions.md

@@ -1,0 +1,46 @@
+---
+interface Props {
+    href: string;
+    title?: string;
+    text?: string;
+    size?: string;
+    class?: string;
+}
+
+const {
+    href,
+    title,
+    text = "Ver sitio",
+    size = "1em",
+    class: className = "",
+} = Astro.props;
+---
+
+<a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`inline-flex items-center gap-1.5 px-2 py-1 text-sm hover:scale-105 transition-all duration-200 ${className}`}
+    aria-label={title
+        ? `Visitar sitio web de ${title}`
+        : "Visitar enlace externo"}
+>
+    <span class="font-medium">{text}</span>
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transition-colors"
+    >
+        <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"
+        ></path>
+        <path d="m21 3-9 9"></path>
+        <path d="M15 3h6v6"></path>
+    </svg>
+</a>

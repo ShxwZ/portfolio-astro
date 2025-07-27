@@ -86,6 +86,16 @@
         "VIEW_CODE": "Mostrar código",
         "VIEW_APP": "Ver Aplicación"
     },
+    "BLOG": {
+        "TITLE": "Blog",
+        "DESCRIPTION": "Pensamientos, tutoriales y experiencias sobre desarrollo",
+        "BACK_TO_BLOG": "Volver al blog",
+        "ALL_POSTS": "Todos los posts",
+        "NO_POSTS": "No hay posts disponibles en este idioma.",
+        "UPDATED": "Actualizado",
+        "ENJOYED_POST": "¿Te gustó este post?",
+        "CONTACT_ME": "Contáctame"
+    },
     "FOOTER":{
         "NAME": "© 2024 Gabriel Alberto García Pellizzón",
         "CREATED_WITH": "Creado con 💜 y Astro"

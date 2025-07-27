@@ -1,13 +1,16 @@
 ---
-import { t } from "i18next";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="w-full text-center text-[--primary-color] py-2">
-  <p class="font-light opacity-75 align-middle">
-    {t("FOOTER.NAME")} - <a
-      href="https://github.com/ShxwZ/portfolio-astro"
-      target="_blank"
-      rel="noopener noreferrer">{t("FOOTER.CREATED_WITH")}</a
-    >
-  </p>
+    <p class="font-light opacity-75 align-middle">
+        {t("footer.name")} - <a
+            href="https://github.com/ShxwZ/portfolio-astro"
+            target="_blank"
+            rel="noopener noreferrer">{t("footer.created-with")}</a
+        >
+    </p>
 </footer>

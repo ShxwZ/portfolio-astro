@@ -4,7 +4,10 @@ import LangsInfo from "./LangsInfo.astro";
 import Bio from "./Bio.astro";
 import Title from "../utils/Title.astro";
 import Avatar from "./Avatar.astro";
-import { t } from "i18next";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div id="about-me"></div>
@@ -12,7 +15,7 @@ import { t } from "i18next";
 <article class="px-4 flex flex-col gap-2 py-24">
     <!--  Title  -->
     <div class="text-center py-10">
-        <Title>{t("ABOUT_ME.TITLE")}</Title>
+        <Title>{t("about.title")}</Title>
     </div>
     <div class="flex gap-x-5">
         <div class="content-avatar flex items-center w-auto pt-6">

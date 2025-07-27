@@ -1,18 +1,58 @@
 ---
 interface Props {
-  url: string;
-  text: string;
+    url: string;
+    text: string;
 }
 
 const { text, url } = Astro.props;
 ---
 
 <a
-  href={url}
-  class="flex items-center cursor-pointer h-full bg-[--border-button-color]"
-  onclick="playSound()"
+    href={url}
+    class="flex items-center cursor-pointer h-full bg-[--border-button-color] no-drag lang-switch-link"
+    draggable="false"
+    data-target-url={url}
+    data-astro-reload
 >
-  <span class="px-2 w-fit">
-    {text}
-  </span>
+    <span class="px-2 w-fit">
+        {text}
+    </span>
 </a>
+
+<style>
+    .no-drag {
+        /* Prevent text selection and dragging */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        /* Prevent dragging */
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+
+        /* Prevent highlighting */
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Apply to all child elements as well */
+    .no-drag * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+</style>
