@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const isBlog = true;
+
+// Obtener todos los posts del blog
+const allPosts = await getCollection("blog");
+
+// Detectar idioma actual desde la URL o contexto
+const url = Astro.url.pathname;
+const currentLang = url.startsWith("/en/") ? "en" : "es";
+
+// Filtrar posts publicados y por idioma actual
+const publishedPosts = allPosts
+    .filter(
+        (post: CollectionEntry<"blog">) =>
+            !post.data.draft && post.data.lang === currentLang
+    )
+    .sort(
+        (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+            b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    );
+---
+
+<Layout
+    title={t("title.seo")}
+    description={t("description.seo")}
+    isBlog={isBlog}
+>
+    <div
+        class="page-container"
+        style="padding-top: calc(var(--nav-height) + 2rem);"
+    >
+        <main class="max-w-4xl mx-auto px-4 py-8">
+            <div class="mb-12 text-center">
+                <h1
+                    class="text-4xl md:text-6xl font-bold mb-4"
+                    style="font-size: var(--font-size-title-section);"
+                >
+                    {t("blog.title")}
+                </h1>
+                <p
+                    class="text-lg text-gray-600 dark:text-gray-300"
+                    style="font-size: var(--font-size-paragraph);"
+                >
+                    {t("blog.description")}
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:gap-12">
+                {
+                    publishedPosts.length > 0 && (
+                        <>
+                            {publishedPosts.map(
+                                (post: CollectionEntry<"blog">) => (
+                                    <article class="group">
+                                        <a
+                                            href={
+                                                currentLang === "en"
+                                                    ? `/en/blog/${post.slug}`
+                                                    : `/blog/${post.slug}`
+                                            }
+                                            class="block"
+                                        >
+                                            <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-white dark:bg-gray-800">
+                                                {post.data.heroImage && (
+                                                    <img
+                                                        src={
+                                                            post.data.heroImage
+                                                        }
+                                                        alt={post.data.title}
+                                                        class="w-full h-48 object-cover rounded-lg mb-4"
+                                                    />
+                                                )}
+
+                                                <div class="flex flex-wrap gap-2 mb-3">
+                                                    {post.data.tags.map(
+                                                        (tag: string) => (
+                                                            <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-full text-sm">
+                                                                {tag}
+                                                            </span>
+                                                        )
+                                                    )}
+                                                </div>
+
+                                                <h2 class="text-2xl font-bold mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                                    {post.data.title}
+                                                </h2>
+
+                                                <p
+                                                    class="text-gray-600 dark:text-gray-300 mb-4"
+                                                    style="font-size: var(--font-size-paragraph);"
+                                                >
+                                                    {post.data.description}
+                                                </p>
+
+                                                <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                                                    <span>
+                                                        {post.data.author}
+                                                    </span>
+                                                    <time
+                                                        datetime={post.data.pubDate.toISOString()}
+                                                    >
+                                                        {post.data.pubDate.toLocaleDateString(
+                                                            currentLang === "en"
+                                                                ? "en-US"
+                                                                : "es-ES",
+                                                            {
+                                                                year: "numeric",
+                                                                month: "long",
+                                                                day: "numeric",
+                                                            }
+                                                        )}
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </article>
+                                )
+                            )}
+                        </>
+                    )
+                }
+            </div>
+
+            {
+                publishedPosts.length === 0 && (
+                    <div class="text-center py-12">
+                        <p class="text-xl text-gray-500 dark:text-gray-400">
+                            {t("blog.no-posts")}
+                        </p>
+                    </div>
+                )
+            }
+        </main>
+    </div>
+</Layout>
+
+<style>
+    main h1,
+    main h2,
+    main h3,
+    main h4 {
+        text-wrap: balance;
+    }
+
+    main p {
+        text-wrap: pretty;
+    }
+</style>

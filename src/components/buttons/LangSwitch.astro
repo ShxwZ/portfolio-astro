@@ -1,29 +1,29 @@
 ---
+import LangSwitcher from "./LangSwitcher.jsx";
 import ButtonContainer from "./ButtonContainer.astro";
-import i18next from "i18next";
-import LangSelectable from "./LangSelectable.astro";
-import LangSelected from "./LangSelected.astro";
-const currentLocale = i18next.language;
+import { createAutoRouteManager } from "../../utils/routeManager";
+
+var props = Astro.props;
+const { AstroUrl } = props;
+
+// Crear una instancia del RouteManager con contexto automático
+const routeManagerInstance = await createAutoRouteManager(Astro);
+const initialRouteInfo = routeManagerInstance.analyzeUrl(Astro.url);
+
+// Preparar datos serializables para pasar al componente cliente
+const routeManagerContext = routeManagerInstance.getContext();
+const routeManagerConfig = routeManagerInstance.getConfig();
+
+const routeManagerData = {
+    config: routeManagerConfig,
+    context: routeManagerContext,
+};
 ---
 
 <ButtonContainer classesInside="bg-[--bg-color] ">
-  <div
-    class="select-lang bg-[--bg-color] justify-between flex items-center w-full h-full text-center"
-  >
-    {
-      currentLocale === "es" ? (
-        <LangSelected text="ES" />
-      ) : (
-        <LangSelectable url="/" text="ES" />
-      )
-    }
-    {
-      currentLocale === "en" ? (
-        <LangSelected text="EN" />
-      ) : (
-        <LangSelectable url="/en" text="EN" />
-      )
-    }
-  </div>
+    <LangSwitcher
+        client:load
+        initialLang={initialRouteInfo.currentLang}
+        routeManagerData={routeManagerData}
+    />
 </ButtonContainer>
-<style></style>

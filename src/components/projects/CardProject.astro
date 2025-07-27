@@ -2,8 +2,12 @@
 import GrayBadge from "../badges/GrayBadge.astro";
 import ButtonContainer from "../buttons/ButtonContainer.astro";
 import type { CardProjectModel } from "./CardProjectModel";
-import { t } from "i18next";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { Image } from "astro:assets";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface Props {
     data: CardProjectModel;
 }
@@ -75,7 +79,7 @@ model.data.techs = model.data.techs || [];
                                 <path d="M9 18c-4.51 2-5-2-7-2" />
                             </svg>
                         </span>
-                        {t("BUTTONS.VIEW_CODE")}
+                        {t("buttons.view-code")}
                         <span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +113,7 @@ model.data.techs = model.data.techs || [];
                         rel="noopener noreferrer"
                         class="inline-flex w-full opacity-[100%] gap-1 items-center justify-center px-5 py-1 border border-transparent text-base font-medium"
                     >
-                        {t("BUTTONS.VIEW_APP")}
+                        {t("buttons.view-app")}
                         <span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

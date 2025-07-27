@@ -1,18 +1,17 @@
 ---
-import { Trans } from "astro-i18next/components";
-import { t } from "i18next";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div {...Astro.props}>
     <p class="bio-wrap">
         <p class="bio-text tracking-tight">
-            <Trans i18nKey="ABOUT_ME.DESCRIPTION.FIRST">
-                <b></b><span class="underline-important animated-1"></span>
-                <span class="underline-important animated-2"></span>
-            </Trans>
+            {t("about.description.first")}
         </p>
         <p class="bio-text">
-            {t("ABOUT_ME.DESCRIPTION.SECOND")}
+            {t("about.description.second")}
         </p>
     </p>
 </div>

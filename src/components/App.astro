@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "./header/Header.astro";
 import Home from "./home/Home.astro";
 import AboutMe from "./about-me/AboutMe.astro";
 import Projects from "./projects/Projects.astro";
@@ -8,31 +7,41 @@ import Section from "./section/Section.astro";
 import Experience from "./experience/Experience.astro";
 import Contact from "./contact/Contact.astro";
 import Footer from "./footer/Footer.astro";
-import { t } from "i18next";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const isBlog = false;
 ---
 
-<Layout title={t("TITLE_SEO")} description={t("DESCRIPTION_SEO")}>
-    <Header />
-    <main class="flex flex-col gap-10">
-        <Home />
-        <Section>
-            <AboutMe />
-        </Section>
-        <Section>
-            <Experience />
-        </Section>
-        <Section>
-            <Projects />
-        </Section>
-        <Section>
-            <Contact />
-        </Section>
-        <Footer />
-    </main>
+<Layout
+    title={t("title.seo")}
+    description={t("description.seo")}
+    isBlog={isBlog}
+>
+    <div class="page-container" style="padding-top: var(--nav-height);">
+        <main class="flex flex-col gap-10">
+            <Home />
+
+            <Section>
+                <AboutMe />
+            </Section>
+            <Section>
+                <Experience />
+            </Section>
+            <Section>
+                <Projects />
+            </Section>
+            <Section>
+                <Contact />
+            </Section>
+            <Footer />
+        </main>
+    </div>
 </Layout>
 
 <style is:global>
-    main {
+    .page-container main {
         max-width: var(--portfolio-width);
         margin: 0 auto;
     }
@@ -52,8 +61,8 @@ import { t } from "i18next";
     }
 
     *:where(
-            :not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *)
-        ) {
+        :not(html, iframe, canvas, img, svg, video, audio, svg *, symbol *)
+    ) {
         all: unset;
         display: revert;
     }

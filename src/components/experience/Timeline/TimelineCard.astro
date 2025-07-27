@@ -5,6 +5,7 @@ import Card from "../../cards/Card.astro";
 import type { TimelineModel } from "./Timeline.model";
 import GrayBadge from "../../badges/GrayBadge.astro";
 import Subtitle from "../../utils/Subtitle.astro";
+import ExternalLinkButton from "../../buttons/ExternalLinkButton.astro";
 
 interface Props {
     model: TimelineModel;
@@ -56,26 +57,28 @@ const { model } = Astro.props;
                 <Card padding="1rem">
                     <div class="relative z-20 p-4">
                         <!--  Name of company  -->
-                        <Subtitle>
-                            {model.TITLE}
+                        <div class="flex items-center justify-between mb-3">
+                            <Subtitle>
+                                {model.TITLE}
+                            </Subtitle>
+
                             {
                                 model.URL && (
-                                    <span class="ml-2 rotate-45 inline-block">
-                                        <a
-                                            href={model.URL}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            📎
-                                        </a>
-                                    </span>
+                                    <ExternalLinkButton
+                                        href={model.URL}
+                                        title={model.TITLE}
+                                        text="Ver sitio web"
+                                        class="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 rounded-md hover:bg-violet-50 dark:hover:bg-violet-900/30"
+                                    />
                                 )
                             }
-                        </Subtitle>
+                        </div>
+
                         <!--  Text  -->
                         <p>
                             {model.DESCRIPTION}
                         </p>
+
                         {
                             model.JOBPOSITIONS && (
                                 <ul>

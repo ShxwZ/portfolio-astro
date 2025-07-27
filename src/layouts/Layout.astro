@@ -1,18 +1,21 @@
 ---
 import "@fontsource-variable/onest";
-import i18next from "i18next";
-import { HeadHrefLangs } from "astro-i18next/components";
-import { ViewTransitions } from "astro:transitions";
+import { getLangFromUrl } from "../i18n/utils";
+import { ClientRouter } from "astro:transitions";
+import Header from "../components/header/Header.astro";
+import HeadHrefLangs from "../components/HeadHrefLangs.astro";
 
 interface Props {
     title: string;
     description: string;
+    isBlog?: boolean;
 }
-const { title, description } = Astro.props;
+const { title, description, isBlog = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={i18next.language} class="dark" transition:persist>
+<html lang={lang} class="dark">
     <head>
         <meta charset="UTF-8" />
         <meta
@@ -76,25 +79,34 @@ const { title, description } = Astro.props;
             name="googlebot"
             content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
         />
-        <ViewTransitions />
+
+        <!-- Code Block Copy Functionality -->
+        <script is:inline src="/js/codeBlockCopy.js"></script>
+        <!-- View Transitions -->
+        <ClientRouter />
     </head>
     <body>
+        <Header />
+
+        <main>
+            <slot />
+        </main>
+
         <script is:inline src="/js/confetti.browser.min.js"></script>
-        <slot />
+
+        <!-- Audio element for code copy feedback -->
+        <audio id="click-sound" preload="auto">
+            <source src="/sounds/click.mp3" type="audio/mpeg" />
+        </audio>
+
         <style is:global>
             :root {
                 /* Sizes */
-                --portfolio-width: 60vw;
+                --portfolio-width: 1260px;
                 --nav-height: 80px;
                 /* Fonts */
-                --font-size-name-title: clamp(
-                    1.25rem,
-                    0.7473rem + 2.8723vw,
-                    5.3125rem
-                ); /* 60vh - min font 20, max font 85, max vp 2543, min vp 280 */
-                --font-size-name-subtitle: calc(
-                    var(--font-size-name-title) / 1.7
-                );
+                --font-size-name-title: 5rem;
+                --font-size-name-subtitle: 3rem;
                 --font-size-title-section: clamp(
                     1.75rem,
                     1.5335rem + 1.2373vw,
@@ -180,30 +192,24 @@ const { title, description } = Astro.props;
             html {
                 font-family: "Onest Variable", system-ui, sans-serif;
                 background: var(--bg-color);
-            }
-
-            @media (width <= 1620px) {
-                :root {
-                    --portfolio-width: 70vw;
-                    --font-size-name-title: clamp(
-                        1.125rem,
-                        0.4459rem + 3.8806vw,
-                        4.375rem
-                    );
-                    /* 75vh - min font 18, max font 70, max vp 1620px, min vp 280  */
-                }
+                /* Elegant solution for anchor navigation */
+                scroll-padding-top: calc(var(--nav-height) + 20px);
             }
 
             /* Responsive */
-            @media (width <= 1000px) {
+            @media (width <= 1260px) {
                 :root {
                     --portfolio-width: 100vw;
                     --font-size-name-title: clamp(
-                        1.125rem,
-                        -0.0174rem + 6.5278vw,
-                        4.0625rem
+                        0.9rem,
+                        -0.1149rem + 6.495vw,
+                        5rem
                     );
-                    /* 80vh - min font 18, max font 65, max vp 1000, min vp 280  */
+                    --font-size-name-subtitle: clamp(
+                        0.7rem,
+                        0.1307rem + 3.6436vw,
+                        3rem
+                    );
                 }
             }
             /* Responsive mobile navbar */
@@ -220,16 +226,187 @@ const { title, description } = Astro.props;
                     transition: none !important;
                 }
             }
+
+            /* Code Block Copy Button Styles */
+            pre {
+                position: relative !important;
+            }
+
+            .copy-button {
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2rem;
+                height: 2rem;
+                background-color: rgba(0, 0, 0, 0.8);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 0.375rem;
+                color: #e5e7eb;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                opacity: 0;
+                transform: translateY(-2px);
+            }
+
+            .copy-button:hover {
+                background-color: rgba(0, 0, 0, 0.9);
+                border-color: rgba(255, 255, 255, 0.3);
+                color: #ffffff;
+                transform: translateY(0);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .copy-button.copied {
+                background-color: rgba(34, 197, 94, 0.9);
+                border-color: rgba(34, 197, 94, 0.6);
+                color: #ffffff;
+            }
+
+            pre:hover .copy-button {
+                opacity: 1;
+            }
+
+            /* Dark theme adjustments */
+            html.dark .copy-button {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: rgba(255, 255, 255, 0.2);
+                color: #d1d5db;
+            }
+
+            html.dark .copy-button:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.3);
+                color: #ffffff;
+            }
+
+            html.dark .copy-button.copied {
+                background-color: rgba(34, 197, 94, 0.8);
+                border-color: rgba(34, 197, 94, 0.6);
+            }
+
+            /* Enhanced code block styles */
+            pre code {
+                padding-right: 3rem; /* Make space for the copy button */
+            }
+
+            /* View Transitions CSS */
+            @keyframes fade-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fade-out {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+
+            /* Clean fade transitions */
+            ::view-transition-old(root) {
+                animation: 150ms ease-out both fade-out;
+            }
+
+            ::view-transition-new(root) {
+                animation: 250ms ease-in both fade-in;
+            }
+
+            /* Header should not animate during transitions */
+            [data-astro-transition-persist="header"] {
+                view-transition-name: header;
+            }
+
+            ::view-transition-old(header),
+            ::view-transition-new(header) {
+                animation: none;
+            }
+
+            /* Language Switch Transitions */
+            [data-astro-transition="language-switch"]
+                ::view-transition-old(root) {
+                animation: 200ms ease-out both fade-out;
+            }
+
+            [data-astro-transition="language-switch"]
+                ::view-transition-new(root) {
+                animation: 300ms ease-in both fade-in;
+            }
+
+            /* Specific animations for language content */
+            @keyframes slide-out-left {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(-20px);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes slide-in-right {
+                from {
+                    transform: translateX(20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            /* Apply slide animations to main content during language switch */
+            [data-astro-transition="language-switch"]
+                ::view-transition-old(root) {
+                animation: 200ms ease-out both slide-out-left;
+            }
+
+            [data-astro-transition="language-switch"]
+                ::view-transition-new(root) {
+                animation: 300ms ease-in both slide-in-right;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 640px) {
+                .copy-button {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    top: 0.5rem;
+                    right: 0.5rem;
+                }
+
+                .copy-button svg {
+                    width: 14px;
+                    height: 14px;
+                }
+
+                pre code {
+                    padding-right: 2.5rem;
+                }
+            }
         </style>
 
         <script is:inline>
-            function playSound(src) {
-                const audio = new Audio(src ?? "/sounds/click.mp3");
-                audio.volume = 0.5;
-                audio.autoplay = true;
-                audio.play();
-            }
+            document.addEventListener("astro:before-swap", (event) => {
+                // Prevent pointer events during transition
+                document.body.style.pointerEvents = "none";
+            });
+
             document.addEventListener("astro:after-swap", () => {
+                // Re-enable interactions immediately after transition
+                document.body.style.pointerEvents = "auto";
+
+                // Handle theme after transition
                 const theme = (() => {
                     if (
                         typeof localStorage !== "undefined" &&
@@ -248,6 +425,19 @@ const { title, description } = Astro.props;
 
                 window.localStorage.setItem("theme", theme);
             });
+
+            document.addEventListener("astro:page-load", () => {
+                // Reinitialize utilities after page load
+                if (window.AnchorNavigation) {
+                    window.AnchorNavigation.initAnchorNavigation({
+                        offset: 20,
+                        astroPageLoadDelay: 100,
+                        domContentLoadedDelay: 200,
+                    });
+                }
+            });
+
+            // Initial theme setup
             const theme = (() => {
                 if (
                     typeof localStorage !== "undefined" &&
@@ -265,6 +455,21 @@ const { title, description } = Astro.props;
             }
 
             window.localStorage.setItem("theme", theme);
+        </script>
+
+        <!-- Utilities -->
+        <script is:inline src="/js/soundSystem.js"></script>
+        <script is:inline src="/js/anchorNavigation.js"></script>
+        <script is:inline src="/js/codeBlockCopy.js"></script>
+
+        <!-- Initialize utilities -->
+        <script is:inline>
+            // Initialize anchor navigation using the utility
+            window.AnchorNavigation.initAnchorNavigation({
+                offset: 20, // Extra margin from CSS variables
+                astroPageLoadDelay: 100, // Delay for View Transitions
+                domContentLoadedDelay: 200, // Delay for normal load
+            });
         </script>
     </body>
 </html>
