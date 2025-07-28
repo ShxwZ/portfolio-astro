@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
@@ -65,15 +66,23 @@ const publishedPosts = allPosts
                                         >
                                             <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-white dark:bg-gray-800">
                                                 {post.data.heroImage && (
-                                                    <img
+                                                    <div
                                                         transition:name="post-img"
-                                                        transition:persist="true"
-                                                        src={
-                                                            post.data.heroImage
-                                                        }
-                                                        alt={post.data.title}
-                                                        class="w-full h-48 object-cover rounded-lg mb-4"
-                                                    />
+                                                        transition:persist
+                                                    >
+                                                        <Image
+                                                            src={
+                                                                post.data
+                                                                    .heroImage
+                                                            }
+                                                            alt={
+                                                                post.data.title
+                                                            }
+                                                            width={800}
+                                                            height={400}
+                                                            class="w-full h-48 object-cover rounded-lg mb-4"
+                                                        />
+                                                    </div>
                                                 )}
 
                                                 <div

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+import { Image } from "astro:assets";
 
 interface Props {
     post: CollectionEntry<"blog">;
@@ -46,12 +47,16 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
             <header class="mb-8 not-prose">
                 {
                     post.data.heroImage && (
-                        <img
-                            transition:name="post-img"
-                            src={post.data.heroImage}
-                            alt={post.data.title}
-                            class="w-full h-64 md:h-80 object-cover rounded-lg mb-6"
-                        />
+                        <div transition:name="post-img">
+                            <Image
+                                src={post.data.heroImage}
+                                loading="lazy"
+                                alt={post.data.title}
+                                width={800}
+                                height={320}
+                                class="w-full h-64 md:h-80 object-cover rounded-lg mb-6"
+                            />
+                        </div>
                     )
                 }
 
