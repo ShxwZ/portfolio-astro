@@ -50,7 +50,7 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
                         <div transition:name="post-img">
                             <Image
                                 src={post.data.heroImage}
-                                loading="lazy"
+                                loading="eager"
                                 alt={post.data.title}
                                 width={800}
                                 height={320}

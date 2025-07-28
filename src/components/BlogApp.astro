@@ -66,10 +66,7 @@ const publishedPosts = allPosts
                                         >
                                             <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-white dark:bg-gray-800">
                                                 {post.data.heroImage && (
-                                                    <div
-                                                        transition:name="post-img"
-                                                        transition:persist
-                                                    >
+                                                    <div transition:name="post-img">
                                                         <Image
                                                             src={
                                                                 post.data
@@ -79,7 +76,8 @@ const publishedPosts = allPosts
                                                                 post.data.title
                                                             }
                                                             width={800}
-                                                            height={400}
+                                                            loading="eager"
+                                                            height={200}
                                                             class="w-full h-48 object-cover rounded-lg mb-4"
                                                         />
                                                     </div>
