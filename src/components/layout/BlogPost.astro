@@ -47,6 +47,7 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
                 {
                     post.data.heroImage && (
                         <img
+                            transition:name="post-img"
                             src={post.data.heroImage}
                             alt={post.data.title}
                             class="w-full h-64 md:h-80 object-cover rounded-lg mb-6"
@@ -54,7 +55,10 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
                     )
                 }
 
-                <div class="flex flex-wrap gap-2 mb-4">
+                <div
+                    class="flex flex-wrap gap-2 mb-4"
+                    transition:name="post-tags"
+                >
                     {
                         post.data.tags.map((tag: string) => (
                             <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-full text-sm">
@@ -67,6 +71,7 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
                 <h1
                     class="text-3xl md:text-5xl font-bold mb-4"
                     style="font-size: var(--font-size-title-section);"
+                    transition:name="post-title"
                 >
                     {post.data.title}
                 </h1>
@@ -74,9 +79,18 @@ const dateLocale = lang === "en" ? "en-US" : "es-ES";
                 <div
                     class="flex items-center gap-4 text-gray-600 dark:text-gray-300 mb-6"
                 >
-                    {post.data.author && <span>{post.data.author}</span>}
+                    {
+                        post.data.author && (
+                            <span transition:name="post-author">
+                                {post.data.author}
+                            </span>
+                        )
+                    }
                     {post.data.author && <span>•</span>}
-                    <time datetime={post.data.pubDate.toISOString()}>
+                    <time
+                        datetime={post.data.pubDate.toISOString()}
+                        transition:name="post-date"
+                    >
                         {
                             post.data.pubDate.toLocaleDateString(dateLocale, {
                                 year: "numeric",

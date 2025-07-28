@@ -66,6 +66,8 @@ const publishedPosts = allPosts
                                             <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-all duration-300 bg-white dark:bg-gray-800">
                                                 {post.data.heroImage && (
                                                     <img
+                                                        transition:name="post-img"
+                                                        transition:persist="true"
                                                         src={
                                                             post.data.heroImage
                                                         }
@@ -74,7 +76,10 @@ const publishedPosts = allPosts
                                                     />
                                                 )}
 
-                                                <div class="flex flex-wrap gap-2 mb-3">
+                                                <div
+                                                    class="flex flex-wrap gap-2 mb-3"
+                                                    transition:name="post-tags"
+                                                >
                                                     {post.data.tags.map(
                                                         (tag: string) => (
                                                             <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-full text-sm">
@@ -84,7 +89,10 @@ const publishedPosts = allPosts
                                                     )}
                                                 </div>
 
-                                                <h2 class="text-2xl font-bold mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                                <h2
+                                                    class="text-2xl font-bold mb-3 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors"
+                                                    transition:name="post-title"
+                                                >
                                                     {post.data.title}
                                                 </h2>
 
@@ -96,11 +104,12 @@ const publishedPosts = allPosts
                                                 </p>
 
                                                 <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                                                    <span>
+                                                    <span transition:name="post-author">
                                                         {post.data.author}
                                                     </span>
                                                     <time
                                                         datetime={post.data.pubDate.toISOString()}
+                                                        transition:name="post-date"
                                                     >
                                                         {post.data.pubDate.toLocaleDateString(
                                                             currentLang === "en"

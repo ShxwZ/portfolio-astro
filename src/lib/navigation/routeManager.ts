@@ -10,6 +10,8 @@
  * - No client-side dependencies
  */
 
+import type { AstroGlobal } from "astro";
+
 export interface RouteConfig {
     /** Supported languages */
     supportedLangs: string[];
@@ -63,7 +65,7 @@ export interface RouteContext {
  * @returns RouteContext with all available information
  */
 export async function createRouteContextFromAstro(
-    astroGlobal: any
+    astroGlobal: AstroGlobal
 ): Promise<RouteContext> {
     const context: RouteContext = {};
 

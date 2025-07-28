@@ -1,6 +1,7 @@
 ---
 title: "Mi primer post del blog"
 description: "Este es mi primer post usando Markdown en Astro. Aquí explico las ventajas de usar un generador estático."
+heroImage: "/assets/images/astro-logo.webp"
 pubDate: 2025-01-15
 tags: ["astro", "markdown", "blog", "desarrollo-web"]
 lang: "es"
