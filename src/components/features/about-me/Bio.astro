@@ -1,0 +1,128 @@
+---
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div {...Astro.props}>
+    <p class="bio-wrap">
+        <p class="bio-text tracking-tight">
+            {t("about.description.first")}
+        </p>
+        <p class="bio-text">
+            {t("about.description.second")}
+        </p>
+    </p>
+</div>
+<style>
+    b {
+        color: var(--color-violet-one);
+        position: relative;
+    }
+
+    b:hover::after {
+        position: absolute;
+        content: "💻";
+        left: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-right 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+    b:hover::before {
+        position: absolute;
+        content: "🧠";
+        right: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-left 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+
+    @keyframes slide-up-left {
+        0% {
+            top: 0;
+            font-size: 0;
+        }
+        50% {
+            font-size: var(--font-size-paragraph);
+            top: calc(3px - var(--font-size-paragraph));
+        }
+        100% {
+            top: calc(3px - var(--font-size-paragraph));
+            rotate: 15deg;
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    @keyframes slide-up-right {
+        0% {
+            top: 0;
+            font-size: 0;
+        }
+        50% {
+            font-size: var(--font-size-paragraph);
+            top: calc(3px - var(--font-size-paragraph));
+        }
+        100% {
+            top: calc(3px - var(--font-size-paragraph));
+            rotate: -15deg;
+        }
+    }
+    .underline-important {
+        display: inline-block;
+        text-decoration: underline;
+        text-decoration-color: var(--color-violet-one);
+        text-decoration-thickness: 0.1em;
+        position: relative;
+    }
+
+    .animated-1:hover::after {
+        position: absolute;
+        content: "📚";
+        left: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-right 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+    .animated-1:hover::before {
+        position: absolute;
+        content: "🔍";
+        right: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-left 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+
+    .animated-2:hover::after {
+        position: absolute;
+        content: "✨";
+        left: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-right 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+    .animated-2:hover::before {
+        position: absolute;
+        content: "👩🏻‍💻";
+        right: calc(0px - var(--font-size-paragraph));
+        z-index: 0;
+        animation:
+            slide-up-left 0.3s ease-in-out forwards,
+            float 5s ease-in-out infinite;
+    }
+</style>

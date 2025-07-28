@@ -1,0 +1,28 @@
+---
+import LangSwitcher from "./LangSwitcher.jsx";
+import ButtonContainer from "@ui/buttons/ButtonContainer.astro";
+import { createAutoRouteManager } from "@lib/navigation/routeManager";
+
+var props = Astro.props;
+
+// Crear una instancia del RouteManager con contexto automático
+const routeManagerInstance = await createAutoRouteManager(Astro);
+const initialRouteInfo = routeManagerInstance.analyzeUrl(Astro.url);
+
+// Preparar datos serializables para pasar al componente cliente
+const routeManagerContext = routeManagerInstance.getContext();
+const routeManagerConfig = routeManagerInstance.getConfig();
+
+const routeManagerData = {
+    config: routeManagerConfig,
+    context: routeManagerContext,
+};
+---
+
+<ButtonContainer classesInside="bg-[--bg-color] ">
+    <LangSwitcher
+        client:load
+        initialLang={initialRouteInfo.currentLang}
+        routeManagerData={routeManagerData}
+    />
+</ButtonContainer>

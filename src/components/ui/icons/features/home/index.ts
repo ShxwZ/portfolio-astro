@@ -1,0 +1,9 @@
+export { default as AngularIcon } from "./AngularIcon.astro";
+export { default as AstroIcon } from "./AstroIcon.astro";
+export { default as CopilotIcon } from "./CopilotIcon.astro";
+export { default as CSharpIcon } from "./CSharpIcon.astro";
+export { default as GithubIcon } from "./GithubIcon.astro";
+export { default as ReactIcon } from "./ReactIcon.astro";
+export { default as StarIcon } from "./StarIcon.astro";
+export { default as TypescriptIcon } from "./TypescriptIcon.astro";
+export { default as VSCodeIcon } from "./VSCodeIcon.astro";

@@ -1,0 +1,60 @@
+---
+import LangsInfo from "@features/about-me/LangsInfo.astro";
+import Bio from "@features/about-me/Bio.astro";
+import Title from "@features/common/Title.astro";
+import Avatar from "@features/about-me/Avatar.astro";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div id="about-me"></div>
+
+<article class="px-4 flex flex-col gap-2 py-24">
+    <!--  Title  -->
+    <div class="text-center py-10">
+        <Title>{t("about.title")}</Title>
+    </div>
+    <div class="flex gap-x-5">
+        <div class="content-avatar flex items-center w-auto pt-6">
+            <!--  Avatar  -->
+            <Avatar />
+        </div>
+        <div class="flex flex-col gap-5 w-full justify-center flex-1">
+            <div class="flex about-content gap-5">
+                <div class="text-wrap flex flex-col gap-y-2">
+                    <!--  Bio Text  -->
+                    <Bio class="flex flex-col gap-2 basis-3/4" />
+                </div>
+                <!--  Avatar Mobile -->
+                <div class="content-avatar-mobile justify-center">
+                    <Avatar />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-[0.5rem] mt-5">
+        <!--  Langs & Tech Info  -->
+        <LangsInfo />
+    </div>
+</article>
+
+<style>
+    .content-avatar-mobile {
+        display: none;
+    }
+    @media (width <= 1250px) {
+        .content-avatar {
+            display: none;
+        }
+        .content-avatar-mobile {
+            display: flex;
+        }
+        .about-content {
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
+    }
+</style>

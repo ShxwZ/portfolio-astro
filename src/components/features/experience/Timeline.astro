@@ -1,0 +1,62 @@
+---
+import Title from "@features/common/Title.astro";
+import TimelineCard from "./TimelineCard.astro";
+import type { TimelineModel } from "./Timeline.model";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// For now, we'll hardcode the experience data until we migrate all translations
+const data: TimelineModel[] = [
+    {
+        TITLE: "Clarcat",
+        DESCRIPTION: t("experience.clarcat.description"),
+        DATE: "2023",
+        ACTUAL: true,
+        URL: "https://www.clarcat.com/",
+        JOBPOSITIONS: [
+            {
+                POSITION: t("experience.clarcat.position.junior"),
+                DESCRIPTION: t(
+                    "experience.clarcat.position.junior.description"
+                ),
+            },
+            {
+                POSITION: t("experience.clarcat.position.training"),
+                DESCRIPTION: t(
+                    "experience.clarcat.position.training.description"
+                ),
+                DURATION: "3 months",
+            },
+        ],
+    },
+    {
+        TITLE: "Premier",
+        DESCRIPTION: t("experience.premier.description"),
+        DATE: "2021",
+        DURATION: "3 months",
+        URL: "https://www.premiernet.com/",
+        JOBPOSITIONS: [
+            {
+                POSITION: t("experience.premier.position.training"),
+                DESCRIPTION: t(
+                    "experience.premier.position.training.description"
+                ),
+            },
+        ],
+    },
+];
+---
+
+<article class="items-center">
+    <div class="justify-center px-4 py-4 pl-8 mx-auto">
+        <!--  Title  -->
+        <div class="text-center py-10">
+            <Title>{t("experience.title")}</Title>
+        </div>
+        <!--  Time Line Card  -->
+
+        {data.map((item) => <TimelineCard model={item} />)}
+    </div>
+</article>

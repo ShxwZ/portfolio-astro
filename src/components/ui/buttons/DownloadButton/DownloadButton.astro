@@ -1,0 +1,20 @@
+---
+import ButtonContainer from "@ui/buttons/ButtonContainer.astro";
+import DownloadIcon from "@ui/icons/interface/DownloadIcon.astro";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<ButtonContainer classesInside="bg-[--bg-button-color] ">
+    <a
+        onclick="playSound()"
+        href="/CV.pdf"
+        class="flex opacity-[100%] items-center gap-1 justify-center w-full h-full text-center py-1"
+        download="CV - Gabriel Alberto García Pellizzon.pdf"
+    >
+        <span class="text-nowrap font-medium">{t("about.download-cv")}</span>
+        <DownloadIcon width="24" height="24" />
+    </a>
+</ButtonContainer>

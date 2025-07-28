@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Home from "./home/Home.astro";
-import AboutMe from "./about-me/AboutMe.astro";
-import Projects from "./projects/Projects.astro";
-import Section from "./section/Section.astro";
-import Experience from "./experience/Experience.astro";
-import Contact from "./contact/Contact.astro";
-import Footer from "./footer/Footer.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Home from "@layout/Home.astro";
+import AboutMe from "@layout/AboutMe.astro";
+import Projects from "@layout/Projects.astro";
+import Section from "@features/common/Section.astro";
+import Experience from "@layout/Experience.astro";
+import Contact from "@layout/Contact.astro";
+import Footer from "@layout/Footer.astro";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

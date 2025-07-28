@@ -1,20 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const isBlog = true;
 
-// Obtener todos los posts del blog
 const allPosts = await getCollection("blog");
 
-// Detectar idioma actual desde la URL o contexto
 const url = Astro.url.pathname;
 const currentLang = url.startsWith("/en/") ? "en" : "es";
 
-// Filtrar posts publicados y por idioma actual
 const publishedPosts = allPosts
     .filter(
         (post: CollectionEntry<"blog">) =>

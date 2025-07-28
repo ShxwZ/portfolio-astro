@@ -1,0 +1,222 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const isBlog = true;
+
+// Configurar la URL del blog según el idioma
+const blogUrl = lang === "en" ? "/en/blog" : "/blog";
+const contactUrl = lang === "en" ? "/en/#contact" : "/#contact";
+
+// Configurar el formato de fecha según el idioma
+const dateLocale = lang === "en" ? "en-US" : "es-ES";
+---
+
+<Layout
+    title={post.data.title}
+    description={post.data.description}
+    isBlog={isBlog}
+>
+    <main
+        class="max-w-4xl mx-auto px-4 py-8"
+        style="padding-top: calc(var(--nav-height) + 2rem);"
+    >
+        <!-- Breadcrumb -->
+        <nav class="mb-8">
+            <a
+                href={blogUrl}
+                class="text-violet-600 dark:text-violet-400 hover:underline"
+            >
+                ← {t("blog.back-to-blog")}
+            </a>
+        </nav>
+
+        <!-- Article Navbar -->
+        <article class="prose dark:prose-invert max-w-none prose-violet">
+            <header class="mb-8 not-prose">
+                {
+                    post.data.heroImage && (
+                        <img
+                            src={post.data.heroImage}
+                            alt={post.data.title}
+                            class="w-full h-64 md:h-80 object-cover rounded-lg mb-6"
+                        />
+                    )
+                }
+
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {
+                        post.data.tags.map((tag: string) => (
+                            <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-full text-sm">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+
+                <h1
+                    class="text-3xl md:text-5xl font-bold mb-4"
+                    style="font-size: var(--font-size-title-section);"
+                >
+                    {post.data.title}
+                </h1>
+
+                <div
+                    class="flex items-center gap-4 text-gray-600 dark:text-gray-300 mb-6"
+                >
+                    {post.data.author && <span>{post.data.author}</span>}
+                    {post.data.author && <span>•</span>}
+                    <time datetime={post.data.pubDate.toISOString()}>
+                        {
+                            post.data.pubDate.toLocaleDateString(dateLocale, {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })
+                        }
+                    </time>
+                    {
+                        post.data.updatedDate && (
+                            <>
+                                <span>•</span>
+                                <span class="text-sm">
+                                    {t("blog.updated")}:{" "}
+                                    {post.data.updatedDate.toLocaleDateString(
+                                        dateLocale
+                                    )}
+                                </span>
+                            </>
+                        )
+                    }
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <Content />
+        </article>
+
+        <!-- Navigation to other posts -->
+        <footer
+            class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700"
+        >
+            <div class="flex justify-between items-center">
+                <a
+                    href={blogUrl}
+                    class="inline-flex items-center px-4 py-2 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-lg hover:bg-violet-200 dark:hover:bg-violet-800 transition-colors"
+                >
+                    ← {t("blog.all-posts")}
+                </a>
+
+                <div class="text-center">
+                    <p class="text-gray-600 dark:text-gray-300">
+                        {t("blog.enjoyed-post")}
+                    </p>
+                    <a
+                        href={contactUrl}
+                        class="text-violet-600 dark:text-violet-400 hover:underline"
+                    >
+                        {t("blog.contact-me")}
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+</Layout>
+
+<style>
+    /* Personalización de Tailwind Typography */
+    .prose {
+        --tw-prose-body: var(--primary-color);
+        --tw-prose-headings: var(--primary-color);
+        --tw-prose-lead: var(--primary-color);
+        --tw-prose-links: var(--color-violet-one);
+        --tw-prose-bold: var(--primary-color);
+        --tw-prose-counters: var(--primary-color);
+        --tw-prose-bullets: var(--primary-color);
+        --tw-prose-hr: var(--primary-color);
+        --tw-prose-quotes: var(--primary-color);
+        --tw-prose-quote-borders: var(--color-violet-one);
+        --tw-prose-captions: var(--primary-color);
+        --tw-prose-code: var(--primary-color);
+        --tw-prose-pre-code: var(--primary-color);
+        --tw-prose-pre-bg: rgb(31 41 55);
+        --tw-prose-th-borders: var(--primary-color);
+        --tw-prose-td-borders: var(--primary-color);
+
+        /* Sobrescribir el tamaño base para tener control total */
+        font-size: var(--font-size-paragraph) !important;
+    }
+
+    .dark .prose {
+        --tw-prose-body: var(--primary-color-dark);
+        --tw-prose-headings: var(--primary-color-dark);
+        --tw-prose-lead: var(--primary-color-dark);
+        --tw-prose-links: var(--color-violet-one);
+        --tw-prose-bold: var(--primary-color-dark);
+        --tw-prose-counters: var(--primary-color-dark);
+        --tw-prose-bullets: var(--primary-color-dark);
+        --tw-prose-hr: var(--primary-color-dark);
+        --tw-prose-quotes: var(--primary-color-dark);
+        --tw-prose-quote-borders: var(--color-violet-one);
+        --tw-prose-captions: var(--primary-color-dark);
+        --tw-prose-code: var(--primary-color-dark);
+        --tw-prose-pre-code: var(--primary-color-dark);
+        --tw-prose-pre-bg: rgb(17 24 39);
+        --tw-prose-th-borders: var(--primary-color-dark);
+        --tw-prose-td-borders: var(--primary-color-dark);
+    }
+
+    .dark .prose ul,
+    .dark .prose ol,
+    .dark .prose li {
+        color: var(--primary-color-dark);
+    }
+
+    /* Tamaños personalizados usando variables CSS con mayor especificidad */
+    .prose h1 {
+        font-size: var(--font-size-title-section) !important;
+    }
+
+    .prose h2 {
+        font-size: var(--font-size-subtitle-section) !important;
+    }
+
+    .prose p {
+        font-size: var(--font-size-paragraph) !important;
+    }
+
+    /* Listas con el mismo tamaño que los párrafos para consistencia - Mayor especificidad */
+    .prose ul,
+    .prose ol {
+        font-size: var(--font-size-paragraph) !important;
+    }
+
+    .prose ul li,
+    .prose ol li {
+        font-size: var(--font-size-paragraph) !important;
+    }
+
+    /* Asegurar que el texto dentro de elementos de lista también use el tamaño correcto */
+    .prose ul li p,
+    .prose ol li p {
+        font-size: var(--font-size-paragraph) !important;
+        margin: 0 !important;
+    }
+
+    /* Mejorar el espaciado para móviles */
+    @media (max-width: 768px) {
+        .prose {
+            font-size: 1rem;
+        }
+    }
+</style>

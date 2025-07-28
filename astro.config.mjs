@@ -13,5 +13,16 @@ export default defineConfig({
     webAnalytics: {
       enabled: true
     }
-  })
+  }),
+  vite: {
+      resolve: {
+        alias: {
+          '@lib': '/src/lib', 
+          '@ui': '/src/components/ui',
+          '@layout': '/src/components/layout',
+          '@features': '/src/components/features',
+          '@images': '/src/images',
+      }
+    }
+  }
 });

@@ -1,0 +1,9 @@
+export { default as GrayBadge } from "./GrayBadge.astro";
+export { default as BaseBadge } from "./BaseBadge.astro";
+export { default as BlueBadge } from "./BlueBadge.astro";
+export { default as GreenBadge } from "./GreenBadge.astro";
+export { default as OrangeBadge } from "./OrangeBadge.astro";
+export { default as PinkBadge } from "./PinkBadge.astro";
+export { default as PurpleBadge } from "./PurpleBadge.astro";
+export { default as RedBadge } from "./RedBadge.astro";
+export { default as YellowBadge } from "./YellowBadge.astro";

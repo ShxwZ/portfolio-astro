@@ -1,9 +1,9 @@
 ---
 import "@fontsource-variable/onest";
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl } from "@lib/i18n/utils";
 import { ClientRouter } from "astro:transitions";
-import Header from "../components/header/Header.astro";
-import HeadHrefLangs from "../components/HeadHrefLangs.astro";
+import Navbar from "@layout/Navbar.astro";
+import HeadHrefLangs from "@features/common/HeadHrefLangs.astro";
 
 interface Props {
     title: string;
@@ -81,18 +81,18 @@ const lang = getLangFromUrl(Astro.url);
         />
 
         <!-- Code Block Copy Functionality -->
-        <script is:inline src="/js/codeBlockCopy.js"></script>
+        <script is:inline src="/scripts/codeBlockCopy.js"></script>
         <!-- View Transitions -->
         <ClientRouter />
     </head>
     <body>
-        <Header />
+        <Navbar />
 
         <main>
             <slot />
         </main>
 
-        <script is:inline src="/js/confetti.browser.min.js"></script>
+        <script is:inline src="/scripts/confetti.browser.min.js"></script>
 
         <!-- Audio element for code copy feedback -->
         <audio id="click-sound" preload="auto">
@@ -321,7 +321,7 @@ const lang = getLangFromUrl(Astro.url);
                 animation: 250ms ease-in both fade-in;
             }
 
-            /* Header should not animate during transitions */
+            /* Navbar should not animate during transitions */
             [data-astro-transition-persist="header"] {
                 view-transition-name: header;
             }
@@ -458,9 +458,9 @@ const lang = getLangFromUrl(Astro.url);
         </script>
 
         <!-- Utilities -->
-        <script is:inline src="/js/soundSystem.js"></script>
-        <script is:inline src="/js/anchorNavigation.js"></script>
-        <script is:inline src="/js/codeBlockCopy.js"></script>
+        <script is:inline src="/scripts/soundSystem.js"></script>
+        <script is:inline src="/scripts/anchorNavigation.js"></script>
+        <script is:inline src="/scripts/codeBlockCopy.js"></script>
 
         <!-- Initialize utilities -->
         <script is:inline>

@@ -1,0 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from "@lib/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="w-full text-center text-[--primary-color] py-2">
+    <p class="font-light opacity-75 align-middle">
+        {t("footer.name")} - <a
+            href="https://github.com/ShxwZ/portfolio-astro"
+            target="_blank"
+            rel="noopener noreferrer">{t("footer.created-with")}</a
+        >
+    </p>
+</footer>
