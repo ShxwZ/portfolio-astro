@@ -1,0 +1,66 @@
+/* Giscus custom theme basado en la paleta del blog */
+:root {
+  --color-bg: #f5f5f5;
+  --color-bg-secondary: #e6edf3;
+  --color-text: #1f2328;
+  --color-text-secondary: #451b8c;
+  --color-border: #d8ccf1;
+  --color-accent: #8332ff;
+  --color-accent-hover: #ab57ff;
+  --color-muted: #8f6bd8;
+}
+
+[data-theme="dark"] {
+  --color-bg: #010409;
+  --color-bg-secondary: #1f2328;
+  --color-text: #e6edf3;
+  --color-text-secondary: #ab57ff;
+  --color-border: #451b8c;
+  --color-accent: #ab57ff;
+  --color-accent-hover: #8332ff;
+  --color-muted: #d8ccf1;
+}
+
+.giscus {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.giscus .giscus-comment {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+.giscus .giscus-comment-content {
+  color: var(--color-text);
+}
+.giscus .giscus-comment-header {
+  color: var(--color-text-secondary);
+}
+.giscus .giscus-btn {
+  background: var(--color-accent);
+  color: #fff;
+}
+.giscus .giscus-btn:hover {
+  background: var(--color-accent-hover);
+}
+.giscus .giscus-link {
+  color: var(--color-accent);
+}
+.giscus .giscus-link:hover {
+  color: var(--color-accent-hover);
+}
+.giscus .giscus-comment-box {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+.giscus .giscus-comment-box textarea {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.giscus .giscus-reaction {
+  background: var(--color-muted);
+  color: var(--color-text-secondary);
+}
+.giscus .giscus-reaction.giscus-reaction-selected {
+  background: var(--color-accent);
+  color: #fff;
+}
