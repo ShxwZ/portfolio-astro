@@ -1,66 +1,144 @@
-/* Giscus custom theme basado en la paleta del blog */
-:root {
-  --color-bg: #f5f5f5;
-  --color-bg-secondary: #e6edf3;
-  --color-text: #1f2328;
-  --color-text-secondary: #451b8c;
-  --color-border: #d8ccf1;
-  --color-accent: #8332ff;
-  --color-accent-hover: #ab57ff;
-  --color-muted: #8f6bd8;
+
+html.dark {
+                --color-prettylights-syntax-comment: var(--secondary-color);
+                --color-prettylights-syntax-constant: var(--color-violet-one);
+                --color-prettylights-syntax-entity: var(--color-lilac-one);
+                --color-prettylights-syntax-storage-modifier-import: var(
+                    --secondary-color
+                );
+                --color-prettylights-syntax-entity-tag: var(--color-violet-one);
+                --color-prettylights-syntax-keyword: var(--color-violet-one);
+                --color-prettylights-syntax-string: var(--color-lilac-one);
+                --color-prettylights-syntax-variable: var(--secondary-color);
+                --color-prettylights-syntax-markup-heading: var(
+                    --primary-color
+                );
+                --color-fg-default: var(--secondary-color);
+                --color-canvas-default: var(--bg-color);
+                --color-border-default: var(--border-color);
+                --color-btn-bg: var(--bg-button-color);
+                --color-btn-border: var(--border-button-color);
+                --color-btn-hover-bg: var(--color-violet-two);
+                --color-btn-primary-bg: var(--color-violet-one);
+                --color-btn-primary-hover-bg: var(--color-violet-two);
+                --color-btn-primary-text: #fff;
+                --color-accent-fg: var(--color-violet-one);
+            }
+            html {
+                --color-prettylights-syntax-comment: var(--secondary-color);
+                --color-prettylights-syntax-constant: var(--color-violet-one);
+                --color-prettylights-syntax-entity: var(--color-lilac-one);
+                --color-prettylights-syntax-storage-modifier-import: var(
+                    --secondary-color
+                );
+                --color-prettylights-syntax-entity-tag: var(--color-violet-one);
+                --color-prettylights-syntax-keyword: var(--color-violet-one);
+                --color-prettylights-syntax-string: var(--color-lilac-one);
+                --color-prettylights-syntax-variable: var(--secondary-color);
+                --color-prettylights-syntax-markup-heading: var(
+                    --primary-color
+                );
+
+                --color-fg-default: var(--secondary-color);
+                --color-canvas-default: var(--secondary-bg-color);
+                --color-border-default: var(--secondary-bg-color);
+
+                --color-btn-bg: var(--bg-button-color);
+                --color-btn-border: var(--border-button-color);
+                --color-btn-hover-bg: var(--color-violet-two);
+                --color-btn-primary-bg: var(--color-violet-one);
+                --color-btn-primary-hover-bg: var(--color-violet-two);
+                --color-btn-primary-text: rgb(0, 255, 34);
+                --color-accent-fg: var(--color-violet-one);
+            }
+
+main {
+
+    --color-btn-text: #adbac7;
+    --color-btn-bg: #373e47;
+    --color-btn-border: #cdd9e51a;
+    --color-btn-shadow: 0 0 #0000;
+    --color-btn-inset-shadow: 0 0 #0000;
+    --color-btn-hover-bg: #444c56;
+    --color-btn-hover-border: #768390;
+    --color-btn-active-bg: #3d444d;
+    --color-btn-active-border: #636e7b;
+    --color-btn-selected-bg: #2d333b;
+    --color-btn-primary-text: #fff;
+    --color-btn-primary-bg: #347d39;
+    --color-btn-primary-border: #cdd9e51a;
+    --color-btn-primary-shadow: 0 0 #0000;
+    --color-btn-primary-inset-shadow: 0 0 #0000;
+    --color-btn-primary-hover-bg: #46954a;
+    --color-btn-primary-hover-border: #cdd9e51a;
+    --color-btn-primary-selected-bg: #347d39;
+    --color-btn-primary-selected-shadow: 0 0 #0000;
+    --color-btn-primary-disabled-text: #cdd9e580;
+    --color-btn-primary-disabled-bg: #347d3999;
+    --color-btn-primary-disabled-border: #cdd9e51a;
+    --color-action-list-item-default-hover-bg: #909dab1f;
+    --color-segmented-control-bg: #636e7b1a;
+    --color-segmented-control-button-bg: #22272e;
+    --color-segmented-control-button-selected-border: #636e7b;
+    --color-fg-default: #adbac7;
+    --color-fg-muted: #768390;
+    --color-fg-subtle: #545d68;
+    --color-canvas-default: #192734;
+    --color-canvas-overlay: #161b22;
+    --color-canvas-inset: #15202b;
+    --color-canvas-subtle: #253341;
+    --color-border-default: #444c56;
+    --color-border-muted: #373e47;
+    --color-neutral-muted: #636e7b66;
+    --color-accent-fg: #539bf5;
+    --color-accent-emphasis: #316dca;
+    --color-accent-muted: #4184e466;
+    --color-accent-subtle: #388bfd1a;
+    --color-success-fg: #57ab5a;
+    --color-attention-fg: #c69026;
+    --color-attention-muted: #ae7c1466;
+    --color-attention-subtle: #ae7c1426;
+    --color-danger-fg: #e5534b;
+    --color-danger-muted: #e5534b66;
+    --color-danger-subtle: #e5534b1a;
+    --color-primer-shadow-inset: 0 0 #0000;
+    --color-scale-gray-7: #373e47;
+    --color-scale-blue-8: #143d79;
+
+    /*! Extensions from @primer/css/alerts/flash.scss */
+    --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+    --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+}
+main .pagination-loader-container {
+    background-image: url(https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg);
+}
+*{
+  transition: 0 !important;
+}
+/*! Custom CSS */
+.gsc-reactions-count {
+    display: none;
+}
+.gsc-timeline {
+    flex-direction: column-reverse;
+}
+.gsc-header {
+    padding-bottom: 1rem;
+}
+.gsc-comments > .gsc-header {
+    order: 1;
+}
+.gsc-comments > .gsc-comment-box {
+    margin-bottom: 1rem;
+    order: 2;
+}
+.gsc-comments > .gsc-timeline {
+    order: 3;
+}
+.gsc-homepage-bg {
+    background-color: #15202b;
+}
+main .gsc-loading-image {
+    background-image: url(https://github.githubassets.com/images/mona-loading-dimmed.gif);
 }
 
-[data-theme="dark"] {
-  --color-bg: #010409;
-  --color-bg-secondary: #1f2328;
-  --color-text: #e6edf3;
-  --color-text-secondary: #ab57ff;
-  --color-border: #451b8c;
-  --color-accent: #ab57ff;
-  --color-accent-hover: #8332ff;
-  --color-muted: #d8ccf1;
-}
-
-.giscus {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.giscus .giscus-comment {
-  background: var(--color-bg-secondary);
-  border-color: var(--color-border);
-}
-.giscus .giscus-comment-content {
-  color: var(--color-text);
-}
-.giscus .giscus-comment-header {
-  color: var(--color-text-secondary);
-}
-.giscus .giscus-btn {
-  background: var(--color-accent);
-  color: #fff;
-}
-.giscus .giscus-btn:hover {
-  background: var(--color-accent-hover);
-}
-.giscus .giscus-link {
-  color: var(--color-accent);
-}
-.giscus .giscus-link:hover {
-  color: var(--color-accent-hover);
-}
-.giscus .giscus-comment-box {
-  background: var(--color-bg-secondary);
-  color: var(--color-text);
-}
-.giscus .giscus-comment-box textarea {
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-.giscus .giscus-reaction {
-  background: var(--color-muted);
-  color: var(--color-text-secondary);
-}
-.giscus .giscus-reaction.giscus-reaction-selected {
-  background: var(--color-accent);
-  color: #fff;
-}
